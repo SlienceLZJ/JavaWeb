@@ -1,13 +1,16 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
-import com.utils.*;
+import com.utils.JDBCUtil;
 
 
 public class Login extends HttpServlet{
@@ -37,11 +40,19 @@ public class Login extends HttpServlet{
 		}
 		
 		// 打开数据库连接
-		
-	
-		
-		
-			response.getWriter().close(); // 关闭这个流，不然会发生错误的
+		DataSource dataSource = null;
+		try {
+		      dataSource = JDBCUtil.getDataSource();  
+	      }
+		catch(Exception e){
+	          System.out.println(e);
+	      }
+		try {
+			Connection dbconn = dataSource.getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }
