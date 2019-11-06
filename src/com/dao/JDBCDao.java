@@ -28,16 +28,19 @@ public class JDBCDao {
 	}
 	
 	//返回数据集
-	public static ResultSet getData(String sql) {
+	public static ResultSet getData(String sql) throws SQLException {
 		ResultSet rs = null;
 		try {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();
 			System.out.println("执行语句：" + sql);
-			JDBCUtil.close(null, pst, connection);
+			//JDBCUtil.close(null, pst, connection);
 		} catch (SQLException e) {
 			System.out.println("异常提醒：" + e);
+		}
+		finally {
+			//rs.close();
 		}
 		return rs;
 	}

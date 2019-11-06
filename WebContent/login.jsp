@@ -10,7 +10,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>My JSP 'index.jsp' starting page</title>
+		<title>登录页</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">
@@ -27,7 +27,7 @@ body,html{
 	width: 100%;
 	height: 100%;
 	font-size: 14px;
-	font-family: "寰蒋闆呴粦";
+	
 	background: url(img/bg.jpg);
 	background-size: cover;
 	overflow: hidden;
@@ -50,7 +50,7 @@ body,html{
 	cursor: pointer;
 }
 
-/*鏄熸槦*/
+
 .stars {
 	width: 100%;
 	height: 100%;
@@ -116,7 +116,7 @@ body,html{
 	0%, 50%, 100% {opacity: 1;}
 	25%,75% {opacity: 0;}
 }
-/*鑺�*/
+
 #snowflake {
 	width: 100%;
 	height: 100%;
@@ -150,7 +150,7 @@ body,html{
 
 	<body>
 		<div id="Layer1" style="position:absolute; left:300px; top:200px; width:600px; height:131px; z-index:1000">
-			<form action="" name="ThisForm" method="post">
+			<form action="Login" name="ThisForm" method="post">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="100%" colspan="2" align="left">
@@ -169,7 +169,7 @@ body,html{
 							<span style="font-size: 18px;">账号:</span>
 						</td>
 						<td width="85%" height="22">
-							<input name="userName" type="text" size="20" style="height:30px; width: 250px; border: none;border-bottom:solid 1px #bbbbbb;background: transparent;">
+							<input name="no" type="text" size="20" style="height:30px; width: 250px; border: none;border-bottom:solid 1px #bbbbbb;background: transparent;">
 						</td>
 					</tr>
 					<tr>
@@ -177,14 +177,16 @@ body,html{
 							<span style="font-size: 18px;">密码:</span>
 						</td>
 						<td width="85%" height="22">
-							<input name="userPw" type="password" size="20" style="height:30px; width: 250px; border: none;border-bottom:solid 1px #bbbbbb;background: transparent;">
+							<input name="pwd" type="password" size="20" style="height:30px; width: 250px; border: none;border-bottom:solid 1px #bbbbbb;background: transparent;">
 						</td>
 					</tr>
 					<tr>
 						<td width="15%" height="22">
 						</td>
 						<td width="85%" height="22">
-							<div class="login_btn" onClick="check1()">登录</div>	
+							<div class="login_btn" >
+							<input type="submit" value="查询">
+							</div>	
                             <img id="indicator" src="<%=path %>/img/loading.gif" style="display:none"/>
 						</td>
 					</tr>

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.JDBCDao;
 import com.domain.DianMingInformation;
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
+//import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
 /**
  * Servlet implementation class DianMing
@@ -37,7 +37,13 @@ public class DianMing extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String sql="select * from DianMing";
-		ResultSet rs=JDBCDao.getData(sql);
+		ResultSet rs = null;
+		try {
+			rs = JDBCDao.getData(sql);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		DianMingInformation info=new DianMingInformation();	
 		
 		try {
