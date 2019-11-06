@@ -15,8 +15,10 @@ public class JDBCDao {
 	/**
 	 *  * 增加，删除，修改  
 	 */
+	
 	public static void insertOrDeleteOrUpdate(String sql) {
 		try {
+			
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			int execute = pst.executeUpdate();
@@ -31,11 +33,12 @@ public class JDBCDao {
 	public static ResultSet getData(String sql) {
 		ResultSet rs = null;
 		try {
-			Connection connection = JDBCUtil.getConnection();
+			JDBCUtil j=new JDBCUtil();
+			Connection connection =JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();
 			System.out.println("执行语句：" + sql);
-			JDBCUtil.close(null, pst, connection);
+			
 		} catch (SQLException e) {
 			System.out.println("异常提醒：" + e);
 		}
@@ -53,7 +56,7 @@ public class JDBCDao {
 			PreparedStatement pst = connection.prepareStatement(sql);
 			ResultSet resultSet = pst.executeQuery();
 			returnResultToList = returnResultToList(resultSet);
-			JDBCUtil.close(resultSet, pst, connection);
+			JDBCUtil.close(null, pst, connection);
 		} catch (SQLException e) {
  
 			System.out.println("异常提醒：" + e);

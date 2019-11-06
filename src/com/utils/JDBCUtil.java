@@ -8,7 +8,8 @@ import javax.sql.DataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
  
 public class JDBCUtil {
-	private static DataSource ds = new ComboPooledDataSource();
+	static ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
+	private static DataSource ds =comboPooledDataSource;
  
 // 获取连接池
 	public static DataSource getDataSource() {
