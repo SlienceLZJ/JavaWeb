@@ -36,7 +36,7 @@ public class JDBCDao {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			ResultSet resultSet = pst.executeQuery();
-//	returnResultToList = returnResultToList(resultSet);
+			returnResultToList = returnResultToList(resultSet);
 			JDBCUtil.close(resultSet, pst, connection);
 		} catch (SQLException e) {
  
@@ -45,6 +45,8 @@ public class JDBCDao {
 		return returnResultToList;
 	}
  
+	
+	
 	/**
 	 *  * 数据返回集合  * @param resultSet  * @return  * @throws SQLException  
 	 */
