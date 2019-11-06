@@ -26,7 +26,23 @@ public class JDBCDao {
 			System.out.println("异常提醒：" + e);
 		}
 	}
- 
+	
+	//返回数据集
+	public static ResultSet getData(String sql) {
+		ResultSet rs = null;
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			PreparedStatement pst = connection.prepareStatement(sql);
+			rs = pst.executeQuery();
+			System.out.println("执行语句：" + sql);
+			JDBCUtil.close(null, pst, connection);
+		} catch (SQLException e) {
+			System.out.println("异常提醒：" + e);
+		}
+		return rs;
+	}
+	
+	
 	/**
 	 *  * 查询，返回结果集  
 	 */
@@ -36,7 +52,7 @@ public class JDBCDao {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			ResultSet resultSet = pst.executeQuery();
-//	returnResultToList = returnResultToList(resultSet);
+			returnResultToList = returnResultToList(resultSet);
 			JDBCUtil.close(resultSet, pst, connection);
 		} catch (SQLException e) {
  
