@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.dao.JDBCDao;
@@ -41,6 +42,7 @@ public class Login extends HttpServlet{
 		Connection dbconn = null;
 		
 		response.setContentType("text/html;charset=utf-8");
+		HttpSession session = request.getSession(true);
 		if (no == null || no.equals("") || pwd == null || pwd.equals("")) {
 			System.out.println("用户名或密码为空");
 			return;
@@ -80,6 +82,7 @@ public class Login extends HttpServlet{
 					if (rs.getString("no").equals(no)) {
 						if (rs.getString("password").equals(pwd)) {
 							response.sendRedirect("DianMing");
+							session.setAttribute("no", no);
 							break;
 						}
 					}
