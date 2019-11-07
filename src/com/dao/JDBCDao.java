@@ -28,6 +28,16 @@ public class JDBCDao {
 		}
 	}
 	
+	public static void closeConnecttion() {
+		try {  
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	//返回数据集
 	public static ResultSet getData(String sql) throws SQLException {
 		ResultSet rs = null;
@@ -105,12 +115,5 @@ public class JDBCDao {
 		return values;
 	}
 	
-	public static void closeConnecttion() {
-		try {  
-			connection.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 }
