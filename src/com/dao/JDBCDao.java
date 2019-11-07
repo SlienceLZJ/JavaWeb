@@ -37,11 +37,11 @@ public class JDBCDao {
 			PreparedStatement pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();
 			System.out.println("执行语句：" + sql);
-			
 		} catch (SQLException e) {
 			System.out.println("异常提醒：" + e);
 		}
 		return rs;
+		
 	}
 	
 	
