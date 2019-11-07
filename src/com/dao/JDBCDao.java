@@ -33,7 +33,6 @@ public class JDBCDao {
 	public static ResultSet getData(String sql) {
 		ResultSet rs = null;
 		try {
-			JDBCUtil j=new JDBCUtil();
 			Connection connection =JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();

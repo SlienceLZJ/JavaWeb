@@ -10,8 +10,11 @@
 <body>
  <c:forEach var="s" items="${dislist}">
   <tr>
-     <td>${s.name}</td><img src="${s.picture}" width="50px" height="50px"><td>
-  </tr><p>
+    <div>
+     <td><div width="60px" height="60px"><img src="${s.picture}" width="50px" height="50px"><td></div>
+     <td><div width="60px" height="60px">${s.name}</div></td>
+     </div>
+  </tr>
 </c:forEach>
 </body>
 </html>

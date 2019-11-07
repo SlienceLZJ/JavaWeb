@@ -38,8 +38,7 @@ public class DisplayDishs extends HttpServlet {
 		String sql="SELECT * FROM DianMing";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		try {
-			 JDBCDao jdbc=new JDBCDao();
-			
+			JDBCDao jdbc=new JDBCDao();
 			ResultSet result;
 	        result=jdbc.getData(sql);
 			while(result.next()) {
