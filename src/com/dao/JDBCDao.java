@@ -106,7 +106,7 @@ public class JDBCDao {
 	}
 	
 	public static void closeConnecttion() {
-		try {
+		try {  
 			connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
