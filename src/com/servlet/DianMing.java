@@ -1,8 +1,11 @@
 package com.servlet;
 
+
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,6 +42,8 @@ public class DianMing extends HttpServlet {
 		String sql="select * from DianMing";
 		ResultSet rs=JDBCDao.getData(sql);
 		DianMingInformation info=new DianMingInformation();	
+		
+		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
 		
 		try {
 								
