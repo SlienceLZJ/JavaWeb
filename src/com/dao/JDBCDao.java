@@ -40,7 +40,7 @@ public class JDBCDao {
 		} catch (SQLException e) {
 			System.out.println("异常提醒：" + e);
 		}
-		finally {
+		finally { 
 			//rs.close();
 		}
 		return rs;
