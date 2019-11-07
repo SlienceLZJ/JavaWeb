@@ -7,18 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-hello world; 
-=======
-
-
-
-
-hello world;
->>>>>>> branch 'master' of https://github.com/SlienceLZJ/JavaWeb.git
-
-
-
-
+k
 </body>
 </html>
