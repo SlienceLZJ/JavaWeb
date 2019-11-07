@@ -1,8 +1,11 @@
 package com.servlet;
 
+
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,11 +25,6 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
 public class DianMing extends HttpServlet {
 	private static final long serialVersionUID = 1L;
           
-    public DianMing() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -39,6 +37,8 @@ public class DianMing extends HttpServlet {
 		String sql="select * from DianMing";
 		ResultSet rs=JDBCDao.getData(sql);
 		DianMingInformation info=new DianMingInformation();	
+		
+		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
 		
 		try {
 								
