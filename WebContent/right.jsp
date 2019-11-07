@@ -10,7 +10,7 @@
 <body>
  <c:forEach var="s" items="${dislist}">
   <tr>
-    <div>
+    <div width="200px" height="200px">
      <td><div width="60px" height="60px"><img src="${s.picture}" width="50px" height="50px"><td></div>
      <td><div width="60px" height="60px">${s.name}</div></td>
      </div>
