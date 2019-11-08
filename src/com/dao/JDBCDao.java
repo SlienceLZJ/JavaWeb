@@ -15,11 +15,10 @@ public class JDBCDao {
 	/**
 	 *  * 增加，删除，修改  
 	 */
-	
+	private static Connection connection;
 	public static void insertOrDeleteOrUpdate(String sql) {
 		try {
-			
-			Connection connection = JDBCUtil.getConnection();
+			connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			int execute = pst.executeUpdate();
 			System.out.println("执行语句：" + sql + "," + execute + "行数据受影响");
@@ -29,18 +28,30 @@ public class JDBCDao {
 		}
 	}
 	
+	public static void closeConnecttion() {
+		try {  
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	//返回数据集
-	public static ResultSet getData(String sql) {
+	public static ResultSet getData(String sql) throws SQLException {
 		ResultSet rs = null;
 		try {
-			JDBCUtil j=new JDBCUtil();
-			Connection connection =JDBCUtil.getConnection();
+			connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();
 			System.out.println("执行语句：" + sql);
-			
+			//JDBCUtil.close(null, pst, connection);
 		} catch (SQLException e) {
 			System.out.println("异常提醒：" + e);
+		}
+		finally { 
+			//rs.close();
 		}
 		return rs;
 	}
@@ -52,11 +63,11 @@ public class JDBCDao {
 	public static List<Map<String, Object>> select(String sql) {
 		List<Map<String, Object>> returnResultToList = null;
 		try {
-			Connection connection = JDBCUtil.getConnection();
+			connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
 			ResultSet resultSet = pst.executeQuery();
 			returnResultToList = returnResultToList(resultSet);
-			JDBCUtil.close(null, pst, connection);
+			JDBCUtil.close(resultSet, pst, connection);
 		} catch (SQLException e) {
  
 			System.out.println("异常提醒：" + e);
@@ -103,4 +114,6 @@ public class JDBCDao {
 		}
 		return values;
 	}
+	
+	
 }
