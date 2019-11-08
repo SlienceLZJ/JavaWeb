@@ -33,13 +33,11 @@ public class DianMing extends HttpServlet {
 		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String sql="select * from DianMing";
-		ResultSet rs=JDBCDao.getData(sql);
-			
+		String sql="select * from DianMing";				
 		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
 						
 		try {
-								
+			ResultSet rs=JDBCDao.getData(sql);			
 			while(rs.next()) {
 			DianMingInformation info=new DianMingInformation();	
 			info.setName(rs.getString("name"));
