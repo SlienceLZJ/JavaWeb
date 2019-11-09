@@ -15,7 +15,7 @@ import com.dao.JDBCDao;
 /**
  * Servlet implementation class addfoodtype
  */
-@WebServlet("/addfoodtype.do")
+@WebServlet("/addfoodtype")
 public class addfoodtype extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,14 +44,15 @@ public class addfoodtype extends HttpServlet {
                 .getBytes("iso-8859-1"),"UTF-8");
 		
 		String sql ="INSERT INTO menu VALUES ('"+id+"','"+foodtype+"')";
-		try{
-			JDBCDao.insertOrDeleteOrUpdate(sql);
-			JDBCDao.closeConnecttion();
-			request.setAttribute("result", "成功添加菜品种类：    "+foodtype);
-		}catch(Exception e){
-			request.setAttribute("result", "您的店铺已有该菜品");
-		}
 		
+			int a=JDBCDao.insertOrDeleteOrUpdate(sql);
+			JDBCDao.closeConnecttion();
+			if(a==0) {
+			request.setAttribute("result", "您的店铺已有该菜品");
+			}
+			else {
+				request.setAttribute("result", "成功添加菜品种类：    "+foodtype);
+			}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("addfoodtype.jsp");
 		 rd.forward(request, response);

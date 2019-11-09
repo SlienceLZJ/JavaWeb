@@ -22,6 +22,7 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
  * Servlet implementation class DianMing
  */
 @WebServlet("/DianMing")
+
 public class DianMing extends HttpServlet {
 	private static final long serialVersionUID = 1L;
           

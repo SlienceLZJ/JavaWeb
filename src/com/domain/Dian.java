@@ -2,31 +2,17 @@ package com.domain;
 
 
 public class Dian {
-	private int id;
-	private String name;
-	private String picture;
+	private String id;
 	private String foodname;
 	private String foodpicture;
 	private String foodprice;
 	private String foodIntroduction;
 	private String foodtype;
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPicture() {
-		return picture;
-	}
-	public void setPicture(String picture) {
-		this.picture = picture;
 	}
 	public String getFoodname() {
 		return foodname;
