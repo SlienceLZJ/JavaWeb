@@ -1,19 +1,57 @@
 package com.domain;
 
 public class DishsInformation {
-	String name;
-	String picture;
-	public void setName(String s) {
-		this.name=s;
+	private String shopname;
+	private String shoppicture;
+	private String foodname;
+	private String foodpicture;
+	private float  foodprice;
+	private String foodintroduction;
+	private String foodtype;
+	public String getShopname() {
+		return shopname;
 	}
-	public void setPicture(String s) {
-		this.picture=s;
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
 	}
-	public String getName() {
-		return name;
+	public String getShoppicture() {
+		return shoppicture;
 	}
-	public String getPicture() {
-		return picture;
+	public void setShoppicture(String shoppicture) {
+		this.shoppicture = shoppicture;
 	}
+	public String getFoodname() {
+		return foodname;
+	}
+	public void setFoodname(String foodname) {
+		this.foodname = foodname;
+	}
+	public String getFoodpicture() {
+		return foodpicture;
+	}
+	public void setFoodpicture(String foodpicture) {
+		this.foodpicture = foodpicture;
+	}
+	public float getFoodprice() {
+		return foodprice;
+	}
+	public void setFoodprice(float foodprice) {
+		this.foodprice = foodprice;
+	}
+	public String getFoodintroduction() {
+		return foodintroduction;
+	}
+	public void setFoodintroduction(String foodintroduction) {
+		this.foodintroduction = foodintroduction;
+	}
+	public String getFoodtype() {
+		return foodtype;
+	}
+	public void setFoodtype(String foodtype) {
+		this.foodtype = foodtype;
+	}
+
+	
+	
 
 }

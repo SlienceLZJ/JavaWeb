@@ -35,31 +35,51 @@ public class DisplayDishs extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sql="SELECT * FROM DianMing";
+		String sql="SELECT * FROM Dian";
+		String sql1="SELECT * FROM menu";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
-		Connection conn;
+		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
+		ResultSet result;
 		try {
-			JDBCUtil k=new JDBCUtil();
 			JDBCDao jdbc=new JDBCDao();
-		     conn=k.getConnection();
-			PreparedStatement pst = conn.prepareStatement(sql);
-			ResultSet result;
 	        result=JDBCDao.getData(sql);
 			while(result.next()) {
 				DishsInformation dis=new DishsInformation();
-				String name=result.getNString("name");
-				System.out.print(name);
-				String picture=result.getNString("picture"); 
-				dis.setName(name);
-				dis.setPicture(picture);
+				String foodname=result.getNString("foodname");
+				String foodintroduction=result.getNString("foodintroduction");
+				Float foodprice=result.getFloat("foodprice");
+				String foodtype=result.getNString("foodtype");
+				String foodpicture=result.getNString("foodpicture"); 
+				dis.setFoodname(foodname);
+				dis.setFoodpicture(foodpicture);
+				dis.setFoodintroduction(foodintroduction);
+				dis.setFoodprice(foodprice);
+				dis.setFoodtype(foodtype);
 				dislist.add(dis);
 			}
-			conn.close();
+			JDBCDao.closeConnecttion();
+			result.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 try {
+			result=JDBCDao.getData(sql1);
+			while(result.next()) {
+			DishsInformation dis=new DishsInformation();
+			String foodtype=result.getNString("foodtype");
+			System.out.print(foodtype);
+			dis.setFoodtype(foodtype);
+			menu.add(dis);
+			}
+			result.close();
+			JDBCDao.closeConnecttion();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 request.getSession().setAttribute("dislist", dislist);
+		 request.getSession().setAttribute("menu", menu);
 		 response.sendRedirect("/JavaWeb/frame.jsp");
 		 
 	}
