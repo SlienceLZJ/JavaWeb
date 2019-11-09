@@ -10,61 +10,77 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <title>商品列表</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="src/layuiadmin/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="src/layuiadmin/style/admin.css" media="all">
+  <link rel="stylesheet" href="src/layuiadmin/style/template.css" media="all">
 
+  <script type="text/javascript" src="js/convert.js"></script>
 
- <style>
-.box{width:100px; text-align:center; font-szie:5px;margin:10px 10px 10px 10px;}
-.box img {width:100px;height:100px}
-</style> 
-
-<meta charset="UTF-8">
-<title>点餐系统</title>
 </head>
 
-<body bgcolor="#D3D3D3">
+<body>
 
 
-
-<div>
+<div style="height:50px;">
 <%@ include file="/WEB-INF/jsp/daohang.jsp" %>
 </div>
 
-
+<div>
 
 <%
 List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("list");
 %>
 
 
-<center>
-<table bgcolor="#FFFFFF">
- <tr>
+<div align="right" style="padding-right:40px;height:30px">
+<form name="Form" action="DianMing" method="get" onsubmit="return myFunction()">
+ 检索店铺:<input type="text" value="" name="jiansuo"/>&nbsp;<input type="submit" value="检索"/>
+</form>
+</div>
+
+
 
 <%
+ out.println("<div class='layui-fluid layadmin-cmdlist-fluid'><div class='layui-row layui-col-space30'>");
+ for(int i=0;i<list.size();i++){
 
-System.out.println("the list size is :"+list.size());
-
-for(int i=0;i<list.size();i++){
-	
 	System.out.println("the value of i :"+i);
-   DianMingInformation info=list.get(i);
-   
-   if(i%3==0&&i!=0){
-	   out.println("</tr><tr>");
-   
-   }
-	   out.println("<td><div class='box'><img src='"+info.getPicture() +"'/>"+info.getName()+"</div></td>");
-	   System.out.println(info.getName());
-	   
-   
-   
+    DianMingInformation info=list.get(i);
+    out.println("<div class='layui-col-md2 layui-col-sm4'>");
+    out.println("<div class='cmdlist-container'>");
+    out.println("<a href='javascript:;'>");
+    out.println("<img width=100px height=100px src='"+info.getPicture() +"'>");
+    out.println("</a>");
+    out.println("<a href='javascript:;'>");
+    out.println("<div class='cmdlist-text'>");
+    out.println("<p class='info'>"+info.getDescription()+"</p>");
+    out.println("<div class='price'>");
+    
+    out.println(""+info.getName()+"");
+    out.println("</p>");
+    ;
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</a>");
+    out.println("</div>");
+    out.println("</div>");
+    
+
+	   //out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId="+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"<br><font size='2' color='blue'>"+info.getDescription()+"</font></div></a></div></td>");
+	  //System.out.println(info.getName());
+ 
 }
 
 %>
 
-</tr>
-</table>
-</center>
+
+
+</div>
 
 
 </body>
