@@ -16,15 +16,20 @@ public class JDBCDao {
 	 *  * 增加，删除，修改  
 	 */
 	private static Connection connection;
-	public static void insertOrDeleteOrUpdate(String sql) {
+	@SuppressWarnings("finally")
+	public static int insertOrDeleteOrUpdate(String sql) {
+		int execute = 0;
 		try {
 			connection = JDBCUtil.getConnection();
 			PreparedStatement pst = connection.prepareStatement(sql);
-			int execute = pst.executeUpdate();
+			execute = pst.executeUpdate();
 			System.out.println("执行语句：" + sql + "," + execute + "行数据受影响");
 			JDBCUtil.close(null, pst, connection);
 		} catch (SQLException e) {
 			System.out.println("异常提醒：" + e);
+		}
+		finally {
+			return execute;
 		}
 	}
 	

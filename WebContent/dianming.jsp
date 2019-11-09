@@ -11,29 +11,40 @@
 <html>
 <head>
 
-
- <style>
-.box{width:100px; text-align:center; font-szie:5px;margin:10px 10px 10px 10px;}
-.box img {width:100px;height:100px}
-</style> 
-
 <meta charset="UTF-8">
 <title>点餐系统</title>
+<style>
+body{
+  margin:0px;
+  width:100%;
+  height:100%;
+}
+
+</style>
+
+  <script type="text/javascript" src="js/convert.js"></script>
+
 </head>
 
-<body bgcolor="#D3D3D3">
+<body bgcolor="#F5F5F5">
 
 
-
-<div>
+<div style="height:50px;">
 <%@ include file="/WEB-INF/jsp/daohang.jsp" %>
 </div>
 
-
+<div>
 
 <%
 List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("list");
 %>
+
+
+<div align="right" style="padding-right:40px;height:30px">
+<form name="Form" action="DianMing" method="get" onsubmit="return myFunction()">
+ 检索店铺:<input type="text" name="jiansuo"/>&nbsp;<input type="submit" value="检索"/>
+</form>
+</div>
 
 
 <center>
@@ -42,22 +53,18 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
 
 <%
 
-System.out.println("the list size is :"+list.size());
-
 for(int i=0;i<list.size();i++){
 	
 	System.out.println("the value of i :"+i);
    DianMingInformation info=list.get(i);
    
-   if(i%3==0&&i!=0){
+   if(i%4==0&&i!=0){
 	   out.println("</tr><tr>");
    
    }
-	   out.println("<td><div class='box'><img src='"+info.getPicture() +"'/>"+info.getName()+"</div></td>");
+	   out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId="+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"</div></a></div></td>");
 	   System.out.println(info.getName());
-	   
-   
-   
+ 
 }
 
 %>
@@ -65,6 +72,8 @@ for(int i=0;i<list.size();i++){
 </tr>
 </table>
 </center>
+
+</div>
 
 
 </body>
