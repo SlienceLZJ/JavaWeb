@@ -27,6 +27,7 @@ public class Login extends HttpServlet{
 
 	String no;
 	String pwd;
+	
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -37,8 +38,9 @@ public class Login extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("request--->"+request.getRequestURL()+"===="+request.getParameterMap().toString());
-		no = request.getParameter("no"); // 获取客户端传过来的参数
-		pwd = request.getParameter("pwd");
+		no = request.getParameter("username"); // 获取客户端传过来的参数
+		pwd = request.getParameter("password");
+		System.out.println(no+"   "+pwd);
 		Connection dbconn = null;
 		
 		response.setContentType("text/html;charset=utf-8");
@@ -63,6 +65,8 @@ public class Login extends HttpServlet{
 			e.printStackTrace();
 		}
 		String sql = "select * from user;";
+		
+		
 		ResultSet rs = null;
 		try {
 			rs = JDBCDao.getData(sql);

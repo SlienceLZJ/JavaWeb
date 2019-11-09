@@ -48,26 +48,36 @@ public class DianMing extends HttpServlet {
 		//当用户输入检索词的时候
 		 if((jiansuo!=null)&&(!jiansuo.equals(""))) {
 			 
-			 jiansuo=CommonUtil.hexStr2Str(jiansuo);
+			 jiansuo="%"+CommonUtil.hexStr2Str(jiansuo)+"%";
 			 
-		sql="select * from DianMing where name='"+jiansuo+"'";	
+		sql="select * from DianMing where name like '"+jiansuo+"';";	
 		System.out.println("sql 语句为:"+sql);
+		jiansuo = null;
 		 }else {//无检索词则检索所有店铺			 
-			 sql="select * from DianMing";				
+			 sql="select * from DianMing;";				
 		 }
 		
 		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
 						
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
-			System.out.println("no hava");
+			//System.out.println("no hava");
+			if(rs != null) {
+				System.out.println("数据集不为空");
+			}
+			System.out.println(rs.next());
+			System.out.println(rs.getString(0));
 			while(rs.next()) {
-				System.out.println("hava");
-			DianMingInformation info=new DianMingInformation();	
-			info.setName(rs.getString("name"));
-			info.setPicture(rs.getString("picture"));
-			info.setStoreId(rs.getString("id"));
-			list.add(info);		
+				String name = rs.getString("name");
+				String picture = rs.getString("picture");
+				String id = rs.getString("id");
+				System.out.println(name);
+				DianMingInformation info=new DianMingInformation();	
+				info.setName(name);
+				info.setPicture(picture);
+				info.setStoreId(id);
+				list.add(info);	
+		
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
