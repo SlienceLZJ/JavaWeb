@@ -13,6 +13,17 @@
 
 <meta charset="UTF-8">
 <title>点餐系统</title>
+<style>
+body{
+  margin:0px;
+  width:100%;
+  height:100%;
+}
+
+</style>
+
+  <script type="text/javascript" src="js/convert.js"></script>
+
 </head>
 
 <body bgcolor="#F5F5F5">
@@ -29,8 +40,8 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
 %>
 
 
-<div align="right" style="padding-right:20px;height:30px">
-<form action="addStudent.do?action=addStudent" method="post">
+<div align="right" style="padding-right:40px;height:30px">
+<form name="Form" action="DianMing" method="get" onsubmit="return myFunction()">
  检索店铺:<input type="text" name="jiansuo"/>&nbsp;<input type="submit" value="检索"/>
 </form>
 </div>
@@ -42,8 +53,6 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
 
 <%
 
-System.out.println("the list size is :"+list.size());
-
 for(int i=0;i<list.size();i++){
 	
 	System.out.println("the value of i :"+i);
@@ -53,7 +62,7 @@ for(int i=0;i<list.size();i++){
 	   out.println("</tr><tr>");
    
    }
-	   out.println("<td><div style='width:200px;height:100px;border:1px solid #1E90FF';text-align:right;><div style='float:left;width:50%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:50%;'>"+info.getName()+"</div></div></td>");
+	   out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId="+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"</div></a></div></td>");
 	   System.out.println(info.getName());
  
 }
