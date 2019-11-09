@@ -2,12 +2,21 @@ package com.domain;
 
 public class DianMingInformation {
 
-	String name;
-	String picture;
-	String storeId;
+	private String name;
+	private String picture;
+	private String storeId;
+	private String description;
 	
 	
 	
+	
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getStoreId() {
 		return storeId;
 	}
