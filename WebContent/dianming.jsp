@@ -42,7 +42,7 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
 
 <div align="right" style="padding-right:40px;height:30px">
 <form name="Form" action="DianMing" method="get" onsubmit="return myFunction()">
- 检索店铺:<input type="text" name="jiansuo"/>&nbsp;<input type="submit" value="检索"/>
+ 检索店铺:<input type="text" value="" name="jiansuo"/>&nbsp;<input type="submit" value="检索"/>
 </form>
 </div>
 
@@ -59,10 +59,10 @@ for(int i=0;i<list.size();i++){
    DianMingInformation info=list.get(i);
    
    if(i%4==0&&i!=0){
-	   out.println("</tr><tr>");
+	   out.println("</tr><tr>");                                                                                                                                                                                                                                                                            			
    
    }
-	   out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId="+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"</div></a></div></td>");
+	   out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId="+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"<br><font size='2' color='blue'>"+info.getDescription()+"</font></div></a></div></td>");
 	   System.out.println(info.getName());
  
 }

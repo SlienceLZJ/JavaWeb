@@ -36,15 +36,19 @@ public class DianMing extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
         response.setContentType("text/html;charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");
-		
-		
+		request.setCharacterEncoding("UTF-8");			
 		HttpSession session=request.getSession(true);
 		String jiansuo=request.getParameter("jiansuo");
 		
 		
+		if(jiansuo!=null) {
+			 jiansuo=CommonUtil.hexStr2Str(jiansuo);
+		}
+		
 		
 		String sql;
+		
+		/*
 		//当用户输入检索词的时候
 		 if((jiansuo!=null)&&(!jiansuo.equals(""))) {
 			 
@@ -55,19 +59,48 @@ public class DianMing extends HttpServlet {
 		 }else {//无检索词则检索所有店铺			 
 			 sql="select * from DianMing";				
 		 }
+		 */
+		 
+		sql="select * from DianMing";	
+		
+		
 		
 		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
-						
+	
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
+		
 			System.out.println("no hava");
 			while(rs.next()) {
-				System.out.println("hava");
-			DianMingInformation info=new DianMingInformation();	
-			info.setName(rs.getString("name"));
+				DianMingInformation info=new DianMingInformation();	
+				String name=rs.getString("name");
+				
+				if(jiansuo!=null) {//当有检索词的时候
+					System.out.println("-----------");
+					if(jiansuo.contains(name)||name.contains(jiansuo)) {//如果模糊匹配上了
+					
+						info.setName(rs.getString("name"));
+						info.setPicture(rs.getString("picture"));
+						info.setStoreId(rs.getString("id"));
+						info.setDescription(rs.getString("description"));
+						list.add(info);	
+					}
+					else {
+						continue;
+					}
+		
+				}
+				else {//当无检索词的时候
+				
+						info.setName(rs.getString("name"));
 			info.setPicture(rs.getString("picture"));
 			info.setStoreId(rs.getString("id"));
-			list.add(info);		
+			info.setDescription(rs.getString("description"));
+			list.add(info);	
+					
+				}
+			
+			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
