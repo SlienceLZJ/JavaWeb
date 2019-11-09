@@ -44,7 +44,7 @@
         <div class="layui-trans layui-form-item layadmin-user-login-other">
           
           
-          <a href="reg.html" class="layadmin-user-jump-change layadmin-link">注册帐号</a>
+          <a href="register.jsp" class="layadmin-user-jump-change layadmin-link">注册帐号</a>
         </div>
       </div>
     </div>

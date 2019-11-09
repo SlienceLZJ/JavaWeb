@@ -75,18 +75,18 @@ public class DianMing extends HttpServlet {
 
 			while(rs.next()) {
 
-				DianMingInformation info=new DianMingInformation();	
+				DianMingInformation info1=new DianMingInformation();	
 				String name=rs.getString("name");
 				
 				if(jiansuo!=null) {//当有检索词的时候
 					System.out.println("-----------");
 					if(jiansuo.contains(name)||name.contains(jiansuo)) {//如果模糊匹配上了
 					
-						info.setName(rs.getString("name"));
-						info.setPicture(rs.getString("picture"));
-						info.setStoreId(rs.getString("id"));
-						info.setDescription(rs.getString("description"));
-						list.add(info);	
+						info1.setName(rs.getString("name"));
+						info1.setPicture(rs.getString("picture"));
+						info1.setStoreId(rs.getString("id"));
+						info1.setDescription(rs.getString("description"));
+						list.add(info1);	
 					}
 					else {
 						continue;
@@ -95,11 +95,11 @@ public class DianMing extends HttpServlet {
 				}
 				else {//当无检索词的时候
 				
-						info.setName(rs.getString("name"));
-			info.setPicture(rs.getString("picture"));
-			info.setStoreId(rs.getString("id"));
-			info.setDescription(rs.getString("description"));
-			list.add(info);	
+						info1.setName(rs.getString("name"));
+			info1.setPicture(rs.getString("picture"));
+			info1.setStoreId(rs.getString("id"));
+			info1.setDescription(rs.getString("description"));
+			list.add(info1);	
 					
 				}
 
