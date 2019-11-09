@@ -52,12 +52,13 @@ public class DianMing extends HttpServlet {
 		//当用户输入检索词的时候
 		 if((jiansuo!=null)&&(!jiansuo.equals(""))) {
 			 
-			 jiansuo=CommonUtil.hexStr2Str(jiansuo);
+			 jiansuo="%"+CommonUtil.hexStr2Str(jiansuo)+"%";
 			 
-		sql="select * from DianMing where name='"+jiansuo+"'";	
+		sql="select * from DianMing where name like '"+jiansuo+"';";	
 		System.out.println("sql 语句为:"+sql);
+		jiansuo = null;
 		 }else {//无检索词则检索所有店铺			 
-			 sql="select * from DianMing";				
+			 sql="select * from DianMing;";				
 		 }
 		 */
 		 
@@ -69,9 +70,11 @@ public class DianMing extends HttpServlet {
 	
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
-		
-			System.out.println("no hava");
+
+
+
 			while(rs.next()) {
+
 				DianMingInformation info=new DianMingInformation();	
 				String name=rs.getString("name");
 				
@@ -99,8 +102,7 @@ public class DianMing extends HttpServlet {
 			list.add(info);	
 					
 				}
-			
-			
+
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

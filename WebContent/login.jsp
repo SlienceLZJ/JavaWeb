@@ -1,297 +1,72 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>登录页</title> 
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-		<meta http-equiv="description" content="This is my page">
-		<style type="text/css">
-            *{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	text-decoration: none;
-}
-body,html{
-	width: 100%;
-	height: 100%;
-	font-size: 14px;
-	
-	background: url(img/bg.jpg);
-	background-size: cover;
-	overflow: hidden;
-}
+<head>
+  <meta charset="utf-8">
+  <title>登录</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="src/layuiadmin/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="src/layuiadmin/style/admin.css" media="all">
+  <link rel="stylesheet" href="src/layuiadmin/style/login.css" media="all">
+</head>
+<body>
 
-.container{
-	position:relative;
+  <div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
 
-}
-.login_btn{
-	width: 150px;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	background: #324057;
-	border-radius: 5px;
-	color: #fff;
-	font-size: 15px;
-	margin: 20px 39px;
-	cursor: pointer;
-}
-
-
-.stars {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	z-index: 99;
-}
-.stars > li {
-	position: absolute;
-	width: 30px;
-	height: 31px;
-	background-image: url(../images/stars.png);
-	-webkit-animation-name: flash;
-	-webkit-animation-timing-function: ease-in-out;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-direction: alternate;
-	-moz-animation-name: flash;
-	-moz-animation-timing-function: ease-in-out;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-direction: alternate;
-}
-.stars1 {
-	top: 20%;
-	left: 30%;
-	-webkit-animation-duration: 5s;
-	-moz-animation-duration: 5s;
-}
-.stars2 {
-	top: 40%;
-	left: 13%;
-	-webkit-animation-duration: 20s;
-	-moz-animation-duration: 20s;
-}
-.stars3 {
-	top: 10%;
-	left: 85%;
-	-webkit-animation-duration: 15s;
-	-moz-animation-duration: 15s;
-}
-.stars4 {
-	top: 30%;
-	left: 70%;
-	-webkit-animation-duration: 25s;
-	-moz-animation-duration: 25s;
-}
-.stars5 {
-	top: 56%;
-    left: 21%;
-	-webkit-animation-duration: 30s;
-	-moz-animation-duration: 30s;
-}
-.stars6 {
-	top: 66%;
-    left: 79%;
-	-webkit-animation-duration: 10s;
-	-moz-animation-duration: 10s;
-}
-@-webkit-keyframes flash {
-	0%, 50%, 100% {opacity: 1;}
-	25%,75% {opacity: 0;}
-}
-
-@-moz-keyframes flash {
-	0%, 50%, 100% {opacity: 1;}
-	25%,75% {opacity: 0;}
-}
-
-#snowflake {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-}
-.snowRoll {
-	position: absolute;
-	opacity: 0;
-	-webkit-animation-name: mysnow;
-	-webkit-animation-duration: 20s;
-	-moz-animation-name: mysnow;
-	-moz-animation-duration: 20s;
-	height: 80px;
-}
-@-webkit-keyframes mysnow {
-	0% {bottom: 100%;}
-	50% {-webkit-transform: rotate(1080deg);}
-	100% {-webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);}
-}
-        </style>
-		
-		<script type='text/javascript' src='<%=path %>/dwr/interface/loginService.js'></script>
-        <script type='text/javascript' src='<%=path %>/dwr/engine.js'></script>
-        <script type='text/javascript' src='<%=path %>/dwr/util.js'></script>
-        
-
-	</head>
-
-	<body>
-		<div id="Layer1" style="position:absolute; left:300px; top:200px; width:600px; height:131px; z-index:1000">
-			<form action="Login" name="ThisForm" method="post">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="100%" colspan="2" align="left">
-							<font style="font-size: 40px;color: #222;font-weight: bolder;display: block;text-align: left">
-							    &nbsp;&nbsp;&nbsp; &nbsp; 网上订餐系统
-				            </font>
-						</td>
-					</tr>
-					<tr>
-						<td width="100%" colspan="2" height="20">
-							
-						</td>
-					</tr>
-					<tr>
-						<td width="15%" height="22" style="text-align:center; height: 40px;line-height: 50px">
-							<span style="font-size: 18px;">账号:</span>
-						</td>
-						<td width="85%" height="22">
-							<input name="no" type="text" size="20" style="height:30px; width: 250px; border: none;border-bottom:solid 1px #bbbbbb;background: transparent;">
-						</td>
-					</tr>
-					<tr>
-						<td width="15%" height="22" style="text-align:center; height: 40px;line-height: 50px">
-							<span style="font-size: 18px;">密码:</span>
-						</td>
-						<td width="85%" height="22">
-							<input name="pwd" type="password" size="20" style="height:30px; width: 250px; border: none;border-bottom:solid 1px #bbbbbb;background: transparent;">
-						</td>
-					</tr>
-					<tr>
-						<td width="15%" height="22">
-						</td>
-						<td width="85%" height="22">
-							<div class="login_btn" >
-							<input type="submit" value="查询">
-							</div>	
-                            <img id="indicator" src="<%=path %>/img/loading.gif" style="display:none"/>
-						</td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<!-- 星星 -->
-    <ul class="stars">         
-    	<li class="stars1"></li>
-        <li class="stars2"></li>
-        <li class="stars3"></li>
-        <li class="stars4"></li>
-        <li class="stars5"></li>
-        <li class="stars6"></li>
-    </ul>
-    <!-- 飘花 -->
-    <div id="snowflake"></div>
+    <div class="layadmin-user-login-main">
+      <div class="layadmin-user-login-box layadmin-user-login-header">
+        <h2>网上订餐系统</h2>
+        <p></p>
+      </div>
+      <form action="Login" method="post" id="login">
+      <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+        <div class="layui-form-item">
+          <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+          <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="用户名" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+          <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+          <input type="password" name="password" id="LAY-user-login-password" lay-verify="required" placeholder="密码" class="layui-input">
+        </div>
+        </form>
+        <div class="layui-form-item" style="margin-bottom: 20px;">
+          <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
+          <a href="forget.html" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">忘记密码？</a>
+        </div>
+        <div class="layui-form-item">
+          <button class="layui-btn layui-btn-fluid" type='submit' onclick='doSubmitForm()' >登录</button>
+        </div>
+        <div class="layui-trans layui-form-item layadmin-user-login-other">
+          
+          
+          <a href="reg.html" class="layadmin-user-jump-change layadmin-link">注册帐号</a>
+        </div>
+      </div>
+    </div>
     
     
     
-    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    	$(function(){ 
-	    $(window).resize();
-	    snowflake();
-	});
+    <!--<div class="ladmin-user-login-theme">
+      <script type="text/html" template>
+        <ul>
+          <li data-theme=""><img src="{{ layui.setter.base }}style/res/bg-none.jpg"></li>
+          <li data-theme="#03152A" style="background-color: #03152A;"></li>
+          <li data-theme="#2E241B" style="background-color: #2E241B;"></li>
+          <li data-theme="#50314F" style="background-color: #50314F;"></li>
+          <li data-theme="#344058" style="background-color: #344058;"></li>
+          <li data-theme="#20222A" style="background-color: #20222A;"></li>
+        </ul>
+      </script>
+    </div>-->
+    
 
-	$(window).resize(function(){ 
-	    $(".login").css({ 
-	        position: "absolute", 
-	        left: ($(window).width() - $(".login").outerWidth())/2, 
-	        top: ($(window).height() - $(".login").outerHeight())/2 
-	    });        
-	});
 
-	function snowflake() {
 
-		var container = $(document);
-	    visualWidth = container.width();
-	    visualHeight = container.height();
-
-		var snowflakeURl = [
-			'img/snowflake1.png',
-			'img/snowflake2.png',
-			'img/snowflake3.png',
-			'img/snowflake4.png',
-			'img/snowflake5.png',
-			'img/snowflake6.png',
-		]
-        // 雪花容器
-        var $flakeContainer = $('#snowflake');
-
-        // 随机六张图
-        function getImagesName() {
-            return snowflakeURl[[Math.floor(Math.random() * 6)]];
-        }
-        // 创建一个雪花元素
-        function createSnowBox() {
-        	var url = getImagesName();
-        	return $('<div class="snowbox" />').css({
-        		'width': 41,
-        		'height': 41,
-        		'position': 'absolute',
-        		'backgroundSize': 'cover',
-        		'zIndex': 100,
-        		'top': '-41px',
-        		'backgroundImage': 'url(' + url + ')'
-        	}).addClass('snowRoll');
-        }
-        // 开始飘花
-        setInterval(function() {
-            // 运动的轨迹
-            var startPositionLeft = Math.random() * visualWidth - 100,
-                startOpacity    = 1,
-                endPositionTop  = visualHeight - 40,
-                endPositionLeft = startPositionLeft - 100 + Math.random() * 500,
-                duration        = visualHeight * 10 + Math.random() * 5000;
-
-            // 随机透明度，不小于0.5
-            var randomStart = Math.random();
-            randomStart = randomStart < 0.5 ? startOpacity : randomStart;
-
-            // 创建一个雪花
-            var $flake = createSnowBox();
-
-            // 设计起点位置
-            $flake.css({
-                left: startPositionLeft,
-                opacity : randomStart
-            });
-
-            // 加入到容器
-            $flakeContainer.append($flake);
-
-            // 开始执行动画
-            $flake.animate({
-            	top: endPositionTop,
-            	left: endPositionLeft,
-            	opacity: 0.7
-            }, 8000, function() {
-                $(this).remove() //结束后删除
-            });
-
-        }, 200);
-    }
-    </script>
-	</body>
+ 
+</body>
 </html>
