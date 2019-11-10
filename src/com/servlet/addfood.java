@@ -90,10 +90,12 @@ public class addfood extends HttpServlet {
          path=path + "\\"+ fname;
          System.out.println(path);
          p.write(path);     // 将上传的文件写入磁盘
-         //path=path.replaceAll("\\", "");
+         path=path.replaceAll("\\\\", "\\\\\\\\");
+         String A="img2\\"+ id+ "\\"+ fname;
+         A=A.replaceAll("\\\\", "\\\\\\\\");
          message = "文件上传成功！";
          System.out.println(path);
-         String sql ="INSERT INTO Dian VALUES ('"+id+"','"+foodname+"','"+path+"','"+foodprice+"','"+foodIntroduction+"','"+foodtype+"')";
+         String sql ="INSERT INTO Dian VALUES ('"+id+"','"+foodname+"','"+A+"','"+foodprice+"','"+foodIntroduction+"','"+foodtype+"')";
 
          int a=JDBCDao.insertOrDeleteOrUpdate(sql);
 			JDBCDao.closeConnecttion();
