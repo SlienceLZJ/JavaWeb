@@ -7,16 +7,17 @@
 <meta charset="UTF-8">
 <title>菜单</title>
 <style type="text/css">
-div.menu{height:50px;width:200px;background-color:red;text-algin:right;float:right}
+div.menu{height:50px;width:50px;margin-top:5px}
 </style>
 </head>
 <body>
-<div>
+<div style="float:right">
 <a:forEach var="s" items="${menu}"> 
-<div class="menu" width="50px" background-color="red">
-<a href="right.jsp#${s.foodtype}" target="right" >${s.foodtype }</a>
+<div class="menu" >
+<a href="right.jsp#${s.foodtype }" target="right"><font size=4>${s.foodtype }</font></a>
 </div >
 </a:forEach>
+<a href="http://localhost:8080/JavaWeb/DisplayDishs" target="_top">全部商品</a> 
 </div>
 </body>
 </html>

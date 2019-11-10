@@ -8,6 +8,7 @@ public class DishsInformation {
 	private float  foodprice;
 	private String foodintroduction;
 	private String foodtype;
+	private String foodid;
 	public String getShopname() {
 		return shopname;
 	}
@@ -49,6 +50,12 @@ public class DishsInformation {
 	}
 	public void setFoodtype(String foodtype) {
 		this.foodtype = foodtype;
+	}
+	public String getFoodid() {
+		return foodid;
+	}
+	public void setFoodid(String foodid) {
+		this.foodid = foodid;
 	}
 
 	
