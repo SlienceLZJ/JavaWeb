@@ -7,49 +7,28 @@
 <head>
   <meta charset="utf-8"> 
   <title>登录</title>
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="src/layuiadmin/layui/css/layui.css" media="all">
-  <link rel="stylesheet" href="src/layuiadmin/style/admin.css" media="all">
-  <link rel="stylesheet" href="src/layuiadmin/style/login.css" media="all">
 </head>
 <body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-  <div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
-
-    <div class="layadmin-user-login-main">
-      <div class="layadmin-user-login-box layadmin-user-login-header">
-        <h2>网上订餐系统</h2>
-        <p></p>
-      </div>
-      <form action="Login" method="post" id="login">
-      <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
-        <div class="layui-form-item">
-          <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
-          <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="用户名" class="layui-input">
-        </div>
-        <div class="layui-form-item">
-          <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
-          <input type="password" name="password" id="LAY-user-login-password" lay-verify="required" placeholder="密码" class="layui-input">
-        </div>
-        </form>
-        <div class="layui-form-item" style="margin-bottom: 20px;">
-          <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
-          
-        </div>
-        <div class="layui-form-item">
-          <button class="layui-btn layui-btn-fluid" type='submit' onclick='doSubmitForm()' >登录</button>
-        </div>
-        <div class="layui-trans layui-form-item layadmin-user-login-other">
-          
-          
-          <a href="register.jsp" class="layadmin-user-jump-change layadmin-link">注册帐号</a>
-        </div>
-      </div>
-    </div>     
-    
-
+<center>
+<table>
+   <form action="Login" method="post" >                
+        <tr><td>用户名:</td><td> <input type="text" name="username"/>  </td></tr>     
+               
+        <tr><td>密码:</td><td><input type="password" name="password">  </td></tr>
+        <tr><td><input type="radio" name="choice" value="cus" checked="checked"/>&nbsp;消费者</td><td><input type="radio" name="choice" value="sell"/>&nbsp;商家</td></tr>
+        <tr><td colspan="2"><center><input type="submit" value="登录"/></center><</td></tr>  
+        <tr><td colspan="2">${error}</td></tr>
+        
+   </form>  
+</table>
+</center>
     
 </body>
 </html>

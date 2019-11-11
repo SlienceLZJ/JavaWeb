@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import com.dao.*;
+
 /**
  * Servlet implementation class addfood
  */
@@ -48,7 +49,7 @@ public class addfood extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String id=new String(request.getParameter("id")
-                .getBytes("iso-8859-1"),"UTF-8");
+                .getBytes("iso-8859-1"),"UTF-8");	
 		String foodname=new String(request.getParameter("foodname")
                 .getBytes("iso-8859-1"),"UTF-8");
 		String foodpicture=null;
