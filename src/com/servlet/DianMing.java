@@ -24,6 +24,7 @@ import com.sun.javafx.reflect.MethodUtil;
  * Servlet implementation class DianMing
  */
 @WebServlet("/DianMing")
+
 public class DianMing extends HttpServlet {
 	private static final long serialVersionUID = 1L;
           

@@ -11,7 +11,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>商品列表</title>
+  <title>通讯录</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -46,12 +46,48 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
 
 
 <%
- out.println("<div class='layui-fluid layadmin-cmdlist-fluid'><div class='layui-row layui-col-space30'>");
+ out.println("<div class='layui-fluid layadmin-maillist-fluid'>");
+ out.println("<div class='layui-row layui-col-space15'>");
  for(int i=0;i<list.size();i++){
 
 	System.out.println("the value of i :"+i);
-    DianMingInformation info=list.get(i);
-    out.println("<div class='layui-col-md2 layui-col-sm4'>");
+    DianMingInformation info1=list.get(i);
+    out.println("<div class='layui-col-md4 layui-col-sm6'>");
+    out.println("<div class='layadmin-contact-box'> ");
+    out.println("<div class='layui-col-md4 layui-col-sm6'>");
+    out.println("<a href='javascript:;''>");
+    out.println("<div class='layadmin-text-center'>");
+    out.println("<img src='"+info1.getPicture() +"'>");
+    out.println("<div class='layadmin-maillist-img layadmin-font-blod'>'"+info1.getName()+"'</div>");
+    out.println("</div>");
+    out.println("</a>");
+    out.println("</div>");
+    out.println("<div class='layui-col-md8 layadmin-padding-left20 layui-col-sm6'>");
+    out.println("<a href='javascript:;''>");
+    out.println("<h3 class='layadmin-title'>");
+    out.println("<strong>'"+info1.getName()+"'</strong>");
+    out.println("</h3>");
+    out.println("<p class='layadmin-textimg'>");
+    out.println("<i class='layui-icon layui-icon-location'></i>");
+    out.println("商业街");
+    out.println("</p>");
+    out.println("</a>");
+    out.println("<div class='layadmin-address'>");
+    out.println("<a href='javascript:;''>");
+    //out.println("<strong>Hu Ge studio</strong>");
+    out.println("<br>");
+    //out.println("E-mail:xxx@baidu.com");
+    //out.println("<br>");
+    out.println("'"+info1.getDescription()+"'");
+    out.println("<br>");
+    //out.println("<addr title='phone'>Tel:</addr>");
+    //out.println("(123) 456-7890");
+    out.println("</a>");
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</div>");
+    /*//out.println("<div class='layui-col-md2 layui-col-sm4'>");
     out.println("<div class='cmdlist-container'>");
     out.println("<a href='javascript:;'>");
     out.println("<img width=100px height=100px src='"+info.getPicture() +"'>");
@@ -68,7 +104,7 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
     out.println("</div>");
     out.println("</a>");
     out.println("</div>");
-    out.println("</div>");
+    out.println("</div>");*/
     
 
 	   //out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId="+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"<br><font size='2' color='blue'>"+info.getDescription()+"</font></div></a></div></td>");

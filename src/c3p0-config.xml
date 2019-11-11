@@ -3,7 +3,7 @@
 	<!-- 这是默认配置信息 -->
 	<default-config>
 		<!-- 连接四大参数配置 -->
-		<property name="jdbcUrl">jdbc:mysql://139.196.103.219:3306/java_web?useSSL=false&amp;serverTimezone=UTC</property>
+		<property name="jdbcUrl">jdbc:mysql://139.196.103.219:3306/java_web?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8</property>
 		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
 		<property name="user">javaweb</property>
 		<property name="password">Java123!</property>
