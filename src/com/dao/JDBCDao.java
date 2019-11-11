@@ -24,7 +24,7 @@ public class JDBCDao {
 			PreparedStatement pst = connection.prepareStatement(sql);
 			execute = pst.executeUpdate();
 			System.out.println("执行语句：" + sql + "," + execute + "行数据受影响");
-			JDBCUtil.close(null, pst, connection);
+			//JDBCUtil.close(null, pst, connection);
 		} catch (SQLException e) {
 			System.out.println("异常提醒：" + e);
 		}
