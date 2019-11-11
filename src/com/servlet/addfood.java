@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
-import com.dao.JDBCDao;
+import com.dao.*;
 /**
  * Servlet implementation class addfood
  */
@@ -48,7 +47,6 @@ public class addfood extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		String id=new String(request.getParameter("id")
                 .getBytes("iso-8859-1"),"UTF-8");
 		String foodname=new String(request.getParameter("foodname")
@@ -59,8 +57,7 @@ public class addfood extends HttpServlet {
 		String foodtype=new String(request.getParameter("foodtype")
                 .getBytes("iso-8859-1"),"UTF-8");
 		String foodIntroduction=new String(request.getParameter("foodIntroduction")
-                .getBytes("iso-8859-1"),"UTF-8");
-		
+                .getBytes("iso-8859-1"),"UTF-8");		
 		System.out.println(id);
 		System.out.println(foodname);
 		System.out.println(foodpicture);
@@ -70,42 +67,45 @@ public class addfood extends HttpServlet {
 		  // 返回Web应用程序文档根目录
         String path = this.getServletContext().getRealPath("/");
         System.out.println(path);
+        path = path +"img2\\"+ id;
+        System.out.println(path);        
         Part p = request.getPart("foodpicture");
         System.out.println(p);
+        String fname = getFilename(p);   // 得到文件名                
         String message="";
         if(p.getSize() >1024*1024*5){    // 上传的文件不能超过5MB大小
           p.delete();
           message = "文件太大，不能上传！";
         }else{
-          // 文件存储在文档根目录下img2中
-          path = path +"img2\\"+ id;
-          System.out.println(path);
+          // 文件存储在文档根目录下img2中          
           File f = new File(path);
           if( !f.exists()){  // 若目录不存在，则创建目录
             f.mkdirs();
-         }
-         String fname = getFilename(p);   // 得到文件名
-         System.out.println(fname);
-       
-         path=path + "\\"+ fname;
-         System.out.println(path);
-         p.write(path);     // 将上传的文件写入磁盘
-         path=path.replaceAll("\\\\", "\\\\\\\\");
-         String A="img2\\"+ id+ "\\"+ fname;
-         A=A.replaceAll("\\\\", "\\\\\\\\");
-         message = "文件上传成功！";
-         System.out.println(path);
-         String sql ="INSERT INTO Dian VALUES ('"+id+"','"+foodname+"','"+A+"','"+foodprice+"','"+foodIntroduction+"','"+foodtype+"')";
-
-         int a=JDBCDao.insertOrDeleteOrUpdate(sql);
-			JDBCDao.closeConnecttion();
-			if(a==0) {
-			request.setAttribute("result", "添加菜品失败");
-			}
-			else {
-	     	request.setAttribute("result", "成功添加菜：    "+foodname);
-			}
-    }
+          }
+            String A="img2\\"+ id+ "\\"+ fname;
+            A=A.replaceAll("\\\\", "\\\\\\\\");
+            System.out.println(A);
+            String sql ="INSERT INTO Dian VALUES ('"+id+"','"+foodname+"','"+A+"','"+foodprice+"','"+foodIntroduction+"','"+foodtype+"')";
+            System.out.println(sql);
+            int a=JDBCDao.insertOrDeleteOrUpdate(sql);
+    			  JDBCDao.closeConnecttion();
+    			  System.out.println(a);
+    			if(a==0) {
+    			request.setAttribute("result", "您的店铺已有该菜品");
+    			
+    			}
+    			else {
+    	     	request.setAttribute("result", "成功添加菜：    "+foodname);
+    	     	System.out.println(fname);       
+    	        path=path + "\\"+ fname;
+    	        System.out.println(path);
+    	        p.write(path);     // 将上传的文件写入磁盘
+    	        path=path.replaceAll("\\\\", "\\\\\\\\");    
+    	        message = "文件上传成功！";
+    	        System.out.println(path);     	    	     	
+    			}   
+          }                 
+        
     request.setAttribute("message", message);
     RequestDispatcher rd = request.getRequestDispatcher("/addfood.jsp");
     rd.forward(request, response);
