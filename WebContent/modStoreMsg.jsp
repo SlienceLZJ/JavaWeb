@@ -16,7 +16,7 @@ DianMingInformation info=(DianMingInformation)request.getAttribute("info");
 
 
 <center>
-<form action="ModStoreMsg?tijiao=true" method="post" enctype="multipart/form-data">
+<form action="ModStoreMsg" method="post" enctype="multipart/form-data">
 	<table>					
 			<tr><td>
 				修改店名:
@@ -47,19 +47,20 @@ DianMingInformation info=(DianMingInformation)request.getAttribute("info");
 			<img width=50px height=50px src="<%=info.getPicture()%>"/>
 			</td>			
 			</tr>
+			
 			<tr>
 			<td>
 		 	更新店铺图片
 			</td>
 			<td>
-			<input type="file" name="newPic"/>	
+			<input type="file" name="picture"/>	
 			</td>			
 			</tr>
 			
 			<tr>					
 			<td colspan="2">
 			<center>
-			<input type="submit" name="picture" value="保存">
+			<input type="submit" value="保存">
 			</center>
 			</td>					
 			</tr>

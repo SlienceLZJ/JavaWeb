@@ -31,22 +31,31 @@ public class ModStoreMsg extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String tijiao=request.getParameter("tijiao");
+		String name=request.getParameter("name");
 		
-		
+		System.out.println("the name is :"+name);
 					//如果用户提交了保存的信息，则将表单的数据进行更新
-				if(tijiao!=null&&tijiao.equals("true")) {
-				String name=request.getParameter("name");
+				if(name!=null) {
+					
+				
 				String description=request.getParameter("description");
-				Part picture=request.getPart("picture");
+				//Part picture=request.getPart("picture");
+				System.out.println("name is :"+name);
+				/*
+				if(picture==null) {
+					System.out.println("picture is null");
+				}
+				else {
+					System.out.println("picture is not null");
+				}
+				
 				
 				String path=this.getServletContext().getRealPath("/")+"WebContent\\storePicture\\"+"001.jpg";					
 				//File f=new File(path);
 			    picture.write(path);
 						
 				System.out.println("文件目录为："+path);
-					
-					
+							*/			
 				}
 		
 		

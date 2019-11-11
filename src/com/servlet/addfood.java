@@ -71,6 +71,7 @@ public class addfood extends HttpServlet {
         String path = this.getServletContext().getRealPath("/");
         System.out.println(path);
         Part p = request.getPart("foodpicture");
+        System.out.println("part is null?"+p);
         System.out.println(p);
         String message="";
         if(p.getSize() >1024*1024*5){    // 上传的文件不能超过5MB大小
