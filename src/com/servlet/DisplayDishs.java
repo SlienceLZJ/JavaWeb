@@ -16,6 +16,7 @@ import javax.sql.DataSource;
 
 import com.dao.JDBCDao;
 import com.domain.DishsInformation;
+import com.domain.ShoppingCar;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.utils.JDBCUtil;
 
@@ -35,7 +36,7 @@ public class DisplayDishs extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sql="SELECT * FROM Dian;";
+		String sql="SELECT * FROM Dian";
 		String sql1="SELECT * FROM menu";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
@@ -43,7 +44,7 @@ public class DisplayDishs extends HttpServlet {
 		try {
 			JDBCDao jdbc=new JDBCDao();
 	        result=JDBCDao.getData(sql);
-			while(result.next()) {
+			while(result.next()){
 				DishsInformation dis=new DishsInformation();
 				String foodname=result.getNString("foodname");
 				String foodid=result.getNString("id");
@@ -52,6 +53,7 @@ public class DisplayDishs extends HttpServlet {
 				String foodtype=result.getNString("foodtype");
 				String foodpicture=result.getNString("foodpicture"); 
 				dis.setFoodname(foodname);
+				System.out.print(foodid);
 				dis.setFoodpicture(foodpicture);
 				dis.setFoodintroduction(foodintroduction);
 				dis.setFoodprice(foodprice);
@@ -79,8 +81,10 @@ public class DisplayDishs extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		 ShoppingCar shoppingcar=new ShoppingCar();
 		 request.getSession().setAttribute("dislist", dislist);
 		 request.getSession().setAttribute("menu", menu);
+ 		 request.getSession().setAttribute("shoppingcar",shoppingcar);
 		 response.sendRedirect("/JavaWeb/frame.jsp");
 		 
 	}

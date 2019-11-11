@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,com.domain.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,7 @@ span.bottom.right{width:30%}
        <div class="type1"><font size=5>${a.foodtype}</font></div>
       <c:forEach var="s" items="${dislist}"> 
        <c:if test="${s.foodtype==a.foodtype}">
-         <span class="dishs"><span class="dishs1" ><img class="img1"src="${s.foodpicture}" ></span><span><table><tr><td>${s.foodname}</td></tr></tr><tr><td>${s.foodintroduction}</td></tr><tr></tr><tr><td>￥:${s.foodprice}</td></tr></table><span><button type="button">加入购物车</button></span></span></span>
+         <span class="dishs"><span class="dishs1" ><img class="img1"src="${s.foodpicture}" ></span><span><table><tr><td>${s.foodname}</td></tr></tr><tr><td>${s.foodintroduction}</td></tr><tr></tr><tr><td>￥:${s.foodprice}</td></tr></table><span><form><input type="hidden" value="${s.foodname}"><input type="submit" value="加入购物车"></form></span></span></span>
        </c:if>
       </c:forEach>
       </div>
@@ -55,10 +56,10 @@ span.bottom.right{width:30%}
 <div class="shopcar">
 <div class="cartop"><font>购物车</font></div>
 <div class="carmain">
-x
+
 </div>
 <div class="carbottom">
-<form>
+<form >
 <span class="bottom.left">价格</span>
 <span class="bottom.right"><input type="submit" value="去结算"></input></span>
 </form>
