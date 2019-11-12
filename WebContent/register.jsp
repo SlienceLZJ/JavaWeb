@@ -32,7 +32,7 @@ else return true;
 <br>
 <br>
 <br>
-<%String msg=request.getParameter("msg");
+<%String msg=(String)request.getAttribute("msg");
 System.out.println("msg is null?"+(msg==null));
 if(msg!=null){
 	if(msg.equals("failed")){
@@ -67,7 +67,7 @@ if(msg!=null){
         <tr><td>输入密码:</td><td><input type="password" name="password">  </td></tr>
         <tr><td>再次输入密码:</td><td><input type="password" name="passwordAgain">  </td></tr>
         <tr><td><input type="radio" name="choice" value="cus" checked="checked"/>&nbsp;消费者</td><td><input type="radio" name="choice" value="sell"/>&nbsp;商家</td></tr>
-        <tr><td colspan="2"><center><input type="submit" value="注册"/> </center></td></tr>              
+        <tr><td colspan="2"><center><input type="submit" value="注册"/>  <a href="login.jsp">跳转到登录界面</a></center></td></tr>              
    </form>  
 </table>
 </center>
