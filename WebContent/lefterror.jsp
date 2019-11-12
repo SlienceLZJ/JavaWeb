@@ -17,7 +17,6 @@ div.menu{height:50px;width:50px;margin-top:5px}
 <a href="right.jsp#${s.foodtype }" target="right"><font size=4>${s.foodtype }</font></a>
 </div >
 </a:forEach>
-<a href="http://localhost:8080/JavaWeb/DisplayDishs" target="_top">全部商品</a> 
 </div>
 </body>
 </html>

@@ -8,8 +8,8 @@
 </head>
 <div>
 <frameset cols="10%,*" >
-  <frame noresize="noresize" src="left.jsp" name="left">
-  <frame noresize="noresize" src="right.jsp" name="right">
+  <frame noresize="noresize" src="lefterror.jsp" name="left">
+  <frame noresize="noresize" src="righterror.jsp" name="right">
  </framset>
  </div>
 <body> 
