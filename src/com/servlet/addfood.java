@@ -100,7 +100,7 @@ public class addfood extends HttpServlet {
     	     	request.setAttribute("result", "成功添加菜：    "+foodname);
     	     	System.out.println(fname);       
     	        path=path + "\\"+ fname;
-    	        System.out.println(path);
+    	        System.out.println("the path is :"+path);
     	        p.write(path);     // 将上传的文件写入磁盘
     	        path=path.replaceAll("\\\\", "\\\\\\\\");    
     	        message = "文件上传成功！";

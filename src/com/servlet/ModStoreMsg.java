@@ -21,7 +21,7 @@ import com.domain.DianMingInformation;
  * Servlet implementation class ModStoreMsg
  */
 @WebServlet("/ModStoreMsg")
-@MultipartConfig(location="C:\\我的文件",fileSizeThreshold=1024*5)
+@MultipartConfig(location="C:\\jspCache",fileSizeThreshold=1024*5)
 public class ModStoreMsg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,12 @@ public class ModStoreMsg extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
+       // response.setContentType("text/html;charset=UTF-8");
+		String sql;
+		String no="001";
 		
+		request.setCharacterEncoding("UTF-8");
 		
 		String name=request.getParameter("name");
 
@@ -42,37 +47,47 @@ public class ModStoreMsg extends HttpServlet {
 				if(name!=null) {	
 		
 				String description=request.getParameter("description");
-				Part picture=request.getPart("picture");
-				System.out.println("name is :"+name);
-			
-				String path=this.getServletContext().getRealPath("/")+"WebContent\\storePicture\\"+"001.jpg";
+				Part picture=request.getPart("picture");				
 				
-				 File f = new File(path);
-				 
+				String path=this.getServletContext().getRealPath("/")+"storePicture\\"+no+".jpg";
+				System.out.println("the path is "+path);
+				
+				 File f = new File(path);				 
 		          if( !f.exists()){  // 若目录不存在，则创建目录
 		        	  System.out.println("the file is not existed");
 		            f.mkdirs();
 		          }
 		          else {
 		        	  System.out.println("the file is existed");
-		          }
+		        	 f.setWritable(true);
+		          }		
 		          
-			    picture.write(path);
-					
+		    
+		          //当上传文件不为空的时候进行写入
+		          if(picture.getSize()!=0.0) {
+		        	    picture.write(path);
+		          }
+				  
+				    
+			    sql="update DianMing set name='"+name+"',description='"+description+"' where id='"+no+"'";
+			    JDBCDao.insertOrDeleteOrUpdate(sql);
+			    //开始执行更新操作
+			    System.out.println("the sql is :"+sql);
+			    request.setAttribute("update", "更新成功!");		    
+
 				}
+
 				
 	
-		
-		String sql;
 		DianMingInformation info=new DianMingInformation();	
-		sql="select * from DianMing where id='001'";	
+		sql="select * from DianMing where id='"+no+"'";	
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
 			System.out.println("have");
 			while(rs.next()) {
 				System.out.println("no have");
 			info.setName(rs.getString("name"));
-			info.setPicture(rs.getString("picture"));
+			info.setPicture("storePicture/"+no+".jpg");
 			info.setStoreId(rs.getString("id"));
 			info.setDescription(rs.getString("description"));
 			}

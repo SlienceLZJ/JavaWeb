@@ -38,7 +38,9 @@ public class DianMing extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
         response.setContentType("text/html;charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");			
+		request.setCharacterEncoding("UTF-8");	
+		
+		
 		HttpSession session=request.getSession(true);
 		String jiansuo=request.getParameter("jiansuo");
 		

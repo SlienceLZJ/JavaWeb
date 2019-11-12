@@ -36,7 +36,7 @@
 	
 			<tr><td>店铺图片:</td>			
 			<td>
-			<img width=50px height=50px src="${info.picture}"/>
+			<img width=50px height=50px src="${info.picture}" alt="当前店铺暂无图片"/>
 			</td>			
 			</tr>
 			
@@ -63,6 +63,7 @@
 	</table>
 		</form>
 
+${update}
 </center>
 
 
