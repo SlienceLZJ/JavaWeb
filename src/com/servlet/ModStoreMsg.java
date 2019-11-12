@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import com.domain.DianMingInformation;
  * Servlet implementation class ModStoreMsg
  */
 @WebServlet("/ModStoreMsg")
+@MultipartConfig(location="C:\\我的文件",fileSizeThreshold=1024*5)
 public class ModStoreMsg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -31,42 +33,35 @@ public class ModStoreMsg extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		String name=request.getParameter("name");
-		Part picture=request.getPart("picture");
-		System.out.println("the name is :"+name);
-		System.out.println("the part is null?"+(picture==null));
-		
-		
-		
+
+        System.out.println("name is null?+"+(name==null));
 		
 					//如果用户提交了保存的信息，则将表单的数据进行更新
-				if(name!=null) {
-					
-				
+				if(name!=null) {	
+		
 				String description=request.getParameter("description");
-				//Part picture=request.getPart("picture");
+				Part picture=request.getPart("picture");
 				System.out.println("name is :"+name);
-				/*
-				if(picture==null) {
-					System.out.println("picture is null");
-				}
-				else {
-					System.out.println("picture is not null");
-				}
+			
+				String path=this.getServletContext().getRealPath("/")+"WebContent\\storePicture\\"+"001.jpg";
 				
-				
-				String path=this.getServletContext().getRealPath("/")+"WebContent\\storePicture\\"+"001.jpg";					
-				//File f=new File(path);
+				 File f = new File(path);
+				 
+		          if( !f.exists()){  // 若目录不存在，则创建目录
+		        	  System.out.println("the file is not existed");
+		            f.mkdirs();
+		          }
+		          else {
+		        	  System.out.println("the file is existed");
+		          }
+		          
 			    picture.write(path);
-						
-				System.out.println("文件目录为："+path);
-							*/			
+					
 				}
-		
-		
-		
-		
-		
+				
+	
 		
 		String sql;
 		DianMingInformation info=new DianMingInformation();	

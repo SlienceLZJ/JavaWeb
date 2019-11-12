@@ -10,7 +10,12 @@
 <body>
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <center>
 <form action="ModStoreMsg" method="post" enctype="multipart/form-data">
 	<table>					
@@ -21,20 +26,17 @@
 			   <input type="text" name="name" value="${info.name}">
 			   </td>
 			</tr>
-			
-			
-				
-		
+
 			<tr>
 			<td>修改店铺描述:</td>
 			
-			<td><input type="text" name="description" value="${info }"></td></tr>
+			<td><input type="text" name="description" value="${info.description }"></td></tr>
 				
 	
 	
 			<tr><td>店铺图片:</td>			
 			<td>
-			
+			<img width=50px height=50px src="${info.picture}"/>
 			</td>			
 			</tr>
 			

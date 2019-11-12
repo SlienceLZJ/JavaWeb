@@ -41,34 +41,17 @@ public class DianMing extends HttpServlet {
 		HttpSession session=request.getSession(true);
 		String jiansuo=request.getParameter("jiansuo");
 		
-		
-		if(jiansuo!=null) {
-			 jiansuo=CommonUtil.hexStr2Str(jiansuo);
-		}
-		
-		
-		String sql;
-		
-		/*
-		//当用户输入检索词的时候
-		 if((jiansuo!=null)&&(!jiansuo.equals(""))) {
-			 
-			 jiansuo="%"+CommonUtil.hexStr2Str(jiansuo)+"%";
-			 
-		sql="select * from DianMing where name like '"+jiansuo+"';";	
-		System.out.println("sql 语句为:"+sql);
-		jiansuo = null;
-		 }else {//无检索词则检索所有店铺			 
-			 sql="select * from DianMing;";				
-		 }
-		 */
-		 
-		sql="select * from DianMing";	
-		
-		
-		
-		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
 	
+	
+		
+
+
+		
+		
+	String sql="select * from DianMing";	
+
+		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
+	System.out.println("sql is :"+sql);
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
 

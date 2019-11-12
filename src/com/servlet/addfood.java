@@ -17,7 +17,7 @@ import com.dao.*;
  * Servlet implementation class addfood
  */
 @WebServlet("/addfood")
-@MultipartConfig(location="D:\\",fileSizeThreshold=1024)
+@MultipartConfig(location="C:\\我的文件",fileSizeThreshold=1024)
 public class addfood extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 // 返回上传来的文件名
