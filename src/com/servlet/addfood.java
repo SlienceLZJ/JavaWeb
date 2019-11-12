@@ -42,7 +42,7 @@ public class addfood extends HttpServlet {
             fname = fname.substring(pos + 1);
         }     
         return fname;
-    }
+    }	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
