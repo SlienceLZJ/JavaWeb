@@ -9,10 +9,6 @@
 </head>
 <body>
 
-<%
-DianMingInformation info=(DianMingInformation)request.getAttribute("info");
-%>
-
 
 
 <center>
@@ -22,21 +18,23 @@ DianMingInformation info=(DianMingInformation)request.getAttribute("info");
 				修改店名:
 			   </td>
 			   <td>
-			   <input type="text" name="name" value="<%=info.getName()%>">
+			   <input type="text" name="name" value="${info.name}">
 			   </td>
 			</tr>
 			
 			
 				
-			</td>
+		
+			<tr>
+			<td>修改店铺描述:</td>
 			
-			<td><input type="text" name="description" value="<%=info.getDescription()%>"></td></tr>
+			<td><input type="text" name="description" value="${info }"></td></tr>
 				
 	
 	
 			<tr><td>店铺图片:</td>			
 			<td>
-			<img width=50px height=50px src="<%=info.getPicture()%>"/>
+			
 			</td>			
 			</tr>
 			

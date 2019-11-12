@@ -92,7 +92,18 @@ public class Login extends HttpServlet{
 		
 		try {
 			if(rs.next()) {//如果查到结果
-				response.sendRedirect("DianMing");
+				
+				
+				if(type.equals("cus")) {//如果是用户就跳到用户界面
+					response.sendRedirect("DianMing");
+				}
+				else {//如果是商家就跳到商家界面
+					request.setAttribute("id", no);					
+					RequestDispatcher rd=request.getRequestDispatcher("Dian.jsp");
+					rd.forward(request, response);
+					
+				}
+				
 			}
 			else {//如果没有查到结果
 				request.setAttribute("error", "用户名或密码错误,请重新输入！");

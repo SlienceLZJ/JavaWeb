@@ -68,13 +68,24 @@ public class Register extends HttpServlet{
 		
 		int result=JDBCDao.insertOrDeleteOrUpdate(sql);
 		System.out.println("the result is"+result );
-		if(result==0) {//如果等于0代表该账号已被注册		
+		if(result==0) {//如果等于0代表该账号已被注册														
 			System.out.println("the jsp result is failed-----");
 			request.setAttribute("msg", "failed");
 			RequestDispatcher rd=request.getRequestDispatcher("/register.jsp");
 			rd.forward(request, response);
 		}
 		else {//注册成功
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			System.out.println("the jsp result is success-----");
 			request.setAttribute("msg", "success");
 			RequestDispatcher rd=request.getRequestDispatcher("/register.jsp");
