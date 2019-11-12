@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +26,6 @@ public class Login extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	String no;
-	String pwd;
 	
 
 	
@@ -38,8 +37,12 @@ public class Login extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("request--->"+request.getRequestURL()+"===="+request.getParameterMap().toString());
-		no = request.getParameter("username"); // 获取客户端传过来的参数
-		pwd = request.getParameter("password");
+		String no = request.getParameter("username"); // 获取客户端传过来的参数
+		String pwd = request.getParameter("password");
+		String type=request.getParameter("choice");
+	
+		
+		
 		System.out.println(no+"   "+pwd);
 		Connection dbconn = null;
 		
@@ -64,42 +67,47 @@ public class Login extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String sql = "select * from user;";
+		String sql = "select * from user where no='"+no+"' and password='"+pwd+"' ";
+		
+		System.out.println("the sql is :"+sql);
+				
 		
 		
-		ResultSet rs = null;
+		ResultSet rs=null;
 		try {
-			rs = JDBCDao.getData(sql);
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			rs=JDBCDao.getData(sql);
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
+						
+		
+		System.out.println("result is null?"+(rs==null));
+
+		
+		try {
+			if(rs.next()) {//如果查到结果
+				response.sendRedirect("DianMing");
+			}
+			else {//如果没有查到结果
+				request.setAttribute("error", "用户名或密码错误,请重新输入！");
+				RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+				rd.forward(request, response);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
+		//关闭数据库连接
 		try {
 			dbconn.close();
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		if (rs != null) {
-			try {
-				while (rs.next()) { // 遍历结果集
-					if (rs.getString("no").equals(no)) {
-						if (rs.getString("password").equals(pwd)) {
-							response.sendRedirect("DianMing");
-							session.setAttribute("no", no);
-							break;
-						}
-					}
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-			//dbconn.close();
-		
-		PrintWriter out = response.getWriter();
-		out.println("<script>alert('用户名或密码错误~');  window.location='login.jsp'</script>");
+									
+	
 	}
 }
