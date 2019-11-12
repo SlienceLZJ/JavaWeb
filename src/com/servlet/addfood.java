@@ -49,6 +49,8 @@ public class addfood extends HttpServlet {
 		// TODO Auto-generated method stub
 		String id=new String(request.getParameter("id")
                 .getBytes("iso-8859-1"),"UTF-8");
+		System.out.println("the id is :"+id);
+		
 		String foodname=new String(request.getParameter("foodname")
                 .getBytes("iso-8859-1"),"UTF-8");
 		String foodpicture=null;

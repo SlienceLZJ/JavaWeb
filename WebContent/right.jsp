@@ -39,7 +39,20 @@ span.bottom.right{width:30%}
        <div class="type1"><font size=5>${a.foodtype}</font></div>
       <c:forEach var="s" items="${dislist}"> 
        <c:if test="${s.foodtype==a.foodtype}">
-         <span class="dishs"><span class="dishs1" ><img class="img1"src="${s.foodpicture}" ></span><span><table><tr><td>${s.foodname}</td></tr></tr><tr><td>${s.foodintroduction}</td></tr><tr></tr><tr><td>￥:${s.foodprice}</td></tr></table><span><form><input type="hidden" value="${s.foodname}"><input type="submit" value="加入购物车"></form></span></span></span>
+         <span class="dishs"><span class="dishs1" ><img class="img1"src="${s.foodpicture}" ></span>
+         <span>
+          <table>
+           <tr>
+            <td>${s.foodname}</td>
+          </tr>
+          <tr>
+            <td>${s.foodintroduction}</td>
+          </tr>
+         <tr></tr>
+         <tr>
+           <td>￥:${s.foodprice}</td>
+        </tr>
+        </table><span><form action="AddDishs" ><input type="hidden" value="${s.foodname}"><input type="submit" value="加入购物车"></form></span></span></span>
        </c:if>
       </c:forEach>
       </div>
@@ -56,7 +69,13 @@ span.bottom.right{width:30%}
 <div class="shopcar">
 <div class="cartop"><font>购物车</font></div>
 <div class="carmain">
-
+<%ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
+ArrayList<GoodsItem> goodsitem=new ArrayList<GoodsItem>(shoppingcar.getItems());%>
+<c:if test="${goodsitem[0]}!=null" >
+<c:forEach var="z" items="${goodsitem}">
+${s.foodname}
+</c:forEach>
+</c:if>
 </div>
 <div class="carbottom">
 <form >

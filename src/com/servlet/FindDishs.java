@@ -27,24 +27,24 @@ public class FindDishs extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		JDBCDao jd=new JDBCDao();
 		String name=request.getParameter("foodname");
 		String id=request.getParameter("id");
-		String sql="SELECT * FROM Dian";
-		String sql1="SELECT * FROM menu";
+		System.out.print(id);
+		String sql="SELECT * FROM Dian WHERE id='"+id+"'";
+		
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
 		try {
-			ResultSet result=jd.getData(sql);
+			ResultSet result=JDBCDao.getData(sql);
 			while(result.next()) {
 				DishsInformation dis=new DishsInformation();
-				String foodname=result.getNString("foodname");
+				String foodname=result.getString("foodname");
 				if(foodname.contains(name)) {
-				String foodid=result.getNString("id");
-				String foodintroduction=result.getNString("foodintroduction");
+				String foodid=result.getString("id");
+				String foodintroduction=result.getString("foodintroduction");
 				Float foodprice=result.getFloat("foodprice");
-				String foodtype=result.getNString("foodtype");
-				String foodpicture=result.getNString("foodpicture"); 
+				String foodtype=result.getString("foodtype");
+				String foodpicture=result.getString("foodpicture"); 
 				System.out.print(foodname);
 				dis.setFoodname(foodname);
 				dis.setFoodpicture(foodpicture);
@@ -57,7 +57,7 @@ public class FindDishs extends HttpServlet {
 			    }
 			}
 			    result.close();
-			    jd.closeConnecttion();
+			    JDBCDao.closeConnecttion();
 			 request.getSession().setAttribute("dislist", dislist);
 			 response.sendRedirect("/JavaWeb/right.jsp");
 		} catch (SQLException e) {

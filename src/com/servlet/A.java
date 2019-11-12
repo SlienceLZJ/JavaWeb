@@ -1,8 +1,6 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,22 +10,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
 import com.dao.JDBCDao;
 import com.domain.DishsInformation;
 import com.domain.ShoppingCar;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import com.utils.JDBCUtil;
 
-@WebServlet("/DisplayDishs")
-public class DisplayDishs extends HttpServlet {
+/**
+ * Servlet implementation class A
+ */
+@WebServlet("/A")
+public class A extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    JDBCDao jdbcdao;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayDishs() {
+    public A() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,8 +33,11 @@ public class DisplayDishs extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sql="SELECT * FROM Dian";
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
+        response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");		
+		String sql="SELECT * FROM DianMing";
 		String sql1="SELECT * FROM menu";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
@@ -46,13 +47,14 @@ public class DisplayDishs extends HttpServlet {
 	        result=JDBCDao.getData(sql);
 			while(result.next()){
 				DishsInformation dis=new DishsInformation();
-				String foodname=result.getString("foodname");
-				String foodid=result.getString("id");
-				String foodintroduction=result.getString("foodintroduction");
+				String foodname=result.getNString("name");
+				String foodid=result.getNString("id");
+				String foodintroduction=result.getNString("foodintroduction");
 				Float foodprice=result.getFloat("foodprice");
-				String foodtype=result.getString("foodtype");
-				String foodpicture=result.getString("foodpicture"); 
+				String foodtype=result.getNString("foodtype");
+				String foodpicture=result.getNString("foodpicture"); 
 				dis.setFoodname(foodname);
+				System.out.print(foodid);
 				dis.setFoodpicture(foodpicture);
 				dis.setFoodintroduction(foodintroduction);
 				dis.setFoodprice(foodprice); 
@@ -70,7 +72,7 @@ public class DisplayDishs extends HttpServlet {
 			result=JDBCDao.getData(sql1);
 			while(result.next()) {
 			DishsInformation dis=new DishsInformation();
-			String foodtype=result.getString("foodtype");
+			String foodtype=result.getNString("foodtype");
 			dis.setFoodtype(foodtype);
 			menu.add(dis);
 			}
@@ -87,6 +89,7 @@ public class DisplayDishs extends HttpServlet {
 		 response.sendRedirect("/JavaWeb/frame.jsp");
 		 
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

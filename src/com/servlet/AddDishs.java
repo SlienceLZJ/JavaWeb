@@ -26,7 +26,8 @@ public class AddDishs extends HttpServlet {
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String foodname=null;
+		try{
+			String foodname=null;
 		int quantity=0;
 	    foodname=request.getParameter("addcar");
 	    DishsInformation dishs=getDishsinformation(request,response,foodname);
@@ -39,8 +40,12 @@ public class AddDishs extends HttpServlet {
 	    		session.setAttribute("shoppingcar",shoppingcar);
 	    	}
 	    	shoppingcar.add(goodsitem);
+	    	response.sendRedirect("right.jsp");
 	    }
-	    response.sendRedirect("right.jsp");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	    
 	}
 	private DishsInformation getDishsinformation(HttpServletRequest request, HttpServletResponse response,String foodname) {
 		HttpSession session=request.getSession();
