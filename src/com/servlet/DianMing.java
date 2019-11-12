@@ -20,6 +20,7 @@ import com.domain.DianMingInformation;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.sun.javafx.reflect.MethodUtil;
 
+
 /**
  * Servlet implementation class DianMing
  */
@@ -40,12 +41,6 @@ public class DianMing extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");			
 		HttpSession session=request.getSession(true);
 		String jiansuo=request.getParameter("jiansuo");
-		
-	
-	
-		
-
-
 		
 		
 	String sql="select * from DianMing";	
