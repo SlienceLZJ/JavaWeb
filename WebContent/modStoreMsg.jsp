@@ -27,15 +27,7 @@ DianMingInformation info=(DianMingInformation)request.getAttribute("info");
 			</tr>
 			
 			
-			
-			
-			<tr><td><% if((info.getDescription()).equals("")){
-				out.println("添加店铺描述:");
-				}
-			else{
-				out.println("修改店铺描述:");
-				}
-			%>
+				
 			</td>
 			
 			<td><input type="text" name="description" value="<%=info.getDescription()%>"></td></tr>

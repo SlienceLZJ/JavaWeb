@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +42,7 @@ public class Login extends HttpServlet{
 		String pwd = request.getParameter("password");
 		String type=request.getParameter("choice");
 	
-		
+		System.out.println("the no is null?"+(no==null));
 		
 		System.out.println(no+"   "+pwd);
 		Connection dbconn = null;
@@ -67,6 +68,11 @@ public class Login extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
+		
 		String sql = "select * from user where no='"+no+"' and password='"+pwd+"' ";
 		
 		System.out.println("the sql is :"+sql);
@@ -98,8 +104,7 @@ public class Login extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	
+			
 		//关闭数据库连接
 		try {
 			dbconn.close();

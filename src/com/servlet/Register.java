@@ -6,6 +6,7 @@ import java.sql.Connection;
 
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,12 +26,7 @@ public class Register extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	String no;
-	String pwd;
-	String name;
-	String type = "u";
-	String repass;
-	
+
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -43,22 +39,11 @@ public class Register extends HttpServlet{
 		response.setContentType("text/html;charset=utf-8");
 		System.out.println("request--->"+request.getRequestURL()+"===="+request.getParameterMap().toString());
 		PrintWriter out = response.getWriter();
-		no = request.getParameter("no"); // 获取客户端传过来的参数
-		pwd = request.getParameter("password");
-		name = request.getParameter("name");
-		repass = request.getParameter("repass");
-		System.out.println(no+"   "+pwd);
+		String username = request.getParameter("username"); // 获取客户端传过来的参数
+		String password = request.getParameter("password");
+		String type=request.getParameter("choice");
 		Connection dbconn = null;
 		
-		
-		
-		if (no == null || no.equals("") || pwd == null || pwd.equals("") || name == null || name.equals("")) {
-			System.out.println("参数为空");
-			return;
-		}
-		if(!pwd.equals(repass)) {
-			out.println("<script>alert('两次密码不一致~');  window.location='register.jsp'</script>");
-		}
 		
 		// 打开数据库连接
 		DataSource dataSource = null;
@@ -74,7 +59,55 @@ public class Register extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String sql = "insert into user (no,name,password,type) values ('"+no+"','"+name+"','"+pwd+"','"+type+"');";
+		/*---------------------访问数据库↓--------------------*/
+		
+		
+		String sql="insert into user (no,password,type) values ('"+username+"','"+password+"','"+type+"')";
+		
+		System.out.println("the sql is "+sql);
+		
+		int result=JDBCDao.insertOrDeleteOrUpdate(sql);
+		System.out.println("the result is"+result );
+		if(result==0) {//如果等于0代表该账号已被注册		
+			System.out.println("the jsp result is failed-----");
+			request.setAttribute("msg", "failed");
+			RequestDispatcher rd=request.getRequestDispatcher("/register.jsp");
+			rd.forward(request, response);
+		}
+		else {//注册成功
+			System.out.println("the jsp result is success-----");
+			request.setAttribute("msg", "success");
+			RequestDispatcher rd=request.getRequestDispatcher("/register.jsp");
+			rd.forward(request, response);			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*---------------------访问数据库↑--------------------*/
+		//关闭数据库连接
+				try {
+					dbconn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+		
+		
+		
+		
+		
 		
 		
 		

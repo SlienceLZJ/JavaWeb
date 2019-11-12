@@ -32,8 +32,13 @@ public class ModStoreMsg extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String name=request.getParameter("name");
-		
+		Part picture=request.getPart("picture");
 		System.out.println("the name is :"+name);
+		System.out.println("the part is null?"+(picture==null));
+		
+		
+		
+		
 					//如果用户提交了保存的信息，则将表单的数据进行更新
 				if(name!=null) {
 					
