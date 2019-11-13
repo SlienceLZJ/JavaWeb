@@ -17,10 +17,10 @@
 <br>
 <br>
 <center>
-<form action="ModStoreMsg" method="post" enctype="multipart/form-data">
+<form action="UserAddrInfor?type=biaodan" method="post">
 	<table>					
 			<tr><td>
-				修改店名:
+				修改收货人名称:
 			   </td>
 			   <td>
 			   <input type="text" name="name" value="${info.name}">
@@ -28,27 +28,13 @@
 			</tr>
 
 			<tr>
-			<td>修改店铺描述:</td>
+			<td>修改收货人号码:</td>			
+			<td><input type="text" name="phone" value="${info.phone}"></td></tr>
 			
-			<td><input type="text" name="description" value="${info.description }"></td></tr>
-				
-	
-	
-			<tr><td>店铺图片:</td>			
-			<td>
-			<img width=50px height=50px src="${info.picture}" alt="当前店铺暂无图片"/>
-			</td>			
-			</tr>
-			
-			<tr>
-			<td>
-		 	更新店铺图片
-			</td>
-			<td>
-			<input type="file" name="picture"/>	
-			</td>			
-			</tr>
-			
+						<tr>
+			<td>修改收货人地址:</td>			
+			<td><input type="text" name="address" value="${info.address}"></td></tr>
+											
 			<tr>					
 			<td colspan="2">
 			<center>
@@ -56,14 +42,12 @@
 			</center>
 			</td>					
 			</tr>
-			
 				
-	
-		
 	</table>
 		</form>
 
-${update}
+${msg}
+
 </center>
 
 

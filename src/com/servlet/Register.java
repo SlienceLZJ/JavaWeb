@@ -62,7 +62,7 @@ public class Register extends HttpServlet{
 		/*---------------------访问数据库↓--------------------*/
 		
 		
-		String sql="insert into user (no,password,type) values ('"+username+"','"+password+"','"+type+"')";
+		String sql="insert into user (no,password,type,name,phone,address) values ('"+username+"','"+password+"','"+type+"','暂无','暂无','暂无')";
 		
 		System.out.println("the sql is "+sql);
 		

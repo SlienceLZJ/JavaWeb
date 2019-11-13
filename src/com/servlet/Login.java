@@ -96,11 +96,16 @@ public class Login extends HttpServlet{
 			if(rs.next()) {//如果查到结果
 				
 				
+
 				a.setNo(rs.getString("no"));
 				a.setPassword(rs.getString("password"));
 				a.setType(rs.getString("type"));
 				
 				if(a.getType().equals("cus")) {//如果是用户就跳到用户界面
+
+				
+					
+
 					response.sendRedirect("DianMing");
 				}
 				else {//如果是商家就跳到商家界面

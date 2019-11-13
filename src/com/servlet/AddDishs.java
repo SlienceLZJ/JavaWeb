@@ -23,13 +23,16 @@ public class AddDishs extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.sendRedirect("frame.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try{
-			String foodname=null;
+		response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
+        response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");			
+	    String foodname=null;
 		int quantity=0;
 	    foodname=request.getParameter("addcar");
+	    System.out.print(foodname);
 	    DishsInformation dishs=getDishsinformation(request,response,foodname);
 	    if(dishs!=null) {
 	    	GoodsItem goodsitem=new GoodsItem(dishs);
@@ -37,22 +40,22 @@ public class AddDishs extends HttpServlet {
 	    	ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
 	    	if(shoppingcar==null) {
 	    		shoppingcar=new ShoppingCar();
-	    		session.setAttribute("shoppingcar",shoppingcar);
 	    	}
 	    	shoppingcar.add(goodsitem);
-	    	response.sendRedirect("right.jsp");
+	    	session.setAttribute("shoppingcar",shoppingcar);
 	    }
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	    
+	    response.sendRedirect("right.jsp");
 	}
 	private DishsInformation getDishsinformation(HttpServletRequest request, HttpServletResponse response,String foodname) {
 		HttpSession session=request.getSession();
 		ArrayList<DishsInformation> dislist=(ArrayList<DishsInformation>) session.getAttribute("dislist");
 		for(DishsInformation dishs: dislist) {
-			if(dishs.getFoodname()==foodname) {
+			if(dishs.getFoodname().equals(foodname)) {
+				System.out.print(foodname+"123");
 				return dishs;
+			}
+			else {
+				System.out.print("找不到！");
 			}
 		}
 		return null;

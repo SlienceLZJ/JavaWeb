@@ -17,7 +17,7 @@ import com.dao.*;
  * Servlet implementation class addfood
  */
 @WebServlet("/addfood")
-@MultipartConfig(location="D:\\",fileSizeThreshold=1024)
+@MultipartConfig(location="C:\\jspCache",fileSizeThreshold=1024)
 public class addfood extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 // 返回上传来的文件名
@@ -102,8 +102,10 @@ public class addfood extends HttpServlet {
     			else {
     	     	request.setAttribute("result", "成功添加菜：    "+foodname);
     	     	System.out.println(fname);       
+
     	        path=path + "\\"+sj+ fname;
     	        System.out.println(path);
+
     	        p.write(path);     // 将上传的文件写入磁盘
     	        path=path.replaceAll("\\\\", "\\\\\\\\");    
     	        message = "文件上传成功！";
