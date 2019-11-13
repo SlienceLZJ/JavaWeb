@@ -37,8 +37,7 @@ public class ModStoreMsg extends HttpServlet {
 		String sql;
 		String no="001";
 		
-		request.setCharacterEncoding("UTF-8");
-		
+		request.setCharacterEncoding("UTF-8");		
 		String name=request.getParameter("name");
 
         System.out.println("name is null?+"+(name==null));
@@ -47,12 +46,14 @@ public class ModStoreMsg extends HttpServlet {
 				if(name!=null) {	
 		
 				String description=request.getParameter("description");
-				Part picture=request.getPart("picture");				
-				
+				Part picture=request.getPart("picture");	
+				Part payCode=request.getPart("payCode");				
 				String path=this.getServletContext().getRealPath("/")+"storePicture\\"+no+".jpg";
+				String payPath=this.getServletContext().getRealPath("/")+"storePayCode\\"+no+".jpg";
 				System.out.println("the path is "+path);
 				
-				 File f = new File(path);				 
+				 File f = new File(path);
+				 File fPay=new File(payPath);
 		          if( !f.exists()){  // 若目录不存在，则创建目录
 		        	  System.out.println("the file is not existed");
 		            f.mkdirs();
@@ -62,12 +63,24 @@ public class ModStoreMsg extends HttpServlet {
 		        	 f.setWritable(true);
 		          }		
 		          
+		          if( !fPay.exists()){  // 若目录不存在，则创建目录
+		        	  //System.out.println("the file is not existed");
+		            fPay.mkdirs();
+		          }
+		          else {
+		        	  //System.out.println("the file is existed");
+		        	 fPay.setWritable(true);
+		          }		
+		          
 		    
 		          //当上传文件不为空的时候进行写入
 		          if(picture.getSize()!=0.0) {
 		        	    picture.write(path);
 		          }
-				  
+				  if(payCode.getSize()!=0.0) {
+					  payCode.write(payPath);
+				  }
+		          		          
 				    
 			    sql="update DianMing set name='"+name+"',description='"+description+"' where id='"+no+"'";
 			    JDBCDao.insertOrDeleteOrUpdate(sql);
@@ -76,8 +89,7 @@ public class ModStoreMsg extends HttpServlet {
 			    request.setAttribute("update", "更新成功!");		    
 
 				}
-
-				
+	
 	
 		DianMingInformation info=new DianMingInformation();	
 		sql="select * from DianMing where id='"+no+"'";	
@@ -90,6 +102,7 @@ public class ModStoreMsg extends HttpServlet {
 			info.setPicture("storePicture/"+no+".jpg");
 			info.setStoreId(rs.getString("id"));
 			info.setDescription(rs.getString("description"));
+			info.setPayPicture("storePayCode/"+no+".jpg");
 			}
 						
 	} catch (SQLException e) {

@@ -8,11 +8,6 @@
 <title>修改店铺信息</title>
 </head>
 <body>
-
-
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -48,6 +43,22 @@
 			<input type="file" name="picture"/>	
 			</td>			
 			</tr>
+			
+			<tr><td>店铺收款码:</td>			
+			<td>
+			<img width=50px height=50px src="${info.payPicture}" alt="当前店铺暂无收款码"/>
+			</td>			
+			</tr>
+			
+			<tr>
+			<td>
+		 	更新店铺收款码
+			</td>
+			<td>
+			<input type="file" name="payCode"/>	
+			</td>			
+			</tr>
+			
 			
 			<tr>					
 			<td colspan="2">
