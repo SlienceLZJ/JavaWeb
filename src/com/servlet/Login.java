@@ -19,6 +19,7 @@ import javax.sql.DataSource;
 import com.dao.JDBCDao;
 //import com.mchange.v2.c3p0.impl.DbAuth;
 import com.utils.JDBCUtil;
+import com.domain.*;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet{
@@ -45,8 +46,7 @@ public class Login extends HttpServlet{
 		System.out.println("the no is null?"+(no==null));
 		
 		System.out.println(no+"   "+pwd);
-		Connection dbconn = null;
-		
+		Connection dbconn = null;		
 		response.setContentType("text/html;charset=utf-8");
 		HttpSession session = request.getSession(true);
 		if (no == null || no.equals("") || pwd == null || pwd.equals("")) {
@@ -91,23 +91,27 @@ public class Login extends HttpServlet{
 
 		
 		try {
+			user a=new user();
+			
 			if(rs.next()) {//如果查到结果
 				
 				
-				if(type.equals("cus")) {//如果是用户就跳到用户界面
+
+				a.setNo(rs.getString("no"));
+				a.setPassword(rs.getString("password"));
+				a.setType(rs.getString("type"));
+				
+				if(a.getType().equals("cus")) {//如果是用户就跳到用户界面
+
+				
 					
-					
-					
-					
-					
-					
-					
-					
+
 					response.sendRedirect("DianMing");
 				}
 				else {//如果是商家就跳到商家界面
-					request.setAttribute("id", no);					
-					RequestDispatcher rd=request.getRequestDispatcher("Dian.jsp");
+					
+					request.setAttribute("id", no);
+					RequestDispatcher rd=request.getRequestDispatcher("Dian");
 					rd.forward(request, response);
 					
 				}

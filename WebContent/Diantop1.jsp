@@ -11,8 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-   
-      <img src="${d.getPicture()}" height="145" width="150" >
-
+<p> 您的店铺名为：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${d.getName()}</p><br>
+<p>  您的店铺简介为${d.getDescription()}
+</p>
 </body>
 </html>

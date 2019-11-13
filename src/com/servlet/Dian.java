@@ -1,33 +1,32 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
-
-import com.dao.JDBCDao;
+import com.domain.DianMingInformation;
 import com.domain.DishsInformation;
 import com.domain.ShoppingCar;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import com.utils.JDBCUtil;
+import com.dao.*;
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import java.sql.*;
+import java.util.ArrayList;
 
-@WebServlet("/DisplayDishs")
-public class DisplayDishs extends HttpServlet {
+/**
+ * Servlet implementation class Dian
+ */
+@WebServlet("/Dian")
+public class Dian extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    JDBCDao jdbcdao;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayDishs() {
+    public Dian() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,8 +35,10 @@ public class DisplayDishs extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sql="SELECT * FROM Dian";
-		String sql1="SELECT * FROM menu";
+		  
+		String id=(String)request.getAttribute("id");
+		String sql="SELECT * FROM Dian where id='"+id+"'";
+		String sql1="SELECT * FROM menu where id='"+id+"'";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
 		ResultSet result;
@@ -80,13 +81,51 @@ public class DisplayDishs extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 request.getSession().setAttribute("dislist", dislist);
-		 request.getSession().setAttribute("menu", menu);
-		 ShoppingCar shopcar=new ShoppingCar();
-		 request.getSession().setAttribute("shoppingcar",shopcar);
-		 response.sendRedirect("/JavaWeb/frame.jsp");
-		 
+		 //ShoppingCar shoppingcar=new ShoppingCar();
+		 request.getSession().setAttribute("dislist1", dislist);
+		 request.getSession().setAttribute("menu1", menu);
+		 request.getSession().setAttribute("id", id);
+ 		 //request.getSession().setAttribute("shoppingcar",shoppingcar);
+		
+		
+		
+		
+		
+		
+		  
+		
+		
+		
+		
+		
+		
+		  
+
+	    DianMingInformation d = new DianMingInformation();
+	    System.out.println(id);
+	    String sql2="select * from DianMing where id='"+id+"'";
+	    System.out.println(sql2);
+	    ResultSet rs;
+		try{ 
+		  rs = JDBCDao.getData(sql2);	  
+	      //System.out.println(rs.next());
+	      if(rs.next()){
+	       	  System.out.println(d.getName());    		  
+	    	  d.setPicture(rs.getString("picture"));
+	    	  d.setName(rs.getString("name"));
+	    	  d.setDescription(rs.getString("description"));
+	    	  System.out.println("picture url is ="+d.getPicture());
+	    	  request.setAttribute("d", d);
+	    	  
+	      }
+	      JDBCDao.closeConnecttion();
+	     }catch(Exception e){
+	      e.printStackTrace();
+	     }
+		 RequestDispatcher rd=request.getRequestDispatcher("Dian.jsp");
+		rd.forward(request, response);
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -50,6 +50,9 @@ public class addfood extends HttpServlet {
 		// TODO Auto-generated method stub
 		String id=new String(request.getParameter("id")
                 .getBytes("iso-8859-1"),"UTF-8");	
+		   System.out.println("java    "+id);
+		   java.util.Random r = new java.util.Random();
+            int sj=  r.nextInt();
 		String foodname=new String(request.getParameter("foodname")
                 .getBytes("iso-8859-1"),"UTF-8");
 		String foodpicture=null;
@@ -84,7 +87,7 @@ public class addfood extends HttpServlet {
           if( !f.exists()){  // 若目录不存在，则创建目录
             f.mkdirs();
           }
-            String A="img2\\"+ id+ "\\"+ fname;
+            String A="img2\\"+ id+ "\\"+ sj+fname ;
             A=A.replaceAll("\\\\", "\\\\\\\\");
             System.out.println(A);
             String sql ="INSERT INTO Dian VALUES ('"+id+"','"+foodname+"','"+A+"','"+foodprice+"','"+foodIntroduction+"','"+foodtype+"')";
@@ -99,8 +102,10 @@ public class addfood extends HttpServlet {
     			else {
     	     	request.setAttribute("result", "成功添加菜：    "+foodname);
     	     	System.out.println(fname);       
-    	        path=path + "\\"+ fname;
-    	        System.out.println("the path is :"+path);
+
+    	        path=path + "\\"+sj+ fname;
+    	        System.out.println(path);
+
     	        p.write(path);     // 将上传的文件写入磁盘
     	        path=path.replaceAll("\\\\", "\\\\\\\\");    
     	        message = "文件上传成功！";

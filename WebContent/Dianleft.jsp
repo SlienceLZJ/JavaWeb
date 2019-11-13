@@ -1,15 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="a" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>菜单</title>
+<style type="text/css">
+div.menu{height:50px;width:50px;margin-top:5px}
+</style>
 </head>
 <body>
-Dianleft
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-sasa
+<div style="float:right">
+<a:forEach var="s" items="${menu1}"> 
+<div class="menu" >
+<a href="Dianright.jsp#${s.foodtype}" target="Dianright"><font size=4>${s.foodtype }</font></a>
+</div >
+</a:forEach>
+</div>
 </body>
 </html>
