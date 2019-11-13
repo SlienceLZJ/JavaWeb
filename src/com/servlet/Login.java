@@ -95,6 +95,14 @@ public class Login extends HttpServlet{
 				
 				
 				if(type.equals("cus")) {//如果是用户就跳到用户界面
+					
+					
+					
+					
+					
+					
+					
+					
 					response.sendRedirect("DianMing");
 				}
 				else {//如果是商家就跳到商家界面
