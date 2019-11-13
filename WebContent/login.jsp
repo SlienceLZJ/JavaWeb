@@ -1,9 +1,5 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> branch 'master' of https://github.com/SlienceLZJ/JavaWeb.git
 <!DOCTYPE html>
 <html>
 <head>

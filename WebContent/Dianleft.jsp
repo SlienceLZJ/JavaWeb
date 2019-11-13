@@ -11,7 +11,7 @@ div.menu{height:50px;width:50px;margin-top:5px}
 </style>
 </head>
 <body>
-<div style="float:right">
+<div style="float:right;position:fixed">
 <a:forEach var="s" items="${menu1}"> 
 <div class="menu" >
 <a href="Dianright.jsp#${s.foodtype}" target="Dianright"><font size=4>${s.foodtype }</font></a>
