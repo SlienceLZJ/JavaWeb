@@ -11,8 +11,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-   
-      <img src="${d.getPicture()}" height="145" width="150" >
+<center>
+修改店铺信息<br>
+查看订单<br>
+
+</center>
 
 </body>
 </html>
