@@ -16,13 +16,19 @@
 <h2 class="title">菜品添加</h2>
 <form action = "addfood" enctype="multipart/form-data"  method = "post">
 <table>
-<tr><td>id</td><td><input type="text" name="id"></td></tr>
+<% 
+   String id= request.getParameter("id");
+   System.out.println("addfood id "+id);
+   %>
+<tr><td><input type="hidden" value="<%=id%>"  name="id"></td></tr>
 <tr><td>菜名</td><td><input type="text" name="foodname"></td></tr>
 <tr><td>菜品图片</td><td><input type="file" name="foodpicture" multiple= "multiple" ></td></tr>
 <tr><td>菜品价格</td><td><input type="text" name="foodprice"></td></tr>
 <tr><td>菜品类别</td>
 <td><select size="1" name="foodtype">
-<% String sql="select foodtype,id from menu";
+
+<% 
+   String sql="select foodtype,id from menu where id='"+id+"'";
 List<menu> list=new ArrayList<menu>();
 try {
 	ResultSet rs=JDBCDao.getData(sql);
