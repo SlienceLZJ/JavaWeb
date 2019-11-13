@@ -80,10 +80,10 @@ public class DisplayDishs extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 ShoppingCar shoppingcar=new ShoppingCar();
 		 request.getSession().setAttribute("dislist", dislist);
 		 request.getSession().setAttribute("menu", menu);
- 		 request.getSession().setAttribute("shoppingcar",shoppingcar);
+		 ShoppingCar shopcar=new ShoppingCar();
+		 request.getSession().setAttribute("shoppingcar",shopcar);
 		 response.sendRedirect("/JavaWeb/frame.jsp");
 		 
 	}

@@ -30,7 +30,7 @@ public class FindDishs extends HttpServlet {
 		String name=request.getParameter("foodname");
 		String id=request.getParameter("id");
 		System.out.print(id);
-		String sql="SELECT * FROM Dian WHERE id='"+id+"'";
+		String sql="SELECT * FROM Dian WHERE id='"+id+"' AND foodname like'%"+name+"%'";
 		
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
@@ -39,7 +39,7 @@ public class FindDishs extends HttpServlet {
 			while(result.next()) {
 				DishsInformation dis=new DishsInformation();
 				String foodname=result.getString("foodname");
-				if(foodname.contains(name)) {
+			
 				String foodid=result.getString("id");
 				String foodintroduction=result.getString("foodintroduction");
 				Float foodprice=result.getFloat("foodprice");
@@ -54,12 +54,14 @@ public class FindDishs extends HttpServlet {
 				dis.setFoodtype(foodtype);
 			    dislist.add(dis);
 			    menu.add(dis);
-			    }
+			    
 			}
 			    result.close();
 			    JDBCDao.closeConnecttion();
 			 request.getSession().setAttribute("dislist", dislist);
-			 response.sendRedirect("/JavaWeb/right.jsp");
+			 ShoppingCar shopcar=new ShoppingCar();
+			 request.getSession().setAttribute("shoppingcar",shopcar);
+			 response.sendRedirect("/JavaWeb/left.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

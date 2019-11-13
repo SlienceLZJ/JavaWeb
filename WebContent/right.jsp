@@ -10,25 +10,27 @@
 <style type="text/css">
 span.dishs{float:left;display:block;background-color:white;width:400px; height:100px ;margin-top:2px;margin-left:10px;border:0.5px solid black;}
 img.img1{vertical-align:top ; width:100px;height:100px;}
-span.dishs1{float:left}
-div.type{width:830px;height:150px;}
-div.type1{width:820px;height:30px;margin-left:10px;}
+span.dishs1{float:left;}
+div.type{width:830px;height:300px;}
+div.type1{width:820px;height:30px;margin-left:10px;margin-top:10px;margin-botton:10px}
+div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;margin-left:10px;}
 div.daohang{height:250px}
 div.main{background-color:gray;width:1200px;}
 div.Menu{height:800px;width:100px;text-align:right;}
 div.a{width:830px;float:left;background-color:green}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
-div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow}
-div.carmain{width:300px;height:30px;background-color:white}
-div.carbottom{width:300px;height:50px;background-color:blue;}
-span.bottom.left{width:70%}
-span.bottom.right{width:30%}
+div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow;width:300px}
+div.carmain{background-color:white;width:300px;background-color:white;}
+div.carbottom{width:300px;height:50px;background-color:blue;line-height:50px;}
+div.bottomleft{width:200px;float:left;height:50px}
+div.bottomright{width:100px;float:right;height:50px}
+div.foodname{width:50px;float:left}
+div.foodquantity{width:200px;float:left}
+div.foodtotalprice{width:50px;float:left}
+div.carmains{width:300px;height:30px;background-color:white;}
+div.ab{width:300px;height:10px;background-color:white;}
 </style>
-<script type="text/JavaScript">
-  function Addcar(String){
-  }
-</script>
 </head>
 <body>
 <div >
@@ -37,8 +39,10 @@ span.bottom.right{width:30%}
     <c:forEach var="a" items="${menu}">
       <div class="type"><a name="${a.foodtype }"></a>
        <div class="type1"><font size=5>${a.foodtype}</font></div>
+       <%int i=0;%>
       <c:forEach var="s" items="${dislist}"> 
        <c:if test="${s.foodtype==a.foodtype}">
+       <%i++;%>
          <span class="dishs"><span class="dishs1" ><img class="img1"src="${s.foodpicture}" ></span>
          <span>
           <table>
@@ -52,9 +56,20 @@ span.bottom.right{width:30%}
          <tr>
            <td>￥:${s.foodprice}</td>
         </tr>
-        </table><span><form action="AddDishs" ><input type="hidden" value="${s.foodname}"><input type="submit" value="加入购物车"></form></span></span></span>
+        </table>
+        <span>
+        <form action="AddDishs" method="post">
+          <input type="hidden" name="addcar" value="${s.foodname}">
+          <input type="submit" value="加入购物车">
+        </form>
+        </span>
+        </span>
+        </span>
        </c:if>
       </c:forEach>
+      <%if(i%2!=0){%>
+      <div class="tibu"></div>
+      <%} %>
       </div>
     </c:forEach>
 </div>
@@ -67,23 +82,29 @@ span.bottom.right{width:30%}
 </form>
 </div>
 <div class="shopcar">
-<div class="cartop"><font>购物车</font></div>
+<div class="cartop"><font>购物车</font><a href="ClearDishs">清空</a>
+</div>
 <div class="carmain">
+<div class="ab"></div>
 <%ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
-ArrayList<GoodsItem> goodsitem=new ArrayList<GoodsItem>(shoppingcar.getItems());%>
-<c:if test="${goodsitem[0]}!=null" >
-<c:forEach var="z" items="${goodsitem}">
-${s.foodname}
-</c:forEach>
-</c:if>
+if(shoppingcar!=null){
+ArrayList<GoodsItem> goodsitem=new ArrayList<GoodsItem>(shoppingcar.getItems());%>          
+<%if(goodsitem!=null){
+for(GoodsItem goods:goodsitem){
+	DishsInformation dishinformation=goods.getDishs();
+%>
+<div class="carmains">
+<div class="foodname"><%=dishinformation.getFoodname()%></div>
+<div class="foodquantity"><div style="float:left;width:40px"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:40px"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:40px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
+<div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
+</div>
+<%}}}%>
 </div>
 <div class="carbottom">
-<form >
-<span class="bottom.left">价格</span>
-<span class="bottom.right"><input type="submit" value="去结算"></input></span>
-</form>
+<div class="bottomleft">价格:<%=shoppingcar.getTotal()%></div>
+<div class="bottomright"><input type="submit" value="去结算"></input></div>
 </div>
-</div>
+
 </div>
 </div>
 </div>
