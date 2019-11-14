@@ -10,7 +10,7 @@ public class OrderBean {
 	private String price;
 	private String totalPrice;
 	private String time;
-	private String faHuo;
+
 	
 	
 	
@@ -28,12 +28,6 @@ public class OrderBean {
 		this.time = time;
 	}
 
-	public String getFaHuo() {
-		return faHuo;
-	}
-	public void setFaHuo(String faHuo) {
-		this.faHuo = faHuo;
-	}
 	public String getName() {
 		return name;
 	}

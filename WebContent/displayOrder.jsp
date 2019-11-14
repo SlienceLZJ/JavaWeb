@@ -9,31 +9,47 @@
 <meta charset="UTF-8">
 <title>显示订单</title>
 </head>
+
 <body>
 
-<div style="width:100%">
+<div style="width:100%;height:350px">
 
+<div style="float:left;height:300px;background:#AA00FF; width:20%;">
 
-<div style="float:left;background:#AA00FF; width:20% ">
-未发货订单
+<br>
+<br>
+<a href="DisplayOrder?type=no">未发货订单</a>
 <br>
 <br>
 <br>
-已发货订单
+<a href="DisplayOrder?type=yes">已发货订单</a>
 </div>
 
-<div style="float:left;background:#AA0000; width:80%;  width:260px;height:120px; overflow:scroll; border:1px solid;">
+<div style="float:left;background:#AA0000; width:80%;height:300px;overflow-y:auto">
+	<%
+	  List<OrderBean>list= (List<OrderBean>)request.getAttribute("list"); 
+    String type=(String)request.getAttribute("type");     	
+	%>
 
-</div>
+
+
 
 <table border='1'>
 	<tr>
-	<td>姓名</td><td>电话</td><td>收货地址</td><td>订单详情</td><td>总价</td><td>下单日期</td><td>是否发货</td>
+	<td>姓名</td><td>电话</td><td>收货地址</td><td>订单详情</td><td>下单日期</td><td>总价</td>
+	<%
+	if(type.equals("no")){	
+		out.println("<td>确认发货</td>");
+	}
+	else{
+		out.println("<td>删除订单</td>");
+	}
+	%>
+	
 	</tr>
 	
      <%
-     List<OrderBean>list= (List<OrderBean>)request.getAttribute("list"); 
-     String lastUserNum=null;
+   
      
      while(list.size()>0){
     
@@ -49,7 +65,7 @@
     	 String caiMing=order.getCaiMing();
     	 String price=order.getPrice();
     	 String number=order.getNumber();
-    	 String faHuo=order.getFaHuo();
+    
     	 list.remove(0);
     	 
     	 out.println("<tr>");
@@ -100,10 +116,17 @@ out.println("</td>");
  out.println("</td>");
 
  out.println("<td>");
- out.println(faHuo);//输出是否发货
+ if(type.equals("no")){%>	
+	<a href="DisplayOrder?op=confirm&userId=<%=no%>&time=<%=time%>" onclick="return window.confirm('确定已发货？');">已发货</a> 
+ <% }
+ else{%>
+	<a href="DisplayOrder?op=delete&userId=<%=no %>&time=<%=time%>" onclick="return window.confirm('确定删除订单？');">删除</a>
+ 
+ <%}
  out.println("</td>");
 
-
+ 
+ 
 out.println("</tr>");
   	 	
      }
@@ -113,6 +136,9 @@ out.println("</tr>");
 
 	
 </table>
+</div>
+
+
 
 </div>
 
