@@ -27,13 +27,14 @@
    <%@ include file="Diantop2.jsp" %>
   </div>
 </div>
-
 <div id="Dianmid">
   <div id="Dianleft">
     <%@ include file="Dianleft.jsp" %>
   </div>
   <div id="Dianright">
-  <%@ include file="Dianright.jsp"  %>
+  <iframe  name="Dianright" width=1050px; height=400px src="Dianright.jsp" >
+  </iframe>
+
   </div>
 </div>
 </body>

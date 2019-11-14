@@ -17,7 +17,7 @@ div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;marg
 div.daohang{height:250px}
 div.main{background-color:gray;width:1200px;}
 div.Menu{height:800px;width:100px;text-align:right;}
-div.a{width:830px;float:left;background-color:green}
+div.a{width:830px;float:left;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
 div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow;width:300px}
@@ -36,11 +36,11 @@ div.ab{width:300px;height:10px;background-color:white;}
 <div >
 <div class="main">
     <div class=a>
-    <c:forEach var="a" items="${menu}">
+    <c:forEach var="a" items="${menu1}">
       <div class="type"><a name="${a.foodtype }"></a>
        <div class="type1"><font size=5>${a.foodtype}</font></div>
        <%int i=0;%>
-      <c:forEach var="s" items="${dislist}"> 
+      <c:forEach var="s" items="${dislist1}"> 
        <c:if test="${s.foodtype==a.foodtype}">
        <%i++;%>
          <span class="dishs"><span class="dishs1" ><img class="img1"src="${s.foodpicture}" ></span>
@@ -58,10 +58,21 @@ div.ab{width:300px;height:10px;background-color:white;}
         </tr>
         </table>
         <span>
-        <form action="AddDishs" method="post">
-          <input type="hidden" name="addcar" value="${s.foodname}">
-          <input type="submit" value="加入购物车">
-        </form>
+         <table>
+        <tr><td><form action="zhenyuan修改" method="post">
+          <input type="hidden" name="foodname" value="${s.foodname}">
+          <input type="hidden" name="id" value="<%= (String)request.getAttribute("id")%>">
+          <input type="submit" value="修改">
+          </form>
+          </td><td>
+          <form action="Delete" method="post">
+          <input type="hidden" name="foodname" value="${s.foodname}">
+          <input type="hidden" name="id" value="<%= (String)request.getAttribute("id")%>">
+          <input type="submit" value="删除">
+          </form>
+          </td></tr>
+          </table>
+        
         </span>
         </span>
         </span>
@@ -81,31 +92,7 @@ div.ab{width:300px;height:10px;background-color:white;}
 <input type="submit" name="id" value="查询">
 </form>
 </div>
-<div class="shopcar">
-<div class="cartop"><font>购物车</font><a href="ClearDishs">清空</a>
-</div>
-<div class="carmain">
-<div class="ab"></div>
-<%ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
-if(shoppingcar!=null){
-ArrayList<GoodsItem> goodsitem=new ArrayList<GoodsItem>(shoppingcar.getItems());%>          
-<%if(goodsitem!=null){
-for(GoodsItem goods:goodsitem){
-	DishsInformation dishinformation=goods.getDishs();
-%>
-<div class="carmains">
-<div class="foodname"><%=dishinformation.getFoodname()%></div>
-<div class="foodquantity"><div style="float:left;width:40px"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:40px"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:40px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
-<div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
-</div>
-<%}}}%>
-</div>
-<div class="carbottom">
-<div class="bottomleft">价格:<%=shoppingcar.getTotal()%></div>
-<div class="bottomright"><input type="submit" value="去结算"></input></div>
-</div>
 
-</div>
 </div>
 </div>
 </div>

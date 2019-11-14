@@ -1,11 +1,15 @@
 package com.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.dao.JDBCDao;
 
 /**
  * Servlet implementation class Delete
@@ -23,19 +27,26 @@ public class Delete extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String foodname=new String(request.getParameter("foodname")
+                .getBytes("iso-8859-1"),"UTF-8");
+		System.out.println("Delete   foodname  is"+foodname);
+		String id=new String(request.getParameter("id")
+                .getBytes("iso-8859-1"),"UTF-8");
+		System.out.println("Delete   id  is"+id);
+		String sql ="delete from Dian where id='"+id+"' and foodname='"+foodname+"'";
+		System.out.println(sql);
+		int a=JDBCDao.insertOrDeleteOrUpdate(sql);
+		System.out.println(a);
+		
+			request.setAttribute("id", id);
+			RequestDispatcher rd=request.getRequestDispatcher("Dian")
+					;
+			rd.forward(request, response);
+		
+		JDBCDao.closeConnecttion();
 	}
 
 }
