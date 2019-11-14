@@ -42,7 +42,7 @@ public class Delete extends HttpServlet {
 		System.out.println(a);
 		
 			request.setAttribute("id", id);
-			RequestDispatcher rd=request.getRequestDispatcher("Dian")
+			RequestDispatcher rd=request.getRequestDispatcher("login.jsp")
 					;
 			rd.forward(request, response);
 		

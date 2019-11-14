@@ -33,6 +33,8 @@
   </div>
   <div id="Dianright">
   <iframe  name="Dianright" width=1050px; height=400px src="Dianright.jsp" >
+  
+  
   </iframe>
 
   </div>

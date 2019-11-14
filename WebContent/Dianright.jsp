@@ -67,7 +67,7 @@ div.ab{width:300px;height:10px;background-color:white;}
           </td><td>
           <form action="Delete" method="post">
           <input type="hidden" name="foodname" value="${s.foodname}">
-          <input type="hidden" name="id" value="<%= (String)request.getAttribute("id")%>">
+          <input type="hidden" name="id" value="${s.foodid}">
           <input type="submit" value="删除">
           </form>
           </td></tr>

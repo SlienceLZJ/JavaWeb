@@ -56,7 +56,7 @@ public class DisplayDishs extends HttpServlet {
 				dis.setFoodpicture(foodpicture);
 				dis.setFoodintroduction(foodintroduction);
 				dis.setFoodprice(foodprice); 
-				dis.setFoodid(foodid);
+				dis.setFoodid(foodid);//商家id
 				dis.setFoodtype(foodtype);
 				dislist.add(dis);
 			}
