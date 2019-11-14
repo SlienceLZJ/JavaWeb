@@ -61,7 +61,7 @@ for(int i=0;i<list.size();i++){
 	   out.println("</tr><tr>");                                                                                                                                                                                                                                                                            			
    
    }
-	   out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId="+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"<br><font size='2' color='blue'>"+info.getDescription()+"</font></div></a></div></td>");
+	   out.println("<td><div style='width:300px;height:100px;border:1px solid #1E90FF';text-align:right;><a href='DisplayDishs?storeId='"+info.getStoreId()+"'><div style='float:left;width:34%'><img width=100px height=100px src='"+info.getPicture() +"'/></div><div style='float:left;width:66%;'>"+info.getName()+"<br><font size='2' color='blue'>"+info.getDescription()+"</font></div></a></div></td>");
 	   System.out.println(info.getName());
  
 }
