@@ -6,11 +6,18 @@ public class DianMingInformation {
 	private String picture;
 	private String storeId;
 	private String description;
+	private String payPicture;
 	
 	
 	
 	
 	
+	public String getPayPicture() {
+		return payPicture;
+	}
+	public void setPayPicture(String payPicture) {
+		this.payPicture = payPicture;
+	}
 	public String getDescription() {
 		return description;
 	}

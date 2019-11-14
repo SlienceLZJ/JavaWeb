@@ -59,9 +59,7 @@ public class FindDishs extends HttpServlet {
 			    result.close();
 			    JDBCDao.closeConnecttion();
 			 request.getSession().setAttribute("dislist", dislist);
-			 ShoppingCar shopcar=new ShoppingCar();
-			 request.getSession().setAttribute("shoppingcar",shopcar);
-			 response.sendRedirect("/JavaWeb/left.jsp");
+			 response.sendRedirect("/JavaWeb/right.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
