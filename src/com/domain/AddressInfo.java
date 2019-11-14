@@ -22,8 +22,5 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
-
-
-	
 	
 }
