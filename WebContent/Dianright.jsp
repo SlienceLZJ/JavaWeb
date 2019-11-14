@@ -59,8 +59,14 @@ div.ab{width:300px;height:10px;background-color:white;}
         </table>
         <span>
          <table>
-        <tr><td><form action="zhenyuan修改" method="post">
+         
+        <tr><td><form action="xiugai" method="post">
           <input type="hidden" name="foodname" value="${s.foodname}">
+          <input type="hidden" name="foodpicture" value="${s.foodpicture}">
+          <input type="hidden" name="foodprice" value="${s.foodprice}">
+          <input type="hidden" name="foodtype" value="${s.foodtype}">
+          <input type="hidden" name="foodIntroduction" value="${s.foodintroduction}">
+          <input type="hidden" name="foodid" value="${s.foodid}">       
           <input type="hidden" name="id" value="<%= (String)request.getAttribute("id")%>">
           <input type="submit" value="修改">
           </form>
@@ -72,7 +78,6 @@ div.ab{width:300px;height:10px;background-color:white;}
           </form>
           </td></tr>
           </table>
-        
         </span>
         </span>
         </span>

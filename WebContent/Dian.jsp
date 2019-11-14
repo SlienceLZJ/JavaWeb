@@ -17,25 +17,26 @@
 #Dianright{border:5px solid #F00;float:right; width:1050px;display:table-cell;}
 </style>
 <div id="Diantop" >
-  <div id="Diantop1">
+  <div id="Diantop1" position:fixed>
     <%@ include file="Diantop.jsp" %>
   </div>
-  <div id="Diantop2">
+  <div id="Diantop2" position:fixed>
    <%@ include file="Diantop1.jsp" %>
   </div>
-  <div id="Diantop2">
+  <div id="Diantop2" position:fixed>
    <%@ include file="Diantop2.jsp" %>
   </div>
 </div>
 <div id="Dianmid">
-  <div id="Dianleft">
+  <div id="Dianleft" position:fixed>
     <%@ include file="Dianleft.jsp" %>
   </div>
   <div id="Dianright">
-  <iframe  name="Dianright" width=1050px; height=400px src="Dianright.jsp" >
+  <%@ include file="Dianright.jsp" %>
+  <!--  <iframe  name="Dianright" width=1050px; height=400px src="Dianright.jsp" >
   
   
-  </iframe>
+  </iframe>-->
 
   </div>
 </div>

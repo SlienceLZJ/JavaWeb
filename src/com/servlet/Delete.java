@@ -42,8 +42,7 @@ public class Delete extends HttpServlet {
 		System.out.println(a);
 		
 			request.setAttribute("id", id);
-			RequestDispatcher rd=request.getRequestDispatcher("login.jsp")
-					;
+			RequestDispatcher rd=request.getRequestDispatcher("Dian");
 			rd.forward(request, response);
 		
 		JDBCDao.closeConnecttion();
