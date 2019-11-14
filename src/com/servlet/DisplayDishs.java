@@ -84,7 +84,7 @@ public class DisplayDishs extends HttpServlet {
 		 request.getSession().setAttribute("menu", menu);
 		 ShoppingCar shopcar=new ShoppingCar();
 		 request.getSession().setAttribute("shoppingcar",shopcar);
-		 response.sendRedirect("/JavaWeb/frame.jsp");
+		 response.sendRedirect("/JavaWeb/right.jsp");
 		 
 	}
 	/**
