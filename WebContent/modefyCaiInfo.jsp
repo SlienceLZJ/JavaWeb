@@ -11,12 +11,12 @@
 
 <center>
 <table>
-
+<form action="modefyCaiInfo?xiugai=true" method="post">
 <tr>
-<td>菜名:</td><td><input type="text" value="${info.foodName}"></td>
+<td>菜名:</td><td><input type="text" name="name" value="${info.foodName}"></td>
 </tr>
 <tr>
-<td>菜品价格:</td><td><input type="text" value="${info.foodPrice}"></td>
+<td>菜品价格:</td><td><input type="text" name="price" value="${info.foodPrice}"></td>
 </tr>
 
 <tr>
@@ -30,9 +30,12 @@
 </td>
 </tr>
 
-<tr><td>菜品图片:</td><td><img src="${info.foodPicture}" width=100px height=100px/></td></tr>
-<tr><td>修改店铺图片</td><input ></tr>
+<tr><td>菜品图片:</td><td><img src="${info.foodPicture}" alt="暂无图片" width=100px height=100px/></td></tr>
+<tr><td>修改店铺图片</td><td><input type="file" name="picture"></td></tr>
+<tr><td>商品描述：</td><td><textarea name="description" rows="5" cols="30"></textarea></td></tr>
 
+<tr><td colspan="2"><center><input type="submit" value="保存"></center></td></tr>
+ </form>
 </table>
 </center>
 

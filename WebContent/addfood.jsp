@@ -18,7 +18,7 @@
 <form action = "addfood" enctype="multipart/form-data"  method = "post">
 <table>
 <%
-	String id= request.getParameter("id");
+	String id= (String)request.getSession().getAttribute("no");
    System.out.println("addfood id "+id);
 %>
    

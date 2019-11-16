@@ -27,13 +27,32 @@ public class modefyCaiInfo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");	
 		
+		
+		
 		HttpSession session=request.getSession();
-		String no=(String)session.getAttribute("no");		
-		String name=request.getParameter("foodname");
-		String price=request.getParameter("foodprice");
-		String describtion=request.getParameter("foodIntroduction");
-		String type=request.getParameter("type");	
-		String picture=request.getParameter("foodpicture");
+		String xiuGai=request.getParameter("xiugai");
+		
+		String no=(String)session.getAttribute("no");	
+		String name;
+		String price;
+		String describtion;
+		String type;
+		String picture;
+		
+		if(xiuGai!=null&&xiuGai.equals("true")) {//如果是用户提交的表单请求,则将修改内容保存到数据库
+			name=request.getParameter("name");
+			price=request.getParameter("price");
+			describtion=request.getParameter("description");
+			type=request.getParameter("type");
+			String path = this.getServletContext().getRealPath("/");
+		}
+		
+		
+			name=request.getParameter("foodname");
+			price=request.getParameter("foodprice");
+			describtion=request.getParameter("foodIntroduction");
+			type=request.getParameter("type");	
+			picture=request.getParameter("foodpicture");
 		
 		System.out.println("the name of cai is :"+name);
 		com.domain.Dian info=new com.domain.Dian();
