@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.dao.JDBCDao;
@@ -35,7 +36,8 @@ public class ModStoreMsg extends HttpServlet {
 		//response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
        // response.setContentType("text/html;charset=UTF-8");
 		String sql;
-		String no="001";
+		HttpSession session=request.getSession();
+		String no=(String)session.getAttribute("no");
 		
 		request.setCharacterEncoding("UTF-8");		
 		String name=request.getParameter("name");

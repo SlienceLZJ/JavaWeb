@@ -33,7 +33,7 @@ div.ab{width:300px;height:10px;background-color:white;}
 </style>
 </head>
 <body>
-<div >
+<div>
 <div class="main">
     <div class=a>
     <c:forEach var="a" items="${menu1}">
@@ -60,7 +60,7 @@ div.ab{width:300px;height:10px;background-color:white;}
         <span>
          <table>
          
-        <tr><td><form action="xiugai" method="post">
+        <tr><td><form action="modefyCaiInfo" method="post">
           <input type="hidden" name="foodname" value="${s.foodname}">
           <input type="hidden" name="foodpicture" value="${s.foodpicture}">
           <input type="hidden" name="foodprice" value="${s.foodprice}">
