@@ -10,10 +10,21 @@ public class OrderBean {
 	private String price;
 	private String totalPrice;
 	private String time;
-
+	private String sellerId;
+	private String faHuo;
 	
-	
-	
+	public String getFaHuo() {
+		return faHuo;
+	}
+	public void setFaHuo(String faHuo) {
+		this.faHuo=faHuo;
+	}
+	public String getsellerId() {
+		return sellerId;
+	}
+	public void setsellerId(String sellerId) {
+		this.sellerId=sellerId;
+	}
 	
 	public String getNo() {
 		return no;

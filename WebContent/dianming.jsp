@@ -33,7 +33,6 @@ body{
 </div>
 
 <div>
-
 <%
 List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("list");
 %>
