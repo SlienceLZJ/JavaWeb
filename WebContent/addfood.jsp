@@ -37,7 +37,7 @@ try {
 	ResultSet rs=JDBCDao.getData(sql);
 	
 	while(rs.next()) {
-	Menu info=new Menu();	
+	Menu info=new com.domain.Menu();	
 	info.setId(rs.getString("id"));
 	info.setFoodType(rs.getString("foodtype"));	
 	list.add(info);
