@@ -63,6 +63,10 @@ public class PostGoods extends HttpServlet {
 			  String totalprice=String.valueOf(shoppingcar.getTotal());
 			  String sql="INSERT INTO foodOrder values ('"+id+"','"+sellid+"','"+foodname+"','"+quantity+"','"+foodprice+"','"+time+"','"+fahuo+"','"+totalprice+"')";  
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
+	          
+	          
+	          
+	          
 	    }
 
 }
