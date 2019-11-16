@@ -11,8 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p> 您的店铺名为：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${d.getName()}</p><br>
-<p>  您的店铺简介为${d.getDescription()}
+<p> 您的店铺名为：  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${d.getName()}</p><br>
+<p>  您的店铺简介为:  ${d.getDescription()}
 </p>
 </body>
 </html>

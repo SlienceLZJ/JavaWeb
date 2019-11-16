@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+import javax.websocket.Session;
 
 import com.dao.JDBCDao;
 //import com.mchange.v2.c3p0.impl.DbAuth;
@@ -37,8 +38,7 @@ public class Login extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("request--->"+request.getRequestURL()+"===="+request.getParameterMap().toString());
+			throws ServletException, IOException {		
 		String no = request.getParameter("username"); // 获取客户端传过来的参数
 		String pwd = request.getParameter("password");
 		String type=request.getParameter("choice");
@@ -94,7 +94,7 @@ public class Login extends HttpServlet{
 			user a=new user();
 			
 			if(rs.next()) {//如果查到结果
-				
+				session.setAttribute("no", no);
 				
 
 				a.setNo(rs.getString("no"));
@@ -109,8 +109,7 @@ public class Login extends HttpServlet{
 					response.sendRedirect("DianMing");
 				}
 				else {//如果是商家就跳到商家界面
-					
-					request.setAttribute("id", no);
+                   
 					RequestDispatcher rd=request.getRequestDispatcher("Dian");
 					rd.forward(request, response);
 					

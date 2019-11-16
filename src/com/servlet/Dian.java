@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.domain.DianMingInformation;
 import com.domain.DishsInformation;
 import com.domain.ShoppingCar;
@@ -36,7 +38,9 @@ public class Dian extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  
-		String id=(String)request.getAttribute("id");
+		
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("no");
 		String sql="SELECT * FROM Dian where id='"+id+"'";
 		String sql1="SELECT * FROM menu where id='"+id+"'";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
@@ -87,19 +91,6 @@ public class Dian extends HttpServlet {
 		 request.getSession().setAttribute("id", id);
  		 //request.getSession().setAttribute("shoppingcar",shoppingcar);
 		
-		
-		
-		
-		
-		
-		  
-		
-		
-		
-		
-		
-		
-		  
 
 	    DianMingInformation d = new DianMingInformation();
 	    System.out.println(id);
@@ -134,4 +125,10 @@ public class Dian extends HttpServlet {
 		doGet(request, response);
 	}
 
+	
+	
+	
+	
+	
+	
 }

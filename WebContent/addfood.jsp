@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.List,java.util.ArrayList"
-     import="com.domain.menu"
+     import="com.domain.Menu"
      import="com.dao.*"
      import="com.mysql.cj.jdbc.result.ResultSetMetaData"
      import="java.sql.*" %>
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +17,12 @@
 <h2 class="title">菜品添加</h2>
 <form action = "addfood" enctype="multipart/form-data"  method = "post">
 <table>
-<% 
-   String id= request.getParameter("id");
+<%
+	String id= (String)request.getSession().getAttribute("no");
    System.out.println("addfood id "+id);
-   %>
+%>
+   
+   
 <tr><td><input type="hidden" value="<%=id%>"  name="id"></td></tr>
 <tr><td>菜名</td><td><input type="text" name="foodname"></td></tr>
 <tr><td>菜品图片</td><td><input type="file" name="foodpicture" multiple= "multiple" ></td></tr>
@@ -27,16 +30,16 @@
 <tr><td>菜品类别</td>
 <td><select size="1" name="foodtype">
 
-<% 
-   String sql="select foodtype,id from menu where id='"+id+"'";
-List<menu> list=new ArrayList<menu>();
+<%
+	String sql="select foodtype,id from menu where id='"+id+"'";
+List<Menu> list=new ArrayList<Menu>();
 try {
 	ResultSet rs=JDBCDao.getData(sql);
 	
 	while(rs.next()) {
-	menu info=new menu();	
+	Menu info=new Menu();	
 	info.setId(rs.getString("id"));
-	info.setFoodtype(rs.getString("foodtype"));	
+	info.setFoodType(rs.getString("foodtype"));	
 	list.add(info);
 	System.out.println("result set is "+rs.getString("id"));
 	}
@@ -45,11 +48,11 @@ try {
 	e.printStackTrace();
 }
 for(int i=0;i<list.size();i++){
-	menu m=list.get(i);	
+	Menu m=list.get(i);	
 	System.out.println("the value of i :"+i);
-	System.out.println("the value of foodtype :"+m.getFoodtype());
+	System.out.println("the value of foodtype :"+m.getFoodType());
 %>
-<option value="<%=m.getFoodtype()%>"><%=m.getFoodtype()%></option>
+<option value="<%=m.getFoodType()%>"><%=m.getFoodType()%></option>
 <%} %>
 
 </select></td></tr>
