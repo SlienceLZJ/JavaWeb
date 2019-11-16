@@ -93,7 +93,7 @@ public class DianMing extends HttpServlet {
 		System.out.println("the list size is:"+list.size());
 		
 		request.setAttribute("list", list);
-
+          
 		 RequestDispatcher rd = request.getRequestDispatcher("dianming.jsp");
 		 rd.forward(request, response);
 	

@@ -36,8 +36,10 @@ public class DisplayDishs extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sql="SELECT * FROM Dian";
-		String sql1="SELECT * FROM menu";
+		String id=request.getParameter("storeId");
+		System.out.println("DisplayDishs   id   "+id);
+		String sql="SELECT * FROM Dian where id='"+id+"'";
+		String sql1="SELECT * FROM menu where id='"+id+"'";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
 		ResultSet result;

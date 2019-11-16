@@ -36,9 +36,7 @@ public class Dian extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		  		
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("no");
 		String sql="SELECT * FROM Dian where id='"+id+"'";
@@ -86,12 +84,9 @@ public class Dian extends HttpServlet {
 			e.printStackTrace();
 		}
 		 //ShoppingCar shoppingcar=new ShoppingCar();
-		 request.getSession().setAttribute("dislist1", dislist);
-		 request.getSession().setAttribute("menu1", menu);
-		 request.getSession().setAttribute("id", id);
- 		 //request.getSession().setAttribute("shoppingcar",shoppingcar);
-		
-
+		request.getSession().setAttribute("dislist1", dislist);
+	    request.getSession().setAttribute("menu1", menu);
+		request.getSession().setAttribute("id", id);
 	    DianMingInformation d = new DianMingInformation();
 	    System.out.println(id);
 	    String sql2="select * from DianMing where id='"+id+"'";
@@ -107,7 +102,6 @@ public class Dian extends HttpServlet {
 	    	  d.setDescription(rs.getString("description"));
 	    	  System.out.println("picture url is ="+d.getPicture());
 	    	  request.setAttribute("d", d);
-	    	  
 	      }
 	      JDBCDao.closeConnecttion();
 	     }catch(Exception e){
@@ -116,19 +110,8 @@ public class Dian extends HttpServlet {
 		 RequestDispatcher rd=request.getRequestDispatcher("Dian.jsp");
 		rd.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
-	
-	
-	
-	
-	
-	
 }

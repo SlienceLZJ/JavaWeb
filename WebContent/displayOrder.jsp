@@ -12,9 +12,9 @@
 
 <body>
 
-<div style="width:100%;height:350px">
+<div style="width:100%;height:600px">
 
-<div style="float:left;height:300px;background:#AA00FF; width:20%;">
+<div style="float:left;height:600px;background:#AA00FF; width:20%;">
 
 <br>
 <br>
@@ -25,7 +25,7 @@
 <a href="DisplayOrder?type=yes">已发货订单</a>
 </div>
 
-<div style="float:left;background:#AA0000; width:80%;height:300px;overflow-y:auto">
+<div style="float:left;background:#AA0000; width:80%;height:600px;overflow-y:auto">
 	<%
 	  List<OrderBean>list= (List<OrderBean>)request.getAttribute("list"); 
     String type=(String)request.getAttribute("type");     	

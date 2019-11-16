@@ -40,11 +40,8 @@ public class Login extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {		
 		String no = request.getParameter("username"); // 获取客户端传过来的参数
-		String pwd = request.getParameter("password");
-		String type=request.getParameter("choice");
-	
-		System.out.println("the no is null?"+(no==null));
-		
+		String pwd = request.getParameter("password");	
+		System.out.println("the no is null?"+(no==null));		
 		System.out.println(no+"   "+pwd);
 		Connection dbconn = null;		
 		response.setContentType("text/html;charset=utf-8");
@@ -52,8 +49,7 @@ public class Login extends HttpServlet{
 		if (no == null || no.equals("") || pwd == null || pwd.equals("")) {
 			System.out.println("用户名或密码为空");
 			return;
-		}
-		
+		}		
 		// 打开数据库连接
 		DataSource dataSource = null;
 		try {
@@ -67,66 +63,35 @@ public class Login extends HttpServlet{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		
-		
-		
-		
-		String sql = "select * from user where no='"+no+"' and password='"+pwd+"' ";
-		
-		System.out.println("the sql is :"+sql);
-				
-		
-		
+		}										
+		String sql = "select * from user where no='"+no+"' and password='"+pwd+"' ";		
+		System.out.println("the sql is :"+sql);								
 		ResultSet rs=null;
 		try {
 			rs=JDBCDao.getData(sql);
 		} catch (Exception e) {
 			// TODO: handle exception
-		}
-						
-		
-		System.out.println("result is null?"+(rs==null));
-
-		
+		}								
+		System.out.println("result is null?"+(rs==null));	
 		try {
-			user a=new user();
-			
 			if(rs.next()) {//如果查到结果
-				session.setAttribute("no", no);
-				
-
-				a.setNo(rs.getString("no"));
-				a.setPassword(rs.getString("password"));
-				a.setType(rs.getString("type"));
-				
-				if(a.getType().equals("cus")) {//如果是用户就跳到用户界面
-
-				
-					
-
+				session.setAttribute("no", no);								
+				if(rs.getString("type").equals("cus")) {//如果是用户就跳到用户界面				
 					response.sendRedirect("DianMing");
 				}
-				else {//如果是商家就跳到商家界面
-                   
-					RequestDispatcher rd=request.getRequestDispatcher("Dian");
-					rd.forward(request, response);
-					
-				}
-				
+				else {//如果是商家就跳到商家界面        	
+					response.sendRedirect("Dian");
+				}				
 			}
 			else {//如果没有查到结果
 				request.setAttribute("error", "用户名或密码错误,请重新输入！");
 				RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
 				rd.forward(request, response);
-
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-			
+		}			
 		//关闭数据库连接
 		try {
 			dbconn.close();
@@ -134,7 +99,5 @@ public class Login extends HttpServlet{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-									
-	
 	}
 }

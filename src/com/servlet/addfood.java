@@ -2,6 +2,8 @@ package com.servlet;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,9 +52,11 @@ public class addfood extends HttpServlet {
 		// TODO Auto-generated method stub
 		String id=new String(request.getParameter("id")
                 .getBytes("iso-8859-1"),"UTF-8");	
-		   System.out.println("java    "+id);
-		   java.util.Random r = new java.util.Random();
-            int sj=  r.nextInt();
+		System.out.println("java    "+id);
+		Calendar calendar= Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日hh时mm分ss秒");
+		System.out.println(sdf.format(calendar.getTime()));
+        String date =sdf.format(calendar.getTime());
 		String foodname=new String(request.getParameter("foodname")
                 .getBytes("iso-8859-1"),"UTF-8");
 		String foodpicture=null;
@@ -87,7 +91,7 @@ public class addfood extends HttpServlet {
           if( !f.exists()){  // 若目录不存在，则创建目录
             f.mkdirs();
           }
-            String A="img2\\"+ id+ "\\"+ sj+fname ;
+            String A="img2\\"+ id+ "\\"+ date+fname ;
             A=A.replaceAll("\\\\", "\\\\\\\\");
             System.out.println(A);
             String sql ="INSERT INTO Dian VALUES ('"+id+"','"+foodname+"','"+A+"','"+foodprice+"','"+foodIntroduction+"','"+foodtype+"')";
@@ -103,7 +107,7 @@ public class addfood extends HttpServlet {
     	     	request.setAttribute("result", "成功添加菜：    "+foodname);
     	     	System.out.println(fname);       
 
-    	        path=path + "\\"+sj+ fname;
+    	        path=path + "\\"+date+fname;
     	        System.out.println(path);
 
     	        p.write(path);     // 将上传的文件写入磁盘
