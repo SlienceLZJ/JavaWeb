@@ -13,11 +13,11 @@ img.img1{vertical-align:top ; width:100px;height:100px;}
 span.dishs1{float:left;}
 div.type{width:830px;height:300px;}
 div.type1{width:820px;height:30px;margin-left:10px;margin-top:10px;margin-botton:10px}
-div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;margin-left:10px;}
+div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;margin-left:10px;border:0.5px solid black;}
 div.daohang{height:250px}
-div.main{background-color:gray;width:1200px;}
+div.main{background-color:gray;width:1400px;margin-left:70px}
 div.Menu{height:800px;width:100px;text-align:right;}
-div.a{width:830px;float:left;background-color:green}
+div.a{width:830px;float:left;background-color:green;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
 div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow;width:300px}
@@ -26,14 +26,29 @@ div.carbottom{width:300px;height:50px;background-color:blue;line-height:50px;}
 div.bottomleft{width:200px;float:left;height:50px}
 div.bottomright{width:100px;float:right;height:50px}
 div.foodname{width:50px;float:left}
-div.foodquantity{width:200px;float:left}
+div.foodquantity{width:200px;float:left;text-align:center}
 div.foodtotalprice{width:50px;float:left}
 div.carmains{width:300px;height:30px;background-color:white;}
 div.ab{width:300px;height:10px;background-color:white;}
+div.menu{height:50px;width:50px;margin-top:5px;}
+div.leftk{ float:left;width:70px;height:100px";position:fixed;}
+div.top{width:1000px;height:100px;background-color:blue;}
+.box{height:50px;background:#ccc;width:100%;}
 </style>
 </head>
 <body>
-<div >
+<div class="top" style="height:100px;"><br><br>
+</div>
+<div class=""style="width:70px">
+<div class="box1" id="box" style="float:left;width:70px;" >
+<c:forEach var="s" items="${menu}"> 
+<div class="menu" >
+<a href="#${s.foodtype}"><font size=4>${s.foodtype }</font></a>
+</div >
+</c:forEach>
+<a href="http://localhost:8080/JavaWeb/DisplayDishs" target="_top">全部商品</a> 
+</div>
+</div>
 <div class="main">
     <div class=a>
     <c:forEach var="a" items="${menu}">
@@ -85,7 +100,6 @@ div.ab{width:300px;height:10px;background-color:white;}
 <div class="cartop"><font>购物车</font><a href="ClearDishs">清空</a>
 </div>
 <div class="carmain">
-<div class="ab"></div>
 <%ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
 if(shoppingcar!=null){
 ArrayList<GoodsItem> goodsitem=new ArrayList<GoodsItem>(shoppingcar.getItems());%>          
@@ -95,17 +109,14 @@ for(GoodsItem goods:goodsitem){
 %>
 <div class="carmains">
 <div class="foodname"><%=dishinformation.getFoodname()%></div>
-<div class="foodquantity"><div style="float:left;width:40px"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:40px"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:40px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
+<div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
 <div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
 </div>
 <%}}}%>
 </div>
 <div class="carbottom">
 <div class="bottomleft">价格:<%=shoppingcar.getTotal()%></div>
-<div class="bottomright"><input type="submit" value="去结算"></input></div>
-</div>
-
-</div>
+<form action="PayMoney" method="post"><div class="bottomright"><input type="submit" value="去结算"></input></div></form>
 </div>
 </div>
 </div>

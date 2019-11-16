@@ -3,7 +3,7 @@ package com.domain;
 public class Menu {
     private String id;
     private String foodType;
-	public String getId() {
+    public String getId() {
 		return id;
 	}
 	public void setId(String id) {
@@ -15,7 +15,5 @@ public class Menu {
 	public void setFoodType(String foodType) {
 		this.foodType = foodType;
 	}
-
-    
 
 }
