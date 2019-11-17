@@ -15,7 +15,7 @@ div.type{width:830px;height:300px;}
 div.type1{width:820px;height:30px;margin-left:10px;margin-top:10px;margin-botton:10px}
 div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;margin-left:10px;border:0.5px solid black;}
 div.daohang{height:250px}
-div.main{background-color:gray;width:1400px;margin-left:70px}
+div.main{background-color:gray;width:1400px;margin-left:70px;margin-top:70px}
 div.Menu{height:800px;width:100px;text-align:right;}
 div.a{width:830px;float:left;background-color:green;}
 div.sousou{float:left;}
@@ -37,8 +37,10 @@ div.top{width:1000px;height:100px;background-color:blue;}
 </style>
 </head>
 <body>
+<div class="Top">
+<%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>
 <div class=""style="width:70px">
-<div class="box1" id="box" style="float:left;width:70px;" >
+<div class="box1" id="box" style="float:left;width:70px;position:fixed" >
 <a href="http://localhost:8080/JavaWeb/right.jsp" >全部商品</a> 
 </div>
 </div>
@@ -71,8 +73,8 @@ div.top{width:1000px;height:100px;background-color:blue;}
       </div>
 </div>
 <div class="sousou">
-<div>
-<form action="FindDishs">
+<div  style="top:0;right:0;position:fixed;margin-top:50px">
+<form action="FindDishs" >
 <input type="text" name="foodname" size=20>
 <input name="id" type="hidden"value="${finddislist[0].foodid}">
 <input type="submit" name="id" value="查询">
