@@ -28,18 +28,19 @@ public class FindDishs extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name=request.getParameter("foodname");
+		int i=0;
+		if(name!="") {
 		String id=request.getParameter("id");
 		System.out.print(id);
 		String sql="SELECT * FROM Dian WHERE id='"+id+"' AND foodname like'%"+name+"%'";
-		
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
 		try {
 			ResultSet result=JDBCDao.getData(sql);
 			while(result.next()) {
+				i++;
 				DishsInformation dis=new DishsInformation();
 				String foodname=result.getString("foodname");
-			
 				String foodid=result.getString("id");
 				String foodintroduction=result.getString("foodintroduction");
 				Float foodprice=result.getFloat("foodprice");
@@ -54,15 +55,21 @@ public class FindDishs extends HttpServlet {
 				dis.setFoodtype(foodtype);
 			    dislist.add(dis);
 			    menu.add(dis);
-			    
 			}
+			if(i==0)
+				response.sendRedirect("/JavaWeb/emptygoods.jsp");
+			else {	
 			    result.close();
 			    JDBCDao.closeConnecttion();
-			 request.getSession().setAttribute("dislist", dislist);
-			 response.sendRedirect("/JavaWeb/right.jsp");
+			 request.getSession().setAttribute("finddislist", dislist);
+			 response.sendRedirect("/JavaWeb/Findishs.jsp");}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		}
+		else {
+			response.sendRedirect("/JavaWeb/right.jsp");
 		}
 		
 	}
