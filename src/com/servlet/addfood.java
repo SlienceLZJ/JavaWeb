@@ -91,8 +91,7 @@ public class addfood extends HttpServlet {
           if( !f.exists()){  // 若目录不存在，则创建目录
             f.mkdirs();
           }
-            String A="img2\\"+ id+ "\\"+ date+fname ;
-            A=A.replaceAll("\\\\", "\\\\\\\\");
+            String A="img2/"+ id+ "/"+ date+fname ;
             System.out.println(A);
             String sql ="INSERT INTO Dian VALUES ('"+id+"','"+foodname+"','"+A+"','"+foodprice+"','"+foodIntroduction+"','"+foodtype+"')";
             System.out.println(sql);
@@ -101,17 +100,13 @@ public class addfood extends HttpServlet {
     			  System.out.println(a);
     			if(a==0) {
     			request.setAttribute("result", "您的店铺已有该菜品");
-    			
     			}
     			else {
     	     	request.setAttribute("result", "成功添加菜：    "+foodname);
     	     	System.out.println(fname);       
-
     	        path=path + "\\"+date+fname;
     	        System.out.println(path);
-
-    	        p.write(path);     // 将上传的文件写入磁盘
-    	        path=path.replaceAll("\\\\", "\\\\\\\\");    
+    	        p.write(path);     // 将上传的文件写入磁盘    
     	        message = "文件上传成功！";
     	        System.out.println(path);     	    	     	
     			}   
