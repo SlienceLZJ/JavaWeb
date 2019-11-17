@@ -96,8 +96,8 @@ public class modefyCaiInfo extends HttpServlet {
 		 String sql="select foodtype,id from menu where id='"+no+"'";
 		 List<Menu> list=new ArrayList<Menu>();
 		 try {
-		 	ResultSet rs=JDBCDao.getData(sql);
-		 	
+			 
+		 	ResultSet rs=JDBCDao.getData(sql);		 	
 		 	while(rs.next()) {
 		 	Menu leibie=new Menu();	
 		 	leibie.setId(rs.getString("id"));

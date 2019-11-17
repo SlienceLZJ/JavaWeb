@@ -60,7 +60,7 @@ div.ab{width:300px;height:10px;background-color:white;}
         <span>
          <table>
          
-        <tr><td><form action="modefyCaiInfo" method="post">
+        <tr><td><form action="modefyCaiInfo" method="post" target="_blank">
           <input type="hidden" name="foodname" value="${s.foodname}">
           <input type="hidden" name="foodpicture" value="${s.foodpicture}">
           <input type="hidden" name="foodprice" value="${s.foodprice}">
@@ -71,7 +71,7 @@ div.ab{width:300px;height:10px;background-color:white;}
           <input type="submit" value="修改">
           </form>
           </td><td>
-          <form action="Delete" method="post">
+          <form action="Delete" method="post" >
           <input type="hidden" name="foodname" value="${s.foodname}">
           <input type="hidden" name="id" value="${s.foodid}">
           <input type="submit" value="删除">
