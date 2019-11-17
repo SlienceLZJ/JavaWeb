@@ -33,10 +33,13 @@ div.ab{width:300px;height:10px;background-color:white;}
 div.menu{height:50px;width:50px;margin-top:5px;}
 div.leftk{ float:left;width:70px;height:100px";position:fixed;}
 div.top{width:1000px;height:100px;background-color:blue;}
+div.Top{height:50px}
 .box{height:50px;background:#ccc;width:100%;}
 </style>
 </head>
 <body>
+<div class="Top">
+<%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>
 <div class=""style="width:70px">
 <div class="box1" id="box" style="float:left;width:70px;" >
 <c:forEach var="s" items="${menu}"> 
@@ -115,6 +118,7 @@ for(GoodsItem goods:goodsitem){
 <div class="carbottom">
 <div class="bottomleft">价格:<%=shoppingcar.getTotal()%></div>
 <form action="PayMoney" method="post"><div class="bottomright"><input type="submit" value="去结算"></input></div></form>
+</div>
 </div>
 </div>
 </div>
