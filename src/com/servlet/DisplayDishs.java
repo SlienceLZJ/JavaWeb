@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.dao.JDBCDao;
@@ -37,6 +38,8 @@ public class DisplayDishs extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id=request.getParameter("storeId");
+		HttpSession storeId=request.getSession();
+		storeId.setAttribute("StoreId", id);
 		System.out.println("DisplayDishs   id   "+id);
 		String sql="SELECT * FROM Dian where id='"+id+"'";
 		String sql1="SELECT * FROM menu where id='"+id+"'";
@@ -51,6 +54,7 @@ public class DisplayDishs extends HttpServlet {
 				DishsInformation dis=new DishsInformation();
 				String foodname=result.getString("foodname");
 				String foodid=result.getString("id");
+				System.out.print(foodname);
 				String foodintroduction=result.getString("foodintroduction");
 				Float foodprice=result.getFloat("foodprice");
 				String foodtype=result.getString("foodtype");
@@ -74,6 +78,7 @@ public class DisplayDishs extends HttpServlet {
 			while(result.next()) {
 			DishsInformation dis=new DishsInformation();
 			String foodtype=result.getString("foodtype");
+			System.out.print(foodtype);
 			dis.setFoodtype(foodtype);
 			menu.add(dis);
 			}

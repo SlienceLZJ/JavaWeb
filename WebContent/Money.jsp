@@ -53,7 +53,7 @@ for(GoodsItem goods:goodsitem){
 %>
 <div class="carmains">
 <div class="foodname"><%=dishinformation.getFoodname()%></div>
-<div class="foodquantity"><div style="float:left;width:30px"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
+<div class="foodquantity"><div style="float:left;width:30px"><form action="RemoveDishspay" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="ShoppingCarpay" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
 <div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
 </div>
 <%}}}%>
@@ -74,7 +74,7 @@ for(GoodsItem goods:goodsitem){
 
 <hr class="xian"></hr>
 <div class="pay2"><font size="4">付款码</font></div>
-<div class="picture"><img  width="200px" height="200px"src="storePayCode/001.jpg"></div>
+<div class="picture"><img  width="200px" height="200px"src="storePayCode/<%=request.getSession().getAttribute("StoreId")%>.jpg"></div>
 <hr class="xian"></hr>
 <div class="paybottom"><form action="PostGoods" method="post"><input height="10px" type="submit" value="确认发货"></form>
 </div>
