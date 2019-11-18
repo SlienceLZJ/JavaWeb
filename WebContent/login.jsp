@@ -5,8 +5,8 @@
   <meta charset="utf-8"> 
   <title>登录</title>
   <style type="text/css">
-  div.main{width:400px;height:240px;background-color:white;margin-top:100px}
-  div.mains{width:400px;height:190px;background-color:white}
+  div.main{width:450px;height:250px;background-color:white;margin-top:100px}
+  div.mains{width:450px;height:190px;background-color:white}
   div.black{background:url(Picture/background1.png); width:100%;height: 100%;position: absolute;}
   input.denglu{text-decoration:none;
 	           background:#2f435e;
@@ -50,10 +50,10 @@
   <div class="mains">
 <table>
    <form action="Login" method="post" >                
-        <tr><td><font size="4">用户名:</font></td><td> <input size="30" type="text" name="username"/> </td></tr>                    
-        <tr><td><font size="4">密&nbsp;&nbsp;&nbsp;&nbsp;码:</font></td><td><input type="password" size="30" name="password"></td></tr>
+        <tr><td><font size="4">用户名:</font></td><td> <input size="30" type="text" name="username"/> </td><td>&nbsp;&nbsp;</td></tr>                    
+        <tr><td><font size="4">密&nbsp;&nbsp;&nbsp;&nbsp;码:</font></td><td><input type="password" size="30" name="password"></td><td>&nbsp;</td></tr>
         <tr><td></td></tr>
-         <tr><td></td><td><input class="denglu" type="submit" value="登录"></center></td></tr>  
+         <tr><td></td><td><input class="denglu" type="submit" value="登录"></center></td><td>&nbsp;&nbsp;</td></tr>  
         <tr><td colspan="2">${error}</td></tr>        
    </form>  
 </table>
