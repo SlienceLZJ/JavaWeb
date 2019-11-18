@@ -29,6 +29,7 @@ public class Dian extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		  		
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("no");
+		System.out.println("the session id is :"+id);
 		String sql="SELECT * FROM Dian where id='"+id+"'";
 		String sql1="SELECT * FROM menu where id='"+id+"'";
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
@@ -77,9 +78,9 @@ public class Dian extends HttpServlet {
 	    request.getSession().setAttribute("menu1", menu);
 		request.getSession().setAttribute("id", id);
 	    DianMingInformation d = new DianMingInformation();
-	    System.out.println(id);
+
 	    String sql2="select * from DianMing where id='"+id+"'";
-	    System.out.println(sql2);
+	
 	    ResultSet rs;
 		try{ 
 		  rs = JDBCDao.getData(sql2);	  
