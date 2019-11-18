@@ -3,8 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8"> 
-  <title>登录</title>
-  
+  <title>登录</title>  
 <script type="text/javascript">
 // 验证输入不为空的脚本代码
 function checkForm(form) {
@@ -20,27 +19,69 @@ return false;
 }
 return true;
 }
-
 </script>  
+
+  <style type="text/css">
+  div.main{width:450px;height:250px;background-color:white;margin-top:100px}
+  div.mains{width:450px;height:190px;background-color:white}
+  div.black{background:url(Picture/background1.png); width:100%;height: 100%;position: absolute;}
+  input.denglu{text-decoration:none;
+	           background:#2f435e;
+	           width:205px;
+	           color:#f2f2f2;
+	           padding: 10px 10px 10px 10px;
+	           font-size:16px;
+	           font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+	           font-weight:bold;
+	           border-radius:7px;
+	           -webkit-transition:all linear 0.30s;
+	           -moz-transition:all linear 0.30s;
+	           transition:all linear 0.30s;}
+  input{
+                border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 5px;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+            }
+            input:focus{
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+            }
+  </style>
 </head>
+<div class="black">
 <body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <center>
+<div class="main">
+<br>
+<br>
+<font size=5>账号密码登录</font>
+<br><br><br>
+  <div class="mains">
+
 <table>
    <form action="Login" method="post" onsubmit="return checkForm(this);">                
-        <tr><td>用户名:</td><td> <input type="text" name="username"/>  </td></tr>                    
-        <tr><td>密码:</td><td><input type="password" name="password">  </td></tr>
-        <!--  <tr><td><input type="radio" name="choice" value="cus" checked="checked"/>&nbsp;消费者</td><td><input type="radio" name="choice" value="sell"/>&nbsp;商家</td></tr>
-     --><tr><td colspan="2"><center><input type="submit" value="登录"><a href="register.jsp">注册账号</a></center></td></tr>  
-        <tr><td colspan="2">${error}</td></tr>
-                        
+        <tr><td><font size="4">用户名:</font></td><td> <input size="30" type="text" name="username"/> </td><td>&nbsp;&nbsp;</td></tr>                    
+        <tr><td><font size="4">密&nbsp;&nbsp;&nbsp;&nbsp;码:</font></td><td><input type="password" size="30" name="password"></td><td>&nbsp;</td></tr>
+        <tr><td></td></tr>
+         <tr><td></td><td><input class="denglu" type="submit" value="登录"></center></td><td>&nbsp;&nbsp;</td></tr>  
+        <tr><td colspan="2">${error}</td></tr>        
+
    </form>  
 </table>
-</center>    
+<br>
+<br>
+<div style="float:right;"><a  href="register.jsp"><font size="2">注册账号</font></a></div>
+</div>
+</div>
+</center>
 </body>
+</div>
 </html>

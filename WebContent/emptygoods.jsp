@@ -15,9 +15,9 @@ div.type{width:830px;height:300px;}
 div.type1{width:820px;height:30px;margin-left:10px;margin-top:10px;margin-botton:10px}
 div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;margin-left:10px;border:0.5px solid black;}
 div.daohang{height:250px}
-div.main{background-color:gray;width:1400px;margin-left:70px}
+div.main{background-color:gray;width:1400px;margin-left:70px;margin-top:70px}
 div.Menu{height:800px;width:100px;text-align:right;}
-div.a{width:830px;float:left;background-color:green;}
+div.a{width:830px;float:left;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
 div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow;width:300px}
@@ -37,19 +37,21 @@ div.top{width:1000px;height:100px;background-color:blue;}
 </style>
 </head>
 <body>
+<div class="Top">
+<%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>
 <div class=""style="width:70px">
-<div class="box1" id="box" style="float:left;width:70px;" >
+<div class="box1" id="box" style="float:left;width:70px;position:fixed" >
 <a href="http://localhost:8080/JavaWeb/right.jsp" >全部商品</a> 
 </div>
 </div>
 <div class="main">
     <div class=a>
-     未找到该商品
+    <img alt="" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573969813449&di=61df31364f3727af4c917cf1554aa0f1&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ff9e42fe6c0d62cd7258433e53e136cc4426957fa14fca-ZRDUdV_fw658">
       </div>
 </div>
 <div class="sousou">
 <div>
-<form action="FindDishs">
+<form action="FindDishs"  style="top:0;right:0;position:fixed;margin-top:50px">
 <input type="text" name="foodname" size=20>
 <input name="id" type="hidden"value="<%=request.getSession().getAttribute("StoreId") %>">
 <input type="submit" name="id" value="查询">
@@ -68,7 +70,7 @@ for(GoodsItem goods:goodsitem){
 %>
 <div class="carmains">
 <div class="foodname"><%=dishinformation.getFoodname()%></div>
-<div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="Removecartwo" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="Addcartwo" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
+<div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="EmptyRemovecar" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="EmptyAddcar" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit">+</button></form></div></div>
 <div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
 </div>
 <%}}}%>
