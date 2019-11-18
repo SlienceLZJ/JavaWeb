@@ -34,6 +34,8 @@ public class UserAddrInfor extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
         response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");	
+		
+		
 		String phone=request.getParameter("phone");
 		String address=request.getParameter("address");
 		String name=request.getParameter("name");
