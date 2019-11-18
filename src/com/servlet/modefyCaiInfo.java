@@ -47,9 +47,7 @@ public class modefyCaiInfo extends HttpServlet {
 		
 		if(xiuGai!=null&&xiuGai.equals("true")) {//如果是用户提交的表单请求,则将修改内容保存到数据库
 			 picture=request.getParameter("picPath");
-			 String A=picture;
-			// A.replaceAll("\\", "\\\\");
-			 System.out.println("pic path is "+A);
+			 System.out.println("pic path is"+picture);
 			 
 			name=request.getParameter("name");
 			price=request.getParameter("price");
@@ -63,7 +61,7 @@ public class modefyCaiInfo extends HttpServlet {
 				part.write(path);
 			}
 			
-			String sql="update Dian set 			foodname='"+name+"',foodprice='"+price+"',foodintroduction='"+describtion+"',foodtype='"+type+"' 			where id='"+no+"' and foodpicture='"+picture+"'";
+			String sql="update Dian set foodname='"+name+"',foodprice='"+price+"',foodintroduction='"+describtion+"',foodtype='"+type+"' 			where id='"+no+"' and foodpicture='"+picture+"'";
 			System.out.println("sql is "+sql);
 			JDBCDao.insertOrDeleteOrUpdate(sql);
 			
@@ -96,8 +94,8 @@ public class modefyCaiInfo extends HttpServlet {
 		 String sql="select foodtype,id from menu where id='"+no+"'";
 		 List<Menu> list=new ArrayList<Menu>();
 		 try {
-		 	ResultSet rs=JDBCDao.getData(sql);
-		 	
+			 
+		 	ResultSet rs=JDBCDao.getData(sql);		 	
 		 	while(rs.next()) {
 		 	Menu leibie=new Menu();	
 		 	leibie.setId(rs.getString("id"));

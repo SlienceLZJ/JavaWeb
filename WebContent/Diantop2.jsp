@@ -12,12 +12,12 @@
 </head>
 <body>
 <center>
-<p><a href="ModStoreMsg">修改店铺信息</a></p>
-<p><a href="DisplayOrder">查看订单</a></p>
+<p><a href="ModStoreMsg" target="_blank">修改店铺信息</a></p>
+<p><a href="DisplayOrder" target="_blank">查看订单</a></p>
 <% String id=(String)request.getAttribute("id");
    System.out.println("Diantop2  id"+id);
 %>
-<p><a href="addfood.jsp">添加菜品</a></p>
+<p><a href="addfood.jsp" target="_blank">添加菜品</a></p>
 </center>
 </body>
 </html>

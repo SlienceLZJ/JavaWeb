@@ -16,6 +16,8 @@ import com.domain.AddressInfo;
 import com.domain.DishsInformation;
 import com.domain.GoodsItem;
 import com.domain.ShoppingCar;
+import com.socket.TestSocket;
+
 import javafx.scene.chart.XYChart.Data;
 
 /**
@@ -44,9 +46,10 @@ public class PostGoods extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ShoppingCar shoppingcar=(ShoppingCar) request.getSession().getAttribute("shoppingcar");
-		String id="101";
+		
+		String id=(String)request.getSession().getAttribute("no");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String sellid="111";
+		String sellid=(String)request.getSession().getAttribute("StoreId");
 		Date date=new Date();
 		String time=sdf.format(date);
 		AddressInfo addressinfo=(AddressInfo) request.getSession().getAttribute("addressinfo");
@@ -64,8 +67,9 @@ public class PostGoods extends HttpServlet {
 			  String sql="INSERT INTO foodOrder values ('"+id+"','"+sellid+"','"+foodname+"','"+quantity+"','"+foodprice+"','"+time+"','"+fahuo+"','"+totalprice+"')";  
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
 	          
-	          
-	          
+	          //通知websocket给店家发通知
+	          TestSocket.noti(sellid);
+ 
 	          
 	    }
 
