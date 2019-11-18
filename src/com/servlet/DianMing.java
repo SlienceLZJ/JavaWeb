@@ -40,17 +40,24 @@ public class DianMing extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");					
 		HttpSession session=request.getSession(true);
+		String no=(String)session.getAttribute("no");
+		System.out.println("the no is "+no);
+		if(no==null) {
+			response.sendRedirect("login.jsp");
+		}
+		
+		
 		String jiansuo=request.getParameter("jiansuo");				
 	    String sql="select * from DianMing";	
 		List<DianMingInformation> list=new ArrayList<DianMingInformation>();
-	    System.out.println("sql is :"+sql);
+	
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
 			while(rs.next()) {
 				DianMingInformation info1=new DianMingInformation();	
 				String name=rs.getString("name");
 				if(jiansuo!=null) {//当有检索词的时候
-					System.out.println("-----------");
+		
 					if(jiansuo.contains(name)||name.contains(jiansuo)) {//如果模糊匹配上了
 					
 						info1.setName(rs.getString("name"));
