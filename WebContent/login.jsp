@@ -25,15 +25,8 @@ return true;
   div.main{width:400px;height:250px;background-color:white;margin-top:100px;font-family:宋体;}
   div.mains{width:400px;height:215px;background-color:white;font-family:宋体;}
   div.black{background:url(Picture/background1.png); width:100%;height: 100%;position: absolute;}
-  input.denglu{width:250px;height:40px;border:1px solid #1e7db9; font-size:15px;color:white;
-
-box-shadow: 0 1px 2px #8fcaee inset,0 -1px 0 #497897 inset,0 -2px 3px #8fcaee inset;
-
-background: -webkit-linear-gradient(top,#42a4e0,#2e88c0);
-
-background: -moz-linear-gradient(top,#42a4e0,#2e88c0);
-
-background: linear-gradient(top,#42a4e0,#2e88c0);}
+  input.denglu{width:250px;height:40px;border:1px solid #1e7db9; font-size:18px;color:white;
+background:#2894FF}
   input{
                 border: 1px solid #ccc;
                 padding: 10px 0px;

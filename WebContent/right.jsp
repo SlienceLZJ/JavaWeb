@@ -15,9 +15,9 @@ div.type{width:830px;height:300px;}
 div.type1{width:820px;height:30px;margin-left:10px;margin-top:10px;margin-botton:10px}
 div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;margin-left:10px;border:0.5px solid black;}
 div.daohang{height:250px}
-div.main{background-color:gray;width:1400px;margin-left:70px;margin-top:70px}
+div.main{background-color:;width:1400px;margin-left:270px;margin-top:70px}
 div.Menu{height:800px;width:100px;text-align:right;}
-div.a{width:830px;float:left;background-color:green;}
+div.a{width:830px;float:left;background-color:white;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
 div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow;width:300px}
@@ -34,14 +34,15 @@ div.menu{height:50px;width:50px;margin-top:5px;}
 div.leftk{ float:left;width:70px;height:100px";position:fixed;}
 div.top{width:1000px;height:100px;background-color:blue;}
 div.Top{height:50px}
+div.aa{margin-left:200px}
 div.find{top:0;right:0;position:fixed;width:100px}
 .box{height:50px;background:#ccc;width:100%;}
 </style>
 </head>
-<body>
+<body  bgcolor="#F5F5F5">
 <div class="Top">
 <%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>
-<div class=""style="width:70px;position:fixed">
+<div class="aa"style="width:70px;position:fixed;margin-left:200px;background-color:white">
 <div class="box1" id="box" style="float:left;width:70px;" >
 <c:forEach var="s" items="${menu}"> 
 <div class="menu" >
