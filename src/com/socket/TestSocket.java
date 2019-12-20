@@ -2,16 +2,17 @@
 package com.socket;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
-
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
-
 import com.sun.javafx.collections.MappingChange.Map;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
+
+
 @ServerEndpoint(value = "/helloSocket")
 public class TestSocket {
 	 private static Session session;
@@ -46,12 +47,10 @@ public class TestSocket {
 			}
     	}
    
-    }
-    
-    
+    }   
     
     /**
-     * 连接关闭调用的方法
+              *  连接关闭调用的方法
      * @throws Exception 
      */
     @OnClose

@@ -76,15 +76,7 @@ public class Register extends HttpServlet{
 		}
 		else {//注册成功
 		
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 			
 			System.out.println("the jsp result is success-----");
 			request.setAttribute("msg", "success");

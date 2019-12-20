@@ -65,7 +65,8 @@ if(msg!=null){
 		%>
 		
 		<script type="text/javascript" language="javascript">
-		alert("该账号已被注册，请重新输入！");                                   	                    
+		alert("该账号已被注册，请重新输入！");
+		
 		</script> 
 		<%
 		}
@@ -74,7 +75,8 @@ if(msg!=null){
 		%>
 						
 		<script type="text/javascript" language="javascript">
-		alert("注册成功，请跳转到登录界面进行登录!");                                   	                    
+		alert("注册成功，请跳转到登录界面进行登录!");  
+		document.location.href="login.jsp";
 		</script> 				
 		<% 
 	}
