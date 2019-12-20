@@ -15,11 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
-<<<<<<< HEAD
-=======
-
 import javax.websocket.Session;
->>>>>>> branch 'master' of https://github.com/SlienceLZJ/JavaWeb.git
 
 import com.dao.JDBCDao;
 //import com.mchange.v2.c3p0.impl.DbAuth;
