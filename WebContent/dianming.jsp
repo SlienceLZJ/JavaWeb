@@ -14,10 +14,10 @@
 <meta charset="UTF-8">
 <title>点餐系统</title>
 <style>
-div.main{margin-left:70px;margin-right:50px;margin-top:30px;background-color:white;}
- input{      
+div.main{margin-left:70px;margin-right:100px;margin-top:30px;background-color:white;height:800px}
+ input{        
                 border: 1px solid #ccc;
-                padding: 3px 0px;
+                padding: 4px 0px;
                 border-radius: 3px;
                 font-family:宋体;
                 padding-left:5px;
@@ -52,9 +52,9 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
 
 <div class="main">
 <br>
-<div align="right" style="padding-right:40px;height:30px">
+<div  style="padding-right:40px;height:30px;margin-right:50px;float:right">
 <form name="Form" action="DianMing" method="post" ><font face="宋体">
- 检索店铺:</font><input type="text" name="jiansuo"/>&nbsp;<input type="submit" value="检索"/>
+ 检索店铺:</font><input class="" type="text" name="jiansuo"/>&nbsp;<input type="submit" value="检索"/>
 </form>
 </div>
 <center>

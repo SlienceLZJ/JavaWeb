@@ -81,7 +81,7 @@ return true;
 </table>
 <br>
 <br>
-<div style="float:right;"><a  href="register.jsp"><font size="2" face="宋体">注册账号</font></a></div>
+<div style="float:right;"><a  href="register.jsp" style="text-decoration:none"><font size="3" face="宋体" color="black">注册账号</font></a></div>
 </div>
 </div>
 </center>
