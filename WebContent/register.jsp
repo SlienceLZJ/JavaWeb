@@ -28,7 +28,7 @@
             div.ma{width:400px;background-color:white;height:400px;margin-top:100px}
             div.main{background:url(Picture/background1.png);;width:100%;height:100%;position: absolute;}
             div.ma1{margin-top:50px}
-            input.zhuce{width:250px;height:40px;border:1px solid #1e7db9;
+            input.zhuce{width:250px;height:40px;border:1px solid #1e7db9; font-size:15px;color:white;
 
 box-shadow: 0 1px 2px #8fcaee inset,0 -1px 0 #497897 inset,0 -2px 3px #8fcaee inset;
 
@@ -89,7 +89,7 @@ if(msg!=null){
 <center>
 <div class="ma">
 <br>
-<font size=5 family="宋体">注册账户</font>
+<font size=5 family=宋体>注册账户</font>
 <br>
 <div class="ma1">
    <form action="Register" method="post" onsubmit="return check()">
