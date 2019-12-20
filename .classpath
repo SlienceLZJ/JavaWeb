@@ -11,6 +11,10 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="src/com/socket/TestSocket.java"/>
+=======
+	<classpathentry kind="lib" path="C:/Program Files/apache-tomcat-9.0.24/lib/websocket-api.jar"/>
+>>>>>>> branch 'master' of https://github.com/SlienceLZJ/JavaWeb.git
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
