@@ -8,31 +8,51 @@
 <meta charset="UTF-8">
 <title>显示菜品</title>
 <style type="text/css">
-span.dishs{float:left;display:block;background-color:white;width:400px; height:100px ;margin-top:2px;margin-left:10px;border:0.5px solid black;}
-img.img1{vertical-align:top ; width:100px;height:100px;}
+<style type="text/css">
+span.dishs{float:left;display:block;background-color:#ECF5FF;width:400px; height:112px ;margin-top:2px;margin-left:10px;}
+img.img1{vertical-align:top ; width:110px;height:110px;}
+input{          border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 3px;
+                font-family:宋体;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s}
+                input.sou{width:50px;height:32px;color:white;background-color:#66B3FF}
+                input.spcar{width:150px;height:32px;color:white;background-color:#66B3FF}
 span.dishs1{float:left;}
-div.type{width:830px;height:300px;}
+div.type{width:830px;}
 div.type1{width:820px;height:30px;margin-left:10px;margin-top:10px;margin-botton:10px}
-div.tibu{float:left;display:block;width:400px; height:100px ;margin-top:2px;margin-left:10px;border:0.5px solid black;}
+div.tibu{float:left;display:block;width:400px; height:112px ;margin-top:2px;margin-left:10px;background-color:white}
 div.daohang{height:250px}
-div.main{background-color:gray;width:1400px;margin-left:70px;margin-top:70px}
+div.main{width:1400px;margin-left:270px;margin-top:70px}
 div.Menu{height:800px;width:100px;text-align:right;}
-div.a{width:830px;float:left;background-color:green;}
+div.a{width:830px;float:left;background-color:white;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
-div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow;width:300px}
+div.shopcar{ bottom:0;right:0;position:fixed;background-color:yellow;width:300px;margin-right:20px;border-radius:5px; border-top-left-radius:3px
+
+　　;border-top-right-radius:3px
+　　;border-bottom-right-radius:3px
+　　;border-bottom-left-radius:3px}
 div.carmain{background-color:white;width:300px;background-color:white;}
 div.carbottom{width:300px;height:50px;background-color:blue;line-height:50px;}
 div.bottomleft{width:200px;float:left;height:50px}
 div.bottomright{width:100px;float:right;height:50px}
-div.foodname{width:50px;float:left}
-div.foodquantity{width:200px;float:left;text-align:center}
+div.foodname{width:100px;float:left}
+div.foodquantity{width:150px;float:left;text-align:center}
 div.foodtotalprice{width:50px;float:left}
 div.carmains{width:300px;height:30px;background-color:white;}
 div.ab{width:300px;height:10px;background-color:white;}
 div.menu{height:50px;width:50px;margin-top:5px;}
 div.leftk{ float:left;width:70px;height:100px";position:fixed;}
 div.top{width:1000px;height:100px;background-color:blue;}
+div.Top{height:50px}
+div.aa{margin-left:200px}
+div.find{top:0;right:0;position:fixed;width:100px}
 .box{height:50px;background:#ccc;width:100%;}
 </style>
 </head>
