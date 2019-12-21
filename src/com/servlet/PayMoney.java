@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.JDBCDao;
 import com.domain.AddressInfo;
-import com.mysql.cj.xdevapi.Result;
 @WebServlet("/PayMoney")
 public class PayMoney extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -13,8 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.JDBCDao;
 import com.domain.OrderBean;
-import com.mysql.cj.xdevapi.Result;
-
 /**
  * Servlet implementation class yonghuDingdan
  */

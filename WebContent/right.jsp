@@ -29,7 +29,7 @@ div.type1{width:820px;height:30px;margin-left:10px;margin-top:10px;margin-botton
 div.tibu{float:left;display:block;width:400px; height:112px ;margin-top:2px;margin-left:10px;background-color:white}
 div.daohang{height:250px}
 div.main{width:1400px;margin-left:270px;margin-top:70px}
-div.Menu{height:800px;width:100px;text-align:right;}
+div.Menu{height:800px;width:100px;text-align:right;float:right}
 div.a{width:830px;float:left;background-color:white;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
@@ -56,21 +56,20 @@ div.find{top:0;right:0;position:fixed;width:100px}
 <body  bgcolor="#F5F5F5">
 <div class="Top">
 <%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>
-<div class="aa"style="width:70px;position:fixed;margin-left:190px;background-color:white">
+<div class="aa"style="width:50px;position:fixed;margin-left:210px;background-color:white">
 <div class="box1" id="box" style="float:left;width:70px;" >
 <c:forEach var="s" items="${menu}"> 
 <div class="menu" >
-<a href="#${s.foodtype}"><font size=4>${s.foodtype }</font></a>
+<a href="#${s.foodtype}" style="text-decoration:none"><font size=3 face="宋体" color=#5B5B5B>${s.foodtype }</font></a>
 </div >
 </c:forEach>
-<a href="http://localhost:8080/JavaWeb/right.jsp" >全部商品</a> 
 </div>
 </div>
 <div class="main">
     <div class=a >
     <c:forEach var="a" items="${menu}">
       <div class="type"><a name="${a.foodtype }"></a>
-       &nbsp;&nbsp;<font size=5 family="宋体">${a.foodtype}</font><br>
+       &nbsp;&nbsp;<font size=5 face="宋体">${a.foodtype}</font><br>
        <%int i=0;%>
        <br>
       <c:forEach var="s" items="${dislist}"> 
@@ -110,7 +109,7 @@ div.find{top:0;right:0;position:fixed;width:100px}
 <br>
 <div class="sousou">
 <br>
-<div class="find" style="top:0;right:0;position:fixed;margin-top:60px;margin-right:20px">
+<div class="find" style="top:0;right:0;position:fixed;margin-top:70px;margin-right:20px">
 <form action="FindDishs">
 <input type="text" placeholder="输入商品名称" name="foodname" size=30>
 <input name="id" type="hidden"value="${dislist[0].foodid}">

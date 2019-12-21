@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.JDBCDao;
 import com.domain.DishsInformation;
-import com.mysql.cj.protocol.Resultset;
 @WebServlet("/FindDishs")
 public class FindDishs extends HttpServlet {
 	private static final long serialVersionUID = 1L;

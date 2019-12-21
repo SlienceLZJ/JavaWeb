@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.domain.DishsInformation;
 import com.domain.GoodsItem;
 import com.domain.ShoppingCar;
-import com.mysql.cj.Session;
 
 @WebServlet("/AddDishs")
 public class AddDishs extends HttpServlet {

@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 import com.utils.*;
 import com.dao.JDBCDao;
 import com.domain.DianMingInformation;
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.sun.javafx.reflect.MethodUtil;
 
 

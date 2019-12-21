@@ -14,7 +14,6 @@ import com.domain.DianMingInformation;
 import com.domain.DishsInformation;
 import com.domain.ShoppingCar;
 import com.dao.*;
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.*;
 import java.util.ArrayList;
 

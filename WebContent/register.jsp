@@ -84,7 +84,7 @@ if(msg!=null){
 <center>
 <div class="ma">
 <br>
-<font size=5 family=宋体>注册账户</font>
+<font size=5 face=宋体>注册账户</font>
 <br>
 <div class="ma1">
    <form action="Register" method="post" onsubmit="return check()">

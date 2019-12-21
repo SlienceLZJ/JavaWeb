@@ -18,7 +18,6 @@ import javax.sql.DataSource;
 import com.dao.JDBCDao;
 import com.domain.DishsInformation;
 import com.domain.ShoppingCar;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.utils.JDBCUtil;
 
 @WebServlet("/DisplayDishs")
