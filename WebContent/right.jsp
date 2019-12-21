@@ -33,7 +33,7 @@ div.Menu{height:800px;width:100px;text-align:right;float:right}
 div.a{width:830px;float:left;background-color:white;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
-div.shopcar{ bottom:0;right:0;position:fixed;background-color:#0080FF;width:300px;margin-right:20px;border-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px }
+div.shopcar{font-family:宋体; bottom:0;right:0;position:fixed;background-color:#0080FF;width:300px;margin-right:20px;border-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px }
 div.carmain{background-color:white;width:300px;background-color:white;}
 div.carbottom{width:300px;height:50px;background-color:#0080FF;line-height:50px;}
 div.bottomleft{width:200px;float:left;height:50px}
@@ -135,7 +135,7 @@ for(GoodsItem goods:goodsitem){
 <%}}}%>
 </div>
 <div class="carbottom">
-<div class="bottomleft">&nbsp;价格:<%=shoppingcar.getTotal()%></div>
+<div class="bottomleft">&nbsp;<font face="宋体">价格:</font><%=shoppingcar.getTotal()%></div>
 <form action="PayMoney" method="post"><div class="bottomright"><input type="submit" class="car" value="去结算"></input></div></form>
 </div>
 </div>

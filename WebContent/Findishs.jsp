@@ -33,7 +33,7 @@ div.Menu{height:800px;width:100px;text-align:right;float:right}
 div.a{width:830px;float:left;background-color:white;height:1000px}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
-div.shopcar{ bottom:0;right:0;position:fixed;background-color:#0080FF;width:300px;margin-right:20px;border-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px }
+div.shopcar{ font-family:宋体;bottom:0;right:0;position:fixed;background-color:#0080FF;width:300px;margin-right:20px;border-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px }
 div.carmain{background-color:white;width:300px;background-color:white;}
 div.carbottom{width:300px;height:50px;background-color:#0080FF;line-height:50px;}
 div.bottomleft{width:200px;float:left;height:50px}
@@ -98,7 +98,7 @@ div.find{top:0;right:0;position:fixed;width:100px}
 </form>
 </div>
 <div class="shopcar">
-<div class="cartop"><font>购物车</font><a href="ClearDishs">清空</a>
+<div class="cartop">&nbsp;<font family="宋体">购物车</font><a href="ClearDishs" ><font family="宋体" color="white">清空</font></a>
 </div>
 <div class="carmain">
 <%ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
@@ -109,14 +109,14 @@ for(GoodsItem goods:goodsitem){
 	DishsInformation dishinformation=goods.getDishs();
 %>
 <div class="carmains">
-<div class="foodname"><%=dishinformation.getFoodname()%></div>
+<div class="foodname">&nbsp;<%=dishinformation.getFoodname()%></div>
 <div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="Removecartwo" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1" style="border-radius: 13px;background-color:#84C1FF">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="Addcartwo" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit" style="border-radius: 13px;background-color:#84C1FF">+</button></form></div></div>
 <div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
 </div>
 <%}}}%>
 </div>
 <div class="carbottom">
-<div class="bottomleft">价格:<%=shoppingcar.getTotal()%></div>
+<div class="bottomleft">&nbsp;价格:<%=shoppingcar.getTotal()%></div>
 <form action="PayMoney" method="post"><div class="bottomright"><input type="submit" class="car" value="去结算"></input></div></form>
 </div>
 </div>
