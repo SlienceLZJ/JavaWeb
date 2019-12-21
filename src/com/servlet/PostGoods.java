@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -70,6 +71,12 @@ public class PostGoods extends HttpServlet {
 	          //通知websocket给店家发通知
 	          TestSocket.noti(sellid);
  
+	          
+	          //跳转到显示下单成功的界面
+	          
+	          
+	          response.sendRedirect("payResult.jsp");
+	          
 	          
 	    }
 

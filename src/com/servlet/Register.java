@@ -87,17 +87,6 @@ public class Register extends HttpServlet{
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		/*---------------------访问数据库↑--------------------*/
 		//关闭数据库连接
 				try {
@@ -106,13 +95,7 @@ public class Register extends HttpServlet{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-		
-		
-		
-		
-		
-		
-		
+
 		
 		if(JDBCDao.insertOrDeleteOrUpdate(sql) != 0) {
 			System.out.println("添加成功！");

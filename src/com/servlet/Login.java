@@ -58,12 +58,16 @@ public class Login extends HttpServlet{
 		catch(Exception e){
 	          System.out.println(e);
 	      }
+		
+		//打开数据库连接
 		try {
 			dbconn = dataSource.getConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}										
+		}		
+		
+		
 		String sql = "select * from user where no='"+no+"' and password='"+pwd+"' ";		
 		System.out.println("the sql is :"+sql);								
 		ResultSet rs=null;
@@ -91,7 +95,9 @@ public class Login extends HttpServlet{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}			
+		}		
+		
+		
 		//关闭数据库连接
 		try {
 			dbconn.close();
