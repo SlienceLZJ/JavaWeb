@@ -50,7 +50,6 @@ public class DisplayDishs extends HttpServlet {
 			JDBCDao jdbc=new JDBCDao();
 	        result=JDBCDao.getData(sql);
 			while(result.next()){ 
-				
 				DishsInformation dis=new DishsInformation();
 				String foodname=result.getString("foodname");
 				String foodid=result.getString("id");

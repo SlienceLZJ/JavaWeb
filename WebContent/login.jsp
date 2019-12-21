@@ -22,25 +22,16 @@ return true;
 </script>  
 
   <style type="text/css">
-  div.main{width:450px;height:250px;background-color:white;margin-top:100px}
-  div.mains{width:450px;height:190px;background-color:white}
+  div.main{width:400px;height:250px;background-color:white;margin-top:100px;font-family:宋体;}
+  div.mains{width:400px;height:215px;background-color:white;font-family:宋体;}
   div.black{background:url(Picture/background1.png); width:100%;height: 100%;position: absolute;}
-  input.denglu{text-decoration:none;
-	           background:#2f435e;
-	           width:205px;
-	           color:#f2f2f2;
-	           padding: 10px 10px 10px 10px;
-	           font-size:16px;
-	           font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
-	           font-weight:bold;
-	           border-radius:7px;
-	           -webkit-transition:all linear 0.30s;
-	           -moz-transition:all linear 0.30s;
-	           transition:all linear 0.30s;}
+  input.denglu{width:250px;height:40px;border:1px solid #1e7db9; font-size:18px;color:white;
+background:#2894FF}
   input{
                 border: 1px solid #ccc;
-                padding: 7px 0px;
+                padding: 10px 0px;
                 border-radius: 5px;
+                font-family:宋体;
                 padding-left:5px;
                 -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
                 box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
@@ -58,27 +49,27 @@ return true;
 </head>
 <div class="black">
 <body>
-<center>
-<div class="main">
 <br>
+<br>
+<br>
+<center>
+<font size=6 face='宋体'>在线点餐系统</font>
+<div class="main">
 <br>
 <font size=5>账号密码登录</font>
 <br><br><br>
   <div class="mains">
 
-<table>
    <form action="Login" method="post" onsubmit="return checkForm(this);">                
-        <tr><td><font size="4">用户名:</font></td><td> <input size="30" type="text" name="username"/> </td><td>&nbsp;&nbsp;</td></tr>                    
-        <tr><td><font size="4">密&nbsp;&nbsp;&nbsp;&nbsp;码:</font></td><td><input type="password" size="30" name="password"></td><td>&nbsp;</td></tr>
-        <tr><td></td></tr>
-         <tr><td></td><td><input class="denglu" type="submit" value="登录"></center></td><td>&nbsp;&nbsp;</td></tr>  
+        <input size="35" type="text" placeholder="用户名" name="username"/><br><br>                   
+        <input type="password" size="35"  placeholder="密码" name="password"><br><br>
+        <input class="denglu" type="submit" value="登录"><br>
         <tr><td colspan="2">${error}</td></tr>        
 
    </form>  
-</table>
 <br>
 <br>
-<div style="float:right;"><a  href="register.jsp"><font size="2">注册账号</font></a></div>
+<div style="float:right;"><a  href="register.jsp" style="text-decoration:none"><font size="3" face="宋体" color="black">注册账号</font></a></div>
 </div>
 </div>
 </center>

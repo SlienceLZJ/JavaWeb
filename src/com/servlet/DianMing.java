@@ -78,10 +78,12 @@ public class DianMing extends HttpServlet {
 			        list.add(info1);						
 				}
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}	
+		JDBCDao.closeConnecttion();
 		System.out.println("the list size is:"+list.size());		
 		request.setAttribute("list", list);          
 		 RequestDispatcher rd = request.getRequestDispatcher("dianming.jsp");
