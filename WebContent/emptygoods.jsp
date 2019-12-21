@@ -78,6 +78,7 @@ div.find{top:0;right:0;position:fixed;width:100px}
 <div class="cartop">&nbsp;<font family="宋体">购物车</font><a href="ClearDishs" ><font family="宋体" color="white">清空</font></a>
 </div>
 <div class="carmain">
+<br>
 <%ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
 if(shoppingcar!=null){
 ArrayList<GoodsItem> goodsitem=new ArrayList<GoodsItem>(shoppingcar.getItems());%>          
@@ -87,7 +88,7 @@ for(GoodsItem goods:goodsitem){
 %>
 <div class="carmains">
 <div class="foodname">&nbsp;<%=dishinformation.getFoodname()%></div>
-<div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="EmptyRemovecar" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1"style="border-radius: 13px;background-color:#84C1FF">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="EmptyAddcar" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit"style="border-radius: 13px;background-color:#84C1FF">+</button></form></div></div>
+<div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="EmptyRemovecar" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1"style="border-color:#0080FF;background-color:white">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="EmptyAddcar" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit"style="border-color:#0080FF;background-color:white">+</button></form></div></div>
 <div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
 </div>
 <%}}}%>

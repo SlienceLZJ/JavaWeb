@@ -26,7 +26,9 @@ public class PayMoney extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sql="SELECT * FROM user WHERE no=101";
+		HttpSession n1=request.getSession();
+		String no=(String) n1.getAttribute("no");
+		String sql="SELECT * FROM user WHERE no='"+no+"'";
 		ResultSet result;
 		try {
 			result = JDBCDao.getData(sql);

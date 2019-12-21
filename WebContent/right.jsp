@@ -34,7 +34,7 @@ div.a{width:830px;float:left;background-color:white;}
 div.sousou{float:left;}
 div.cartop{width:300px;height:30px;line-height:30px;}
 div.shopcar{font-family:宋体; bottom:0;right:0;position:fixed;background-color:#0080FF;width:300px;margin-right:20px;border-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px }
-div.carmain{background-color:white;width:300px;background-color:white;}
+div.carmain{background-color:white;width:300px;background-color:white;margin-top:2px}
 div.carbottom{width:300px;height:50px;background-color:#0080FF;line-height:50px;}
 div.bottomleft{width:200px;float:left;height:50px}
 div.bottomright{width:100px;float:right;height:50px}
@@ -120,6 +120,7 @@ div.find{top:0;right:0;position:fixed;width:100px}
 <div class="cartop">&nbsp;<font family="宋体">购物车</font><a href="ClearDishs" ><font family="宋体" color="white">清空</font></a>
 </div>
 <div class="carmain">
+<br>
 <%ShoppingCar shoppingcar=(ShoppingCar)session.getAttribute("shoppingcar");
 if(shoppingcar!=null){
 ArrayList<GoodsItem> goodsitem=new ArrayList<GoodsItem>(shoppingcar.getItems());%>          
@@ -129,7 +130,9 @@ for(GoodsItem goods:goodsitem){
 %>
 <div class="carmains">
 <div class="foodname">&nbsp;<%=dishinformation.getFoodname()%></div>
-<div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1" style="border-radius: 13px;background-color:#84C1FF">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit"style="border-radius: 13px;background-color:#84C1FF">+</button></form></div></div>
+<center>
+<div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1" style="border-color:#0080FF;outline: none;background-color:white">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit"style="border-color:#0080FF;background-color:white">+</button></form></div></div>
+</center>
 <div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
 </div>
 <%}}}%>
