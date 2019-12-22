@@ -68,7 +68,7 @@ List<DianMingInformation> list=(List<DianMingInformation>)request.getAttribute("
 <%
 
 for(int i=0;i<list.size();i++){
-	
+
 	System.out.println("the value of i :"+i);
    DianMingInformation info=list.get(i);
    

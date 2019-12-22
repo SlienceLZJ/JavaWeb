@@ -79,7 +79,7 @@ select.ty{
 List<Menu> list=new ArrayList<Menu>();
 try {
 	ResultSet rs=JDBCDao.getData(sql);
-	
+
 	while(rs.next()) {
 	Menu info=new com.domain.Menu();	
 	info.setId(rs.getString("id"));
@@ -87,6 +87,7 @@ try {
 	list.add(info);
 	System.out.println("result set is "+rs.getString("id"));
 	}
+	JDBCDao.closeConnecttion();
 } catch (SQLException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
@@ -101,7 +102,12 @@ for(int i=0;i<list.size();i++){
 
 </select></td></tr>
 
+<<<<<<< HEAD
 <tr><td>菜品简介 </td>
+=======
+<tr><td>菜品简介</td>
+
+>>>>>>> branch 'master' of https://github.com/SlienceLZJ/JavaWeb.git
 <td><textarea name="foodIntroduction" rows="5" cols="30"></textarea></td>
 </tr>
 </table>

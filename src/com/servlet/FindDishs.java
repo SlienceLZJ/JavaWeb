@@ -36,6 +36,7 @@ public class FindDishs extends HttpServlet {
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
 		try {
 			ResultSet result=JDBCDao.getData(sql);
+			 
 			while(result.next()) {
 				i++;
 				DishsInformation dis=new DishsInformation();
@@ -55,11 +56,12 @@ public class FindDishs extends HttpServlet {
 			    dislist.add(dis);
 			    menu.add(dis);
 			}
+			 JDBCDao.closeConnecttion();
 			if(i==0)
 				response.sendRedirect("/JavaWeb/emptygoods.jsp");
 			else {	
 			    result.close();
-			    JDBCDao.closeConnecttion();
+			  
 			 request.getSession().setAttribute("finddislist", dislist);
 			 response.sendRedirect("/JavaWeb/Findishs.jsp");}
 		} catch (SQLException e) {

@@ -50,30 +50,22 @@ public class Login extends HttpServlet{
 			System.out.println("用户名或密码为空");
 			return;
 		}		
-		// 打开数据库连接
-		DataSource dataSource = null;
-		try {
-		      dataSource = JDBCUtil.getDataSource();  
-	      }
-		catch(Exception e){
-	          System.out.println(e);
-	      }
-		try {
-			dbconn = dataSource.getConnection();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}										
+	
+	
+		
+		
 		String sql = "select * from user where no='"+no+"' and password='"+pwd+"' ";		
 		System.out.println("the sql is :"+sql);								
 		ResultSet rs=null;
 		try {
 			rs=JDBCDao.getData(sql);
+		
 		} catch (Exception e) {
 			// TODO: handle exception
 		}								
 		System.out.println("result is null?"+(rs==null));	
 		try {
+			
 			if(rs.next()) {//如果查到结果
 				session.setAttribute("no", no);								
 				if(rs.getString("type").equals("cus")) {//如果是用户就跳到用户界面				
@@ -91,13 +83,10 @@ public class Login extends HttpServlet{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}			
+		}		
+		
+		
 		//关闭数据库连接
-		try {
-			dbconn.close();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		JDBCDao.closeConnecttion();
 	}
 }

@@ -36,6 +36,7 @@ public class DisplayOrder extends HttpServlet {
 		
 		try {
 			rs=JDBCDao.getData(sql);
+		
 			while(rs.next()) {
 				OrderBean orderInfo=new OrderBean();
 				orderInfo.setNo(rs.getString("no"));
@@ -49,6 +50,7 @@ public class DisplayOrder extends HttpServlet {
 				orderInfo.setTime(rs.getString("Time"));
 				list.add(orderInfo);			
 			}
+			JDBCDao.closeConnecttion();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -99,12 +101,13 @@ public class DisplayOrder extends HttpServlet {
 				System.out.println("the sql is :"+sql);
 				JDBCDao.insertOrDeleteOrUpdate(sql);//执行更新语句
 				fill(weiSql, request, response,"no");
-				
+				JDBCDao.closeConnecttion();
 			}
 			else {//如果用户选择了删除订单
 				sql="delete from foodOrder where no='"+no+"' and Time='"+time+"'";
 				System.out.println("the delete sql is "+sql);
 				JDBCDao.insertOrDeleteOrUpdate(sql);//执行删除语句
+				JDBCDao.closeConnecttion();
 				fill(yiSql, request, response, "yes");
 			}
 			

@@ -14,6 +14,8 @@ import com.domain.DianMingInformation;
 import com.domain.DishsInformation;
 import com.domain.ShoppingCar;
 import com.dao.*;
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import com.sun.javafx.geom.PickRay;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -85,7 +87,8 @@ public class Dian extends HttpServlet {
 		  rs = JDBCDao.getData(sql2);	  
 	      //System.out.println(rs.next());
 	      if(rs.next()){
-	       	  System.out.println(d.getName());    		  
+	       	  System.out.println("the name of store is :"+rs.getString("picture"));  
+	       	  
 	    	  d.setPicture(rs.getString("picture"));
 	    	  d.setName(rs.getString("name"));
 	    	  d.setDescription(rs.getString("description"));

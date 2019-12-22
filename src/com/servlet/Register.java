@@ -42,23 +42,9 @@ public class Register extends HttpServlet{
 		String username = request.getParameter("username"); // 获取客户端传过来的参数
 		String password = request.getParameter("password");
 		String type=request.getParameter("choice");
-		Connection dbconn = null;
+	
 		
-		
-		// 打开数据库连接
-		DataSource dataSource = null;
-		try {
-		      dataSource = JDBCUtil.getDataSource();  
-	      }
-		catch(Exception e){
-	          System.out.println(e);
-	      }
-		try {
-			dbconn = dataSource.getConnection();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		/*---------------------访问数据库↓--------------------*/
 		
 		
@@ -67,6 +53,7 @@ public class Register extends HttpServlet{
 		System.out.println("the sql is "+sql);
 		
 		int result=JDBCDao.insertOrDeleteOrUpdate(sql);
+		JDBCDao.closeConnecttion();
 		System.out.println("the result is"+result );
 		if(result==0) {//如果等于0代表该账号已被注册														
 			System.out.println("the jsp result is failed-----");
@@ -87,46 +74,15 @@ public class Register extends HttpServlet{
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		/*---------------------访问数据库↑--------------------*/
-		//关闭数据库连接
-				try {
-					dbconn.close();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-		
-		
-		
-		
-		
-		
-		
+
+
 		
 		if(JDBCDao.insertOrDeleteOrUpdate(sql) != 0) {
 			System.out.println("添加成功！");
 			out.println("<script>alert('注册成功，赶快去登录吧~');  window.location='login.jsp'</script>");
 		}
-		try {
-			dbconn.close();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		
-			//dbconn.close();
+		JDBCDao.closeConnecttion();
 		
 		
 		out.println("<script>alert('用户名或密码错误~');  window.location='login.jsp'</script>");

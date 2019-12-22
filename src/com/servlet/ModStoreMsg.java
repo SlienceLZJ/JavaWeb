@@ -86,6 +86,7 @@ public class ModStoreMsg extends HttpServlet {
 				    
 			    sql="update DianMing set name='"+name+"',description='"+description+"' where id='"+no+"'";
 			    JDBCDao.insertOrDeleteOrUpdate(sql);
+			    JDBCDao.closeConnecttion();			    
 			    //开始执行更新操作
 			    System.out.println("the sql is :"+sql);
 			    request.setAttribute("update", "更新成功!");		    
@@ -97,6 +98,7 @@ public class ModStoreMsg extends HttpServlet {
 		sql="select * from DianMing where id='"+no+"'";	
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
+		   
 			System.out.println("have");
 			while(rs.next()) {
 				System.out.println("no have");
@@ -106,6 +108,7 @@ public class ModStoreMsg extends HttpServlet {
 			info.setDescription(rs.getString("description"));
 			info.setPayPicture("storePayCode/"+no+".jpg");
 			}
+			 JDBCDao.closeConnecttion();	
 						
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

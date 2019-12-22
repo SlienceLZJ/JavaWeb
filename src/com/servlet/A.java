@@ -43,7 +43,7 @@ public class A extends HttpServlet {
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
 		ResultSet result;
 		try {
-			JDBCDao jdbc=new JDBCDao();
+		
 	        result=JDBCDao.getData(sql);
 			while(result.next()){
 				DishsInformation dis=new DishsInformation();

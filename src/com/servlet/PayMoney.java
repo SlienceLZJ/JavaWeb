@@ -32,6 +32,7 @@ public class PayMoney extends HttpServlet {
 		ResultSet result;
 		try {
 			result = JDBCDao.getData(sql);
+		
 			AddressInfo addressinfo=new AddressInfo();
 			while(result.next()) {
 				String username=result.getString("name");
@@ -41,6 +42,7 @@ public class PayMoney extends HttpServlet {
 				String address=result.getString("address");
 				addressinfo.setAddress(address);
 			}
+			JDBCDao.closeConnecttion();
 			HttpSession session=request.getSession();
 			session.setAttribute("addressinfo", addressinfo);
 			response.sendRedirect("Money.jsp");

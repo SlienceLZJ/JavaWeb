@@ -51,7 +51,7 @@ public class UserAddrInfor extends HttpServlet {
 					sql="update user set name='"+name+"',phone='"+phone+"' ,address='"+address+"' where no='"+no+"'";
 					
 					int result=JDBCDao.insertOrDeleteOrUpdate(sql);
-					
+					JDBCDao.closeConnecttion();
 					System.out.println("the value of result is "+result);
 					request.setAttribute("msg", "更新成功");
 
@@ -71,6 +71,7 @@ public class UserAddrInfor extends HttpServlet {
 						info.setPhone(rs.getString("phone"));
 						info.setName(rs.getString("name"));						
 					}
+					JDBCDao.closeConnecttion();
 	
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

@@ -1,7 +1,9 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -64,12 +66,51 @@ public class PostGoods extends HttpServlet {
 			  String foodname=dishs.getFoodname();
 			  String foodprice=String.valueOf(dishs.getFoodprice());
 			  String totalprice=String.valueOf(shoppingcar.getTotal());
-			  String sql="INSERT INTO foodOrder values ('"+id+"','"+sellid+"','"+foodname+"','"+quantity+"','"+foodprice+"','"+time+"','"+fahuo+"','"+totalprice+"')";  
+			  
+			  //将订单插入到商家表里
+			  String sql="INSERT INTO foodOrder values ('"+id+"','"+sellid+"','"+foodname+"','"+quantity+"','"+foodprice+"','"+time+"','"+fahuo+"','"+totalprice+"')";
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
+	          JDBCDao.closeConnecttion();
+	          
+	          
+	          //获取店家名字
+	          sql="select name from DianMing where id='"+sellid+"'";
+	          ResultSet rs=null;
+			try {
+				rs = JDBCDao.getData(sql);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	          String storeName=null;
+	          try {
+				if(rs.next()) {
+					  storeName=rs.getString("name");
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	          
+	          
+	          
+	          //将订单插入到客户表里 
+	          sql="insert into foodOrderCus (CaiMing,Number,Price,TotalPrice,FaHuo,Time,StoreName) values('"+foodname+"','"+quantity+"','"+foodprice+"','"+totalprice+"','"+fahuo+"','"+time+"','"+storeName+"')";
+	          JDBCDao.insertOrDeleteOrUpdate(sql);
+	          JDBCDao.closeConnecttion();
+	          
+	          
+	          
 	          
 	          //通知websocket给店家发通知
 	          TestSocket.noti(sellid);
  
+	          
+	          //跳转到显示下单成功的界面
+	          
+	          
+	          response.sendRedirect("payResult.jsp");
+	          
 	          
 	    }
 

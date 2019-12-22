@@ -39,13 +39,14 @@ public class Delete extends HttpServlet {
 		String sql ="delete from Dian where id='"+id+"' and foodname='"+foodname+"'";
 		System.out.println(sql);
 		int a=JDBCDao.insertOrDeleteOrUpdate(sql);
+		JDBCDao.closeConnecttion();
 		System.out.println(a);
 		
 			request.setAttribute("id", id);
 			RequestDispatcher rd=request.getRequestDispatcher("Dian");
 			rd.forward(request, response);
 		
-		JDBCDao.closeConnecttion();
+		
 	}
 
 }
