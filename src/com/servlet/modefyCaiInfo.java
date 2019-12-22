@@ -64,7 +64,7 @@ public class modefyCaiInfo extends HttpServlet {
 			String sql="update Dian set foodname='"+name+"',foodprice='"+price+"',foodintroduction='"+describtion+"',foodtype='"+type+"' 			where id='"+no+"' and foodpicture='"+picture+"'";
 			System.out.println("sql is "+sql);
 			JDBCDao.insertOrDeleteOrUpdate(sql);
-			
+			JDBCDao.closeConnecttion();
 			request.setAttribute("msg", "修改成功!");
 			
 		}
@@ -95,7 +95,8 @@ public class modefyCaiInfo extends HttpServlet {
 		 List<Menu> list=new ArrayList<Menu>();
 		 try {
 			 
-		 	ResultSet rs=JDBCDao.getData(sql);		 	
+		 	ResultSet rs=JDBCDao.getData(sql);
+		 	JDBCDao.closeConnecttion();
 		 	while(rs.next()) {
 		 	Menu leibie=new Menu();	
 		 	leibie.setId(rs.getString("id"));

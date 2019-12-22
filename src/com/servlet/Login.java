@@ -50,22 +50,8 @@ public class Login extends HttpServlet{
 			System.out.println("用户名或密码为空");
 			return;
 		}		
-		// 打开数据库连接
-		DataSource dataSource = null;
-		try {
-		      dataSource = JDBCUtil.getDataSource();  
-	      }
-		catch(Exception e){
-	          System.out.println(e);
-	      }
-		
-		//打开数据库连接
-		try {
-			dbconn = dataSource.getConnection();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+	
+	
 		
 		
 		String sql = "select * from user where no='"+no+"' and password='"+pwd+"' ";		
@@ -73,6 +59,7 @@ public class Login extends HttpServlet{
 		ResultSet rs=null;
 		try {
 			rs=JDBCDao.getData(sql);
+			JDBCDao.closeConnecttion();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}								
@@ -99,11 +86,6 @@ public class Login extends HttpServlet{
 		
 		
 		//关闭数据库连接
-		try {
-			dbconn.close();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	
 	}
 }

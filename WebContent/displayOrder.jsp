@@ -86,9 +86,10 @@
     	 out.println("<font size='1'>");
     	 out.println(caiMing+"X"+number+" 单价:"+price+"元<br>");//输出菜品详情
     	 out.println("</font>");
+    	 
 for(int i=0;i<list.size();){//合并菜品详情
 	 order=list.get(i);
-	if(no.equals(order.getNo())){//如果是同一个客户的订单，则将菜品合并
+	if(no.equals(order.getNo())&&(order.getTime().equals(time))){//如果是同一个客户的订单，并且是在同一时间下的订单则将菜品合并
 	caiMing=order.getCaiMing();
 	price=order.getPrice();
 	number=order.getNumber();

@@ -35,7 +35,7 @@
 List<Menu> list=new ArrayList<Menu>();
 try {
 	ResultSet rs=JDBCDao.getData(sql);
-	
+	JDBCDao.closeConnecttion();
 	while(rs.next()) {
 	Menu info=new com.domain.Menu();	
 	info.setId(rs.getString("id"));

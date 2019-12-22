@@ -46,8 +46,7 @@ public class DisplayDishs extends HttpServlet {
 		ArrayList <DishsInformation> dislist=new ArrayList<DishsInformation>();
 		ArrayList <DishsInformation> menu=new ArrayList<DishsInformation>();
 		ResultSet result;
-		try {
-			JDBCDao jdbc=new JDBCDao();
+		try {		
 	        result=JDBCDao.getData(sql);
 			while(result.next()){ 
 				DishsInformation dis=new DishsInformation();

@@ -51,7 +51,7 @@ public class UserAddrInfor extends HttpServlet {
 					sql="update user set name='"+name+"',phone='"+phone+"' ,address='"+address+"' where no='"+no+"'";
 					
 					int result=JDBCDao.insertOrDeleteOrUpdate(sql);
-					
+					JDBCDao.closeConnecttion();
 					System.out.println("the value of result is "+result);
 					request.setAttribute("msg", "更新成功");
 
@@ -65,7 +65,7 @@ public class UserAddrInfor extends HttpServlet {
 				AddressInfo info=new AddressInfo();
 				try {
 					ResultSet rs=JDBCDao.getData(sql);
-				
+				JDBCDao.closeConnecttion();
 					while(rs.next()) {
 						info.setAddress(rs.getString("address"));
 						info.setPhone(rs.getString("phone"));
