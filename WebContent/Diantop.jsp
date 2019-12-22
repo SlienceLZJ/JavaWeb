@@ -12,7 +12,7 @@
 </head>
 <body>
    
-      <img src="${d.getPicture()}" height="145" width="150" >
+      <img src="${d.getPicture()}" height="120" width="120" >
 
 </body>
 </html>

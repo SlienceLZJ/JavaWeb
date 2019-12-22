@@ -11,7 +11,7 @@
  <%String id=(String)session.getAttribute("no"); %>
 <table align=center>
     <tr>
-           <td>您的用户名&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>  
+           
            <td>订单的店铺名&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
            <td>订单菜名&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
            <td>菜品数量&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
@@ -23,7 +23,7 @@
     <c:forEach var="s" items="${order}"> 
           
            <tr>
-           <td><%=id %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>  
+           
            <td>${s.sellerId}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </td>    
            <td>${s.caiMing}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
            <td>${s.number}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>

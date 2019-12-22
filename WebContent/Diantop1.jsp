@@ -9,10 +9,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+div.aa{font-size:40px;font-family:宋体;}
+</style>
 </head>
 <body>
-<p> 您的店铺名为：  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${d.getName()}</p><br>
-<p>  您的店铺简介为:  ${d.getDescription()}
-</p>
+<div class="aa"> ${d.getName()}
+</div>
 </body>
 </html>

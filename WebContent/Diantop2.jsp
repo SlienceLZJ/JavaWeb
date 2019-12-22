@@ -9,16 +9,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+a.c{text-decoration:none;color:black}
+div.main{font-size:25px;font-family:宋体;}
+</style>
 </head>
 <body>
 <center>
-<p><a href="ModStoreMsg" target="_blank">修改店铺信息</a></p>
-<p><a href="DisplayOrder" target="_blank">查看订单</a></p>
+<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;查看订单</a>
 <% String id=(String)session.getAttribute("no");
    System.out.println("Diantop2  id"+id);
-%>
-<p><a href="addfoodtype.jsp?id=<%=id %>" target="_blank">添加菜品种类</a></p>
-<p><a href="addfood.jsp" target="_blank">添加菜品</a></p>
+%><a  class="c" href="addfoodtype.jsp?id=<%=id %>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品种类</a><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品</a>
 </center>
 </body>
 </html>
