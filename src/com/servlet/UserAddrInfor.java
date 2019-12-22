@@ -65,12 +65,13 @@ public class UserAddrInfor extends HttpServlet {
 				AddressInfo info=new AddressInfo();
 				try {
 					ResultSet rs=JDBCDao.getData(sql);
-				JDBCDao.closeConnecttion();
+				
 					while(rs.next()) {
 						info.setAddress(rs.getString("address"));
 						info.setPhone(rs.getString("phone"));
 						info.setName(rs.getString("name"));						
 					}
+					JDBCDao.closeConnecttion();
 	
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

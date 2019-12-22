@@ -59,12 +59,13 @@ public class Login extends HttpServlet{
 		ResultSet rs=null;
 		try {
 			rs=JDBCDao.getData(sql);
-			JDBCDao.closeConnecttion();
+		
 		} catch (Exception e) {
 			// TODO: handle exception
 		}								
 		System.out.println("result is null?"+(rs==null));	
 		try {
+			
 			if(rs.next()) {//如果查到结果
 				session.setAttribute("no", no);								
 				if(rs.getString("type").equals("cus")) {//如果是用户就跳到用户界面				
@@ -86,6 +87,6 @@ public class Login extends HttpServlet{
 		
 		
 		//关闭数据库连接
-	
+		JDBCDao.closeConnecttion();
 	}
 }

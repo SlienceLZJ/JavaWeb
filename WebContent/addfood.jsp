@@ -35,7 +35,7 @@
 List<Menu> list=new ArrayList<Menu>();
 try {
 	ResultSet rs=JDBCDao.getData(sql);
-	JDBCDao.closeConnecttion();
+
 	while(rs.next()) {
 	Menu info=new com.domain.Menu();	
 	info.setId(rs.getString("id"));
@@ -43,6 +43,7 @@ try {
 	list.add(info);
 	System.out.println("result set is "+rs.getString("id"));
 	}
+	JDBCDao.closeConnecttion();
 } catch (SQLException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();

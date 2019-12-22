@@ -98,7 +98,7 @@ public class ModStoreMsg extends HttpServlet {
 		sql="select * from DianMing where id='"+no+"'";	
 		try {
 			ResultSet rs=JDBCDao.getData(sql);	
-		    JDBCDao.closeConnecttion();	
+		   
 			System.out.println("have");
 			while(rs.next()) {
 				System.out.println("no have");
@@ -108,6 +108,7 @@ public class ModStoreMsg extends HttpServlet {
 			info.setDescription(rs.getString("description"));
 			info.setPayPicture("storePayCode/"+no+".jpg");
 			}
+			 JDBCDao.closeConnecttion();	
 						
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

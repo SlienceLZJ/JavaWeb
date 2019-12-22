@@ -36,7 +36,7 @@ public class DisplayOrder extends HttpServlet {
 		
 		try {
 			rs=JDBCDao.getData(sql);
-			JDBCDao.closeConnecttion();
+		
 			while(rs.next()) {
 				OrderBean orderInfo=new OrderBean();
 				orderInfo.setNo(rs.getString("no"));
@@ -50,6 +50,7 @@ public class DisplayOrder extends HttpServlet {
 				orderInfo.setTime(rs.getString("Time"));
 				list.add(orderInfo);			
 			}
+			JDBCDao.closeConnecttion();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
