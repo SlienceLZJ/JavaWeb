@@ -41,7 +41,18 @@ select.ty{
     -moz-border-radius:2px;  
     -webkit-border-radius:2px;  
     border-radius:2px;  
-}  }
+}
+textarea.miaoshu{border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 5px;
+                font-family:宋体;
+                width:210px;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s}
 </style>
 </head>
 <body  bgcolor="#F5F5F5">
@@ -69,7 +80,7 @@ select.ty{
 <tr><td><input type="hidden" value="<%=id%>"  name="id"></td></tr>
 <tr><td>菜品名称 </td><td><input type="text" size=30 name="foodname"></td></tr>
 <br>
-<tr><td>菜品图片 </td><td><input type="file" size=18name="foodpicture" multiple= "multiple" ></td></tr>
+<tr><td>菜品图片 </td><td><input type="file" size=18 name="foodpicture" multiple= "multiple" ></td></tr>
 <tr><td>菜品价格 </td><td><input type="text" size=30 name="foodprice"></td></tr>
 <tr><td>菜品类别 </td>
 <td><select size="1" class="ty" name="foodtype">
@@ -102,13 +113,8 @@ for(int i=0;i<list.size();i++){
 
 </select></td></tr>
 
-<<<<<<< HEAD
-<tr><td>菜品简介 </td>
-=======
 <tr><td>菜品简介</td>
-
->>>>>>> branch 'master' of https://github.com/SlienceLZJ/JavaWeb.git
-<td><textarea name="foodIntroduction" rows="5" cols="30"></textarea></td>
+<td><textarea name="foodIntroduction" class="miaoshu" rows="5" cols="30"></textarea></td>
 </tr>
 </table>
 <br>
