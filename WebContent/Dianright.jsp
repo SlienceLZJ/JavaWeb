@@ -91,12 +91,12 @@ div.ab{width:300px;height:10px;background-color:white;}
 </div>
 <div class="sousou">
 <div>
-<form action="FindDishs">
+<!-- <form action="FindDishs">
 <input type="text" name="foodname" size=20>
 <input name="id" type="hidden"value="${dislist[0].foodid}">
 <input type="submit" name="id" value="查询">
 </form>
-</div>
+</div> -->
 
 </div>
 </div>
