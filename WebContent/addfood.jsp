@@ -23,8 +23,8 @@ input{
                 -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
                 transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
             }
-input.yes{width:100px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
-input.rel{width:100px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
+input.yes{width:70px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
+input.rel{width:70px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
 div.top{background-color:#46A3FF; width:100%; height:120px;font-family:宋体}
 div.picture{float:left; width:200px;height:120px;}
 div.wenzi{float:left; width:300px;height:120px;line-height:120px}
@@ -33,50 +33,15 @@ div.aa{font-size:40px;font-family:宋体;}
 div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-color:white}
 a.c{text-decoration:none;color:black}
 select.ty{  
-   
-    height:30px;  
-    width:218px;  
-    line-height:30px;  
-    border:1px solid #ccc;
-    -moz-border-radius:2px;  
-    -webkit-border-radius:2px;  
-    border-radius:5px;  
-}
-.file { 
-    width:130px;
-    position: relative;
-    display: inline-block;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 4px 12px;
-    overflow: hidden;
-    color: black;
-    text-decoration: none;
-    text-indent: 0;
-    line-height: 20px;
-}
-.file input {
-    position: absolute;
-    font-size: 100px;
-    right: 0;
-    top: 0;
-    opacity: 0;
-}
-.file:hover {
-    background: #AADFFD;
-    border-color:#ccc ;
-    color: #004974;
-    text-decoration: none;
-}
-textarea.jianjie{  
-    height:100px;  
-    width:214px;  
+    background:#fafdfe;  
+    height:28px;  
+    width:180px;  
     line-height:28px;  
-    border:1px solid #ccc;  
+    border:1px solid #9bc0dd;  
     -moz-border-radius:2px;  
     -webkit-border-radius:2px;  
-    border-radius:5px;  }
+    border-radius:2px;  
+}  }
 </style>
 </head>
 <body  bgcolor="#F5F5F5">
@@ -104,9 +69,7 @@ textarea.jianjie{
 <tr><td><input type="hidden" value="<%=id%>"  name="id"></td></tr>
 <tr><td>菜品名称 </td><td><input type="text" size=30 name="foodname"></td></tr>
 <br>
-<tr><td>菜品图片 </td><td><a href="javascript:;" class="file">点击此处选择图片  
-    <input type="file" name="" id="">  
-</a>  </td></tr>
+<tr><td>菜品图片 </td><td><input type="file" size=18name="foodpicture" multiple= "multiple" ></td></tr>
 <tr><td>菜品价格 </td><td><input type="text" size=30 name="foodprice"></td></tr>
 <tr><td>菜品类别 </td>
 <td><select size="1" class="ty" name="foodtype">
@@ -139,12 +102,12 @@ for(int i=0;i<list.size();i++){
 </select></td></tr>
 
 <tr><td>菜品简介 </td>
-<td><textarea name="foodIntroduction" class="jianjie"; rows="5" cols="30"></textarea></td>
+<td><textarea name="foodIntroduction" rows="5" cols="30"></textarea></td>
 </tr>
 </table>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <input type="submit" class="yes" value="确定" >&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <input type="submit" class="yes" value="确定" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="reset" class="rel" value="重置" >
 </table>
 </form>
