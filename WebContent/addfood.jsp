@@ -113,6 +113,7 @@ for(int i=0;i<list.size();i++){
 
 </select></td></tr>
 
+
 <tr><td>菜品简介</td>
 <td><textarea name="foodIntroduction" class="miaoshu" rows="5" cols="30"></textarea></td>
 </tr>
