@@ -16,19 +16,6 @@
     <tr>
           <td>订单详情</td><td>总价</td><td>下单日期</td><td>卖家</td><td>是否收货</td>
     </tr>
-    <c:forEach var="s" items="${order}"> 
-          
-           <tr>
-           
-           <td>${s.sellerId}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </td>    
-           <td>${s.caiMing}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-           <td>${s.number}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-           <td>￥:${s.price}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-           <td>￥:${s.time}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-           <td>￥:${s.faHuo}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-           <td>￥:${s.totalPrice}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-           </tr>
-      </c:forEach>
     
      <%
    
@@ -83,7 +70,6 @@ out.println("</tr>");
 
      }
     	 %>
->>>>>>> branch 'master' of https://github.com/SlienceLZJ/JavaWeb.git
 </table>
 
 </body>
