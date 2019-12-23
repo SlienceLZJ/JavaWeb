@@ -25,7 +25,7 @@ div.picture{float:left; width:200px;height:120px;}
 div.wenzi{float:left; width:300px;height:120px;line-height:120px}
 div.caozuo{float:left; width:1000px;height:120px;line-height:120px;font-size:22px}
 div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-color:white}
-input.baocun{margin-left:50px;width:300px;height:35px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
+input.baocun{margin-left:5px;width:340px;height:37px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
 </style>
 </head>
 <body bgcolor="#F5F5F5">
@@ -41,7 +41,7 @@ input.baocun{margin-left:50px;width:300px;height:35px;background-color:#2894FF;f
 </div>
 </div>
 <div class="main">
-<h2 class="title">菜品添加</h2>
+<h2 class="title">修改店铺信息</h2>
 <br>
 <center>
 <form action="ModStoreMsg" method="post" enctype="multipart/form-data">
@@ -93,8 +93,7 @@ input.baocun{margin-left:50px;width:300px;height:35px;background-color:#2894FF;f
 			
 	</table>
 	<br>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="submit" class="baocun" value="保存">
+	<br><input type="submit" class="baocun" value="保存">
 		</form>
 
 ${update}

@@ -8,24 +8,66 @@
 <head>
 <meta charset="UTF-8">
 <title>显示订单</title>
+<style>
+input{
+                border: 1px solid #ccc;
+                padding: 7px 0px;
+                border-radius: 5px;
+                font-family:宋体;
+                padding-left:5px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+            }
+input.yes{width:70px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
+input.rel{width:70px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
+div.top{background-color:#46A3FF; width:100%; height:120px;font-family:宋体}
+div.picture{float:left; width:200px;height:120px;}
+div.wenzi{float:left; width:300px;height:120px;line-height:120px}
+div.caozuo{float:left; width:1000px;height:120px;line-height:120px;font-size:22px}
+div.aa{font-size:40px;font-family:宋体;}
+div.main{margin-top:40px;width:1000px;margin-left:400px;height:700px;background-color:white}
+a.a{text-decoration:none;color:white}
+a.c{text-decoration:none;color:black}
+table        {            border-collapse: collapse;            margin: 0 auto;            text-align: center;        } 
+table td, table th        {            border: 1px solid #cad9ea;            color: #666;   width:200px  ;       height: 20px;        }
+table thead th        {            background-color: #CCE8EB;            width: 200px;        }        
+table tr:nth-child(odd)        {            background: #fff;        }        
+table tr:nth-child(even)        {            background: #F5FAFA;        }
+div.queren{;background-color:#46A3FF;width:60px;height:30px;line-height:30px;border-radius:5px;color:white}
+</style>
 </head>
 
-<body>
-
+<body bgcolor="#F5F5F5">
+<div class="top">
+<div class="picture"> <img src="${d.getPicture()}" height="120" width="120" ></div>
+<div class="wenzi"><div class="aa">${d.getName()}</div>
+<div class="caozuo"><center>
+<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;查看订单</a>
+<% String id=(String)session.getAttribute("no");
+   System.out.println("Diantop2  id"+id);
+%><a  class="c" href="addfoodtype.jsp?id=<%=id %>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品种类</a><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品</a>
+</center></div>
+</div>
+</div>
+<div class="main">
+<h2 class="title">查看订单</h2>
 <div style="width:100%;height:600px">
 
-<div style="float:left;height:600px;background:#AA00FF; width:20%;">
+<div style="float:left;height:600px;background:white; width:13%;">
 
 <br>
 <br>
-<a href="DisplayOrder?type=no">未发货订单</a>
+<a href="DisplayOrder?type=no" style="text-decoration:none; color:black">未发货订单</a>
 <br>
 <br>
 <br>
-<a href="DisplayOrder?type=yes">已发货订单</a>
+<a href="DisplayOrder?type=yes" style="text-decoration:none;color:black">已发货订单</a>
 </div>
 
-<div style="float:left;background:#AA0000; width:80%;height:600px;overflow-y:auto">
+<div style="margin-top:40px;float:left;background:white; width:80%;height:600px;overflow-y:auto">
 	<%
 	  List<OrderBean>list= (List<OrderBean>)request.getAttribute("list"); 
     String type=(String)request.getAttribute("type");     	
@@ -34,8 +76,7 @@
 
 
 
-<table border='1'>
-	<tr>
+<table class="table">
 	<td>姓名</td><td>电话</td><td>收货地址</td><td>订单详情</td><td>下单日期</td><td>总价</td>
 	<%
 	if(type.equals("no")){	
@@ -118,10 +159,10 @@ out.println("</td>");
 
  out.println("<td>");
  if(type.equals("no")){%>	
-	<a href="DisplayOrder?op=confirm&userId=<%=no%>&time=<%=time%>" onclick="return window.confirm('确定已发货？');">已发货</a> 
+	<center><div class="queren"><a class="a" href="DisplayOrder?op=confirm&userId=<%=no%>&time=<%=time%>" onclick="return window.confirm('确定已发货？');">确定</a></div></center> 
  <% }
  else{%>
-	<a href="DisplayOrder?op=delete&userId=<%=no %>&time=<%=time%>" onclick="return window.confirm('确定删除订单？');">删除</a>
+	<center><div class="queren"><a class="a"  href="DisplayOrder?op=delete&userId=<%=no %>&time=<%=time%>" onclick="return window.confirm('确定删除订单？');">删除</a></div></center>
  
  <%}
  out.println("</td>");
@@ -143,6 +184,6 @@ out.println("</tr>");
 
 </div>
 
-
+</div>
 </body>
 </html>

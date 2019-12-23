@@ -28,7 +28,7 @@ a.c{text-decoration:none;color:black}
 div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-color:white}
 </style>
 </head>
-<body>
+<body >
 <div class="top">
 <div class="picture"> <img src="${d.getPicture()}" height="120" width="120" ></div>
 <div class="wenzi"><div class="aa">${d.getName()}</div>
