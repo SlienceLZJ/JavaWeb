@@ -66,12 +66,10 @@ public class ShoppingCarpay extends HttpServlet {
 		ArrayList<DishsInformation> dislist=(ArrayList<DishsInformation>) session.getAttribute("dislist");
 		for(DishsInformation dishs: dislist) {
 			if(dishs.getFoodname().equals(foodname)) {
-				System.out.print(foodname+"123");
+				System.out.print(foodname+"找到了");
 				return dishs;
 			}
-			else {
-				System.out.print("找不到！");
-			}
+			
 		}
 		return null;
 	}

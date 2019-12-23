@@ -49,6 +49,14 @@ public class PostGoods extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ShoppingCar shoppingcar=(ShoppingCar) request.getSession().getAttribute("shoppingcar");
+		int amount=0;
+		 for(Iterator<GoodsItem> i=shoppingcar.getItems().iterator();i.hasNext();) {
+			  GoodsItem goodsitem=(GoodsItem)i.next();
+			  DishsInformation dishs=goodsitem.getDishs();
+			  System.out.print(dishs.getFoodname());
+			  amount+=goodsitem.getQuantity();
+		  }
+		 System.out.println("商品有"+amount+"件");
 		String id=(String)request.getSession().getAttribute("no");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sellid=(String)request.getSession().getAttribute("StoreId");
@@ -66,13 +74,10 @@ public class PostGoods extends HttpServlet {
 			  String foodname=dishs.getFoodname();
 			  String foodprice=String.valueOf(dishs.getFoodprice());
 			  String totalprice=String.valueOf(shoppingcar.getTotal());
-			  System.out.print("111111111订单"+foodname);
 			  //将订单插入到商家表里
 			  String sql="INSERT INTO foodOrder values ('"+id+"','"+sellid+"','"+foodname+"','"+quantity+"','"+foodprice+"','"+time+"','"+fahuo+"','"+totalprice+"')";
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
 	          JDBCDao.closeConnecttion();
-	          
-	          
 	          //获取店家名字
 	          sql="select name from DianMing where id='"+sellid+"'";
 	          ResultSet rs=null;
@@ -91,23 +96,26 @@ public class PostGoods extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	          
-	          
 	         
 	          //将订单插入到客户表里 
+
 
 	          sql="insert into foodOrderCus (CaiMing,Number,Price,TotalPrice,FaHuo,Time,StoreName,Id) values('"+foodname+"','"+quantity+"','"+foodprice+"','"+totalprice+"','确认收货','"+time+"','"+storeName+"','"+id+"')";
 
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
-	          JDBCDao.closeConnecttion();       
+
+	          JDBCDao.closeConnecttion();
+
 	          
 	    }
-	     
-        //通知websocket给店家发通知
+
+	    //通知websocket给店家发通知
         TestSocket.noti(sellid);
 
         ((ServletRequest) request).getRequestDispatcher("payResult.jsp").forward(request, response);
         //跳转到显示下单成功的界面
+       
+
 
 }
 }
