@@ -54,7 +54,7 @@ public class addfoodtype extends HttpServlet {
 				request.setAttribute("result", "成功添加菜品种类：    "+foodtype);
 			}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("addfoodtype.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("addfood.jsp");
 		 rd.forward(request, response);
 	}
 
