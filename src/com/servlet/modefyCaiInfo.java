@@ -54,14 +54,17 @@ public class modefyCaiInfo extends HttpServlet {
 			describtion=request.getParameter("description");
 			System.out.println("the description is "+describtion);
 			type=request.getParameter("foodType");
+			System.out.println("the foodtype is :"+type);
 			String path = this.getServletContext().getRealPath("/")+picture;	
+			System.out.println("the picture is :"+picture);
 			System.out.println("the path is "+path);
 			Part part=request.getPart("picture");
+			System.out.println("the part size is :"+part.getSize());
 			if(part.getSize()!=0.0) {
 				part.write(path);
 			}
 			
-			String sql="update Dian set foodname='"+name+"',foodprice='"+price+"',foodintroduction='"+describtion+"',foodtype='"+type+"' 			where id='"+no+"' and foodpicture='"+picture+"'";
+			String sql="update Dian set foodname='"+name+"',foodprice='"+price+"',foodintroduction='"+describtion+"',foodtype='"+type+"' where id='"+no+"' and foodpicture='"+picture+"'";
 			System.out.println("sql is "+sql);
 			JDBCDao.insertOrDeleteOrUpdate(sql);
 			JDBCDao.closeConnecttion();
@@ -73,7 +76,8 @@ public class modefyCaiInfo extends HttpServlet {
 			name=request.getParameter("foodname");
 			price=request.getParameter("foodprice");
 			describtion=request.getParameter("foodIntroduction");
-			type=request.getParameter("type");	
+			type=request.getParameter("foodtype");	
+			System.out.println("the type is :"+type);
 			picture=request.getParameter("foodpicture");
 		}
 		
@@ -93,17 +97,20 @@ public class modefyCaiInfo extends HttpServlet {
 		/*---------------获取店铺类别↓-------------------*/
 		 String sql="select foodtype,id from menu where id='"+no+"'";
 		 List<Menu> list=new ArrayList<Menu>();
+		
 		 try {
 			 
 		 	ResultSet rs=JDBCDao.getData(sql);
-		 	JDBCDao.closeConnecttion();
+		 	
 		 	while(rs.next()) {
 		 	Menu leibie=new Menu();	
 		 	leibie.setId(rs.getString("id"));
 		 	leibie.setFoodType(rs.getString("foodtype"));	
+		 	System.out.println("the type is "+rs.getString("foodtype"));
 		 	list.add(leibie);
 		 	System.out.println("result set is "+rs.getString("id"));
 		 	}
+		 	JDBCDao.closeConnecttion();
 		 } catch (SQLException e) {
 		 	// TODO Auto-generated catch block
 		 	e.printStackTrace();
