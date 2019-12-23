@@ -167,9 +167,6 @@ out.println("</td>");
  
  <%}
  out.println("</td>");
-
- 
- 
 out.println("</tr>");
   	 	
      }
