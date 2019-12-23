@@ -78,7 +78,6 @@ for(GoodsItem goods:goodsitem){
 <div class="aleft">姓名:${addressinfo.name }</div><div class="aright">电话:${addressinfo.phone }</div>
 </div>
 <div class="paytop2">地址:${addressinfo.address}</div>
-
 <hr class="xian" ></hr>
 <div class="pay2"><font size="4">付款码</font></div>
 <div class="picture"><img  width="200px" height="200px"src="storePayCode/<%=request.getSession().getAttribute("StoreId")%>.jpg"></div>
