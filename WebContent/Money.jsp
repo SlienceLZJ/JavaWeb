@@ -22,7 +22,7 @@ div.foodtotalprice{width:50px;float:left;}
 div.carmains{width:400px;height:30px;background-color:white;}
 div.bottom{width:400px;height:150px;background-color:white;line-height:200px;}
 div.Main{}
-input.tijiao{width:400px;height:45px;color:white;background-color:#2894FF;border-radius:5px;font-family:雅黑;font-size:20px}
+input.tijiao{width:400px;height:45px;color:white;background-color:#2894FF;border-radius:5px;font-family:雅黑;font-size:20px;border:none}
 div.pay{width:400px;height:500px;background-color:white;margin-left:90px}
 div.paytop{width:400px;height:50px;background-cloler:white;line-height:50px}
 div.paytop1{width:400px;height:25px;background-color:white;line-height:25px}

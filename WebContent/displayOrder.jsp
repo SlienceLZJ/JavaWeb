@@ -21,6 +21,7 @@ input{
                 -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
                 transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
             }
+div.z{margin-top:1px;width:100px;height:35px;line-height:35px;background-color:#46A3FF;border-radius:3px;color:white;text-align:center}
 input.yes{width:70px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
 input.rel{width:70px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
 div.top{background-color:#46A3FF; width:100%; height:120px;font-family:宋体}
@@ -36,7 +37,7 @@ table td, table th        {            border: 1px solid #cad9ea;            col
 table thead th        {            background-color: #CCE8EB;            width: 200px;        }        
 table tr:nth-child(odd)        {            background: #fff;        }        
 table tr:nth-child(even)        {            background: #F5FAFA;        }
-div.queren{;background-color:#46A3FF;width:60px;height:30px;line-height:30px;border-radius:5px;color:white}
+div.queren{;background-color:#46A3FF;width:60px;height:30px;line-height:30px;border-radius:5px;}
 </style>
 </head>
 
@@ -48,7 +49,7 @@ div.queren{;background-color:#46A3FF;width:60px;height:30px;line-height:30px;bor
 <a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;查看订单</a>
 <% String id=(String)session.getAttribute("no");
    System.out.println("Diantop2  id"+id);
-%><a  class="c" href="addfoodtype.jsp?id=<%=id %>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品种类</a><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品</a>
+%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品</a>
 </center></div>
 </div>
 </div>
@@ -60,11 +61,11 @@ div.queren{;background-color:#46A3FF;width:60px;height:30px;line-height:30px;bor
 
 <br>
 <br>
-<a href="DisplayOrder?type=no" style="text-decoration:none; color:black">未发货订单</a>
+<div  class="z"><a href="DisplayOrder?type=no" style="text-decoration:none;color:white">未发货订单</a></div>
 <br>
 <br>
 <br>
-<a href="DisplayOrder?type=yes" style="text-decoration:none;color:black">已发货订单</a>
+<div class="z"><a href="DisplayOrder?type=yes" style="text-decoration:none;color:white">已发货订单</a></div>
 </div>
 
 <div style="margin-top:40px;float:left;background:white; width:80%;height:600px;overflow-y:auto">
