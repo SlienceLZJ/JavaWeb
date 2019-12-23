@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,6 @@ public class PostGoods extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ShoppingCar shoppingcar=(ShoppingCar) request.getSession().getAttribute("shoppingcar");
-		
 		String id=(String)request.getSession().getAttribute("no");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sellid=(String)request.getSession().getAttribute("StoreId");
@@ -66,7 +66,7 @@ public class PostGoods extends HttpServlet {
 			  String foodname=dishs.getFoodname();
 			  String foodprice=String.valueOf(dishs.getFoodprice());
 			  String totalprice=String.valueOf(shoppingcar.getTotal());
-			  
+			  System.out.print("111111111订单"+foodname);
 			  //将订单插入到商家表里
 			  String sql="INSERT INTO foodOrder values ('"+id+"','"+sellid+"','"+foodname+"','"+quantity+"','"+foodprice+"','"+time+"','"+fahuo+"','"+totalprice+"')";
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
@@ -93,9 +93,9 @@ public class PostGoods extends HttpServlet {
 			}
 	          
 	          
-	          
+	         
 	          //将订单插入到客户表里 
-	          sql="insert into foodOrderCus (CaiMing,Number,Price,TotalPrice,FaHuo,Time,StoreName) values('"+foodname+"','"+quantity+"','"+foodprice+"','"+totalprice+"','"+fahuo+"','"+time+"','"+storeName+"')";
+	          sql="insert into foodOrderCus (CaiMing,Number,Price,TotalPrice,FaHuo,Time,StoreName,id) values('"+foodname+"','"+quantity+"','"+foodprice+"','"+totalprice+"','"+fahuo+"','"+time+"','"+storeName+"','"+id+"')";
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
 	          JDBCDao.closeConnecttion();
 	          
@@ -105,11 +105,9 @@ public class PostGoods extends HttpServlet {
 	          //通知websocket给店家发通知
 	          TestSocket.noti(sellid);
  
-	          
+	          ((ServletRequest) request).getRequestDispatcher("payResult.jsp").forward(request, response);
 	          //跳转到显示下单成功的界面
-	          
-	          
-	          response.sendRedirect("payResult.jsp");
+	         
 	          
 	          
 	    }

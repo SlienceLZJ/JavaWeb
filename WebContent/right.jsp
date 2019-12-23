@@ -54,7 +54,7 @@ div.find{top:0;right:0;position:fixed;width:100px}
 </style>
 </head>
 <body  bgcolor="#F5F5F5">
-<div class="Top">
+<div class="Top"、>
 <%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>
 <div class="aa"style="width:50px;position:fixed;margin-left:210px;background-color:white">
 <div class="box1" id="box" style="float:left;width:70px;" >
