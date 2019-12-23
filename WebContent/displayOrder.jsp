@@ -46,10 +46,10 @@ div.queren{;background-color:#46A3FF;width:60px;height:30px;line-height:30px;bor
 <div class="picture"> <img src="${d.getPicture()}" height="120" width="120" ></div>
 <div class="wenzi"><div class="aa">${d.getName()}</div>
 <div class="caozuo"><center>
-<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;查看订单</a>
+<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;查看订单</a>
 <% String id=(String)session.getAttribute("no");
    System.out.println("Diantop2  id"+id);
-%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品</a>
+%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;添加菜品</a><a class="c" href="addfoodtype.jsp" target="_blank">&nbsp;&nbsp;添加菜品种类</a>
 </center></div>
 </div>
 </div>

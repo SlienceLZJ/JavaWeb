@@ -93,7 +93,7 @@ public class Dian extends HttpServlet {
 	    	  d.setName(rs.getString("name"));
 	    	  d.setDescription(rs.getString("description"));
 	    	  System.out.println("picture url is ="+d.getPicture());
-	    	  request.setAttribute("d", d);
+	    	  session.setAttribute("d", d);
 	      }
 	      JDBCDao.closeConnecttion();
 	     }catch(Exception e){
