@@ -99,20 +99,15 @@ public class PostGoods extends HttpServlet {
 	          sql="insert into foodOrderCus (CaiMing,Number,Price,TotalPrice,FaHuo,Time,StoreName,Id) values('"+foodname+"','"+quantity+"','"+foodprice+"','"+totalprice+"','确认收货','"+time+"','"+storeName+"','"+id+"')";
 
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
-	          JDBCDao.closeConnecttion();
-	          
-	          
-	          
-	        
-	          //通知websocket给店家发通知
-	          TestSocket.noti(sellid);
- 
-	          ((ServletRequest) request).getRequestDispatcher("payResult.jsp").forward(request, response);
-	          //跳转到显示下单成功的界面
-	         
-	          
+	          JDBCDao.closeConnecttion();       
 	          
 	    }
+	     
+        //通知websocket给店家发通知
+        TestSocket.noti(sellid);
+
+        ((ServletRequest) request).getRequestDispatcher("payResult.jsp").forward(request, response);
+        //跳转到显示下单成功的界面
 
 }
 }

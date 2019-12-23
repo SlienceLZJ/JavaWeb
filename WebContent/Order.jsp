@@ -25,11 +25,11 @@ table tr:nth-child(even)        {            background: #F5FAFA;        }
 
 <br>
 <br>
-<a href="yonghuDingdan?type=no" style="text-decoration:none; color:black">未发货订单</a>
+<a href="yonghuDingdan?type=no" style="text-decoration:none; color:black">当前订单</a>
 <br>
 <br>
 <br>
-<a href="yonghuDingdan?type=yes" style="text-decoration:none;color:black">已发货订单</a>
+<a href="yonghuDingdan?type=yes" style="text-decoration:none;color:black">历史订单</a>
 </div>
 
 
@@ -51,10 +51,10 @@ table tr:nth-child(even)        {            background: #F5FAFA;        }
           <td>订单详情</td><td>总价</td><td>下单日期</td><td>卖家店铺</td>
           	<%
 	if(type.equals("no")){	
-		out.println("<td>当前订单</td>");
+		out.println("<td>确认订单</td>");
 	}
 	else{
-		out.println("<td>历史订单</td>");
+		out.println("<td>删除订单</td>");
 	}
 	%>
     </tr>
