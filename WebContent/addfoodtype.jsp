@@ -33,10 +33,10 @@ div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-c
 <div class="picture"> <img src="${d.getPicture()}" height="120" width="120" ></div>
 <div class="wenzi"><div class="aa">${d.getName()}</div>
 <div class="caozuo"><center>
-<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;查看订单</a>
+<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;查看订单</a>
 <% String id=(String)session.getAttribute("no");
    System.out.println("Diantop2  id"+id);
-%><a  class="c" href="addfoodtype.jsp?id=<%=id %>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品种类</a><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品</a>
+%><a  class="c" href="addfoodtype.jsp?id=<%=id %>" target="_blank">&nbsp;&nbsp;添加菜品种类</a><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;添加菜品</a>
 </center></div>
 </div>
 </div>
