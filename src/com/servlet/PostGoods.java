@@ -95,13 +95,13 @@ public class PostGoods extends HttpServlet {
 	          
 	          
 	          //将订单插入到客户表里 
-	          sql="insert into foodOrderCus (CaiMing,Number,Price,TotalPrice,FaHuo,Time,StoreName) values('"+foodname+"','"+quantity+"','"+foodprice+"','"+totalprice+"','"+fahuo+"','"+time+"','"+storeName+"')";
+	          sql="insert into foodOrderCus (CaiMing,Number,Price,TotalPrice,FaHuo,Time,StoreName,Id) values('"+foodname+"','"+quantity+"','"+foodprice+"','"+totalprice+"','确认收货','"+time+"','"+storeName+"','"+id+"')";
 	          JDBCDao.insertOrDeleteOrUpdate(sql);
 	          JDBCDao.closeConnecttion();
 	          
 	          
 	          
-	          
+	        
 	          //通知websocket给店家发通知
 	          TestSocket.noti(sellid);
  

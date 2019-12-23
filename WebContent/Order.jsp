@@ -9,12 +9,37 @@
 <title>用户订单</title>
 </head>
 <body>
+
+
+
+<div style="float:left;height:600px;background:white; width:13%;">
+
+<br>
+<br>
+<a href="yonghuDingdan?type=no" style="text-decoration:none; color:black">未发货订单</a>
+<br>
+<br>
+<br>
+<a href="yonghuDingdan?type=yes" style="text-decoration:none;color:black">已发货订单</a>
+</div>
+
+
  <% 
-	List<OrderBeanCus>list= (List<OrderBeanCus>)request.getAttribute("order");  	
+	List<OrderBeanCus>list= (List<OrderBeanCus>)request.getAttribute("list"); 
+ 	String type=(String)request.getAttribute("type");  
  %>
+ 
 <table align=center border='1'>
     <tr>
-          <td>订单详情</td><td>总价</td><td>下单日期</td><td>卖家</td><td>是否收货</td>
+          <td>订单详情</td><td>总价</td><td>下单日期</td><td>卖家店铺</td>
+          	<%
+	if(type.equals("no")){	
+		out.println("<td>当前订单</td>");
+	}
+	else{
+		out.println("<td>历史订单</td>");
+	}
+	%>
     </tr>
     
      <%
@@ -63,7 +88,14 @@ out.println("<td>");
 out.println(storeName);//输出卖家
 out.println("</td>");
 out.println("<td>");
-out.println(faHuo);//输出是否发货
+
+ if(type.equals("no")){%>	
+	<center><div ><a  href="yonghuDingdan?op=confirm&time=<%=time%>" onclick="return window.confirm('确定已收货？');">确定收货</a></div></center> 
+ <% }
+ else{%>
+	<center><div ><a   href="yonghuDingdan?op=delete&time=<%=time%>" onclick="return window.confirm('确定删除订单？');">删除订单</a></div></center>
+ 
+ <%}
 out.println("</td>");
 out.println("</tr>");
 
