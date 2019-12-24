@@ -68,7 +68,7 @@ input.baocun{margin-left:5px;width:340px;height:37px;background-color:#2894FF;fo
 </center></div>
 </div>
 <div class="main">
-<h3 class="title">修改店铺信息</h3>
+<h2 class="title">修改店铺信息</h2>
 <br>
 <center>
 <form action="ModStoreMsg" method="post" enctype="multipart/form-data">

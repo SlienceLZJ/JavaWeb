@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>用户注册</title>
-  <link rel="stylesheet" type="text/css" href="stylw.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 <style>
  input{
                 border: 1px solid #ccc;
