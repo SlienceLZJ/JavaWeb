@@ -11,6 +11,32 @@
 <meta charset="UTF-8">
 <title>修改菜品信息</title>
 <style>
+ .file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
 input{
                 border: 1px solid #ccc;
                 padding: 7px 0px;
@@ -30,6 +56,16 @@ div.wenzi{float:left; width:300px;height:120px;line-height:120px}
 div.caozuo{float:left; width:1000px;height:120px;line-height:120px;font-size:22px}
 div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-color:white}
 div.aa{font-size:40px;font-family:宋体;}
+select.try{  
+    background:#fafdfe;  
+    height:28px;  
+    width:215px;  
+    line-height:28px;  
+    border:1px solid #9bc0dd;  
+    -moz-border-radius:2px;  
+    -webkit-border-radius:2px;  
+    border-radius:5px;  
+}
 textarea.miaoshu{border: 1px solid #ccc;
                 padding: 7px 0px;
                 border-radius: 5px;
@@ -72,7 +108,7 @@ input.baocun{margin-left:5px;width:320px;height:37px;background-color:#2894FF;fo
 <tr>
 <td>菜品类别</td>
 <td>
-<select size="1" name="foodType">
+<select  class="try" size="1" name="foodType">
 
 <%
 
@@ -108,7 +144,7 @@ for(int i=0;i<list.size();i++){
 </tr>
 
 <tr><td>菜品图片:</td><td><img src="${info.foodPicture}" alt="暂无图片" width=100px height=100px/></td></tr>
-<tr><td>修改店铺图片</td><td><input type="file" name="picture"></td></tr>
+<tr><td>修改店铺图片</td><td><a href="javascript:;" class="file"><input type="file" name="picture">点此选择图片</a></td></tr>
 <tr><td>商品描述：</td><td><textarea name="description" class="miaoshu" rows="5" cols="30" >${info.foodIntroduction}</textarea></td></tr>
  </form>
 </table>

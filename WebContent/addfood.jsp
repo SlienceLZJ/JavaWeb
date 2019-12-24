@@ -70,6 +70,14 @@ select.ty{
     -webkit-border-radius:2px;  
     border-radius:5px;  
 }
+
+select.ty_default{
+width:80px;
+height:32px;
+line-height:32px;
+padding:0 10px;
+border:solid 1px #ccc;
+}
 textarea.miaoshu{border: 1px solid #ccc;
                 padding: 7px 0px;
                 border-radius: 5px;
@@ -145,7 +153,7 @@ $("file").on("change","input[type='file']",function(){
 <tr><td>菜品图片 </td><td><a href="javascript:;" class="file"><input type="file" size=18 name="foodpicture" id="file" multiple= "multiple" >点击此处上传图片</a></td></tr>
 <tr><td>菜品价格 </td><td><input type="text" size=30 name="foodprice"></td></tr>
 <tr><td>菜品类别 </td>
-<td><select size="1" class="ty" name="foodtype">
+<td><select  size="1" class="ty" name="foodtype">
 
 <%
 	String sql="select foodtype,id from menu where id='"+id+"'";

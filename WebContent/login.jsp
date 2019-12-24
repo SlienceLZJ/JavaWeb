@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8"> 
   <title>登录</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript">
 // 验证输入不为空的脚本代码
 function checkForm(form) {
@@ -20,13 +21,11 @@ return false;
 return true;
 }
 </script>  
-
   <style type="text/css">
-  div.main{width:400px;height:250px;background-color:white;margin-top:100px;font-family:宋体;}
-  div.mains{width:400px;height:215px;background-color:white;font-family:宋体;}
-  div.black{background:url(Picture/background1.png); width:100%;height: 100%;position: absolute;}
-  input.denglu{width:250px;height:40px;border:1px solid #1e7db9; font-size:18px;color:white;
-background:#2894FF}
+  div.main{width:400px;height:290px;margin-top:100px;font-family:宋体;background-color:rgba(255,255,255,0.2);border-radius:10px}
+  div.main1{width:400px;height:215px;;font-family:宋体;background-color:rgba(255,255,255,0.2);}
+  div.black{border-radius:10px;}
+  input.denglu{width:250px;height:40px;border:1px solid #1e7db9; font-size:18px;color:white;background:#2894FF;}
   input{
                 border: 1px solid #ccc;
                 padding: 10px 0px;
@@ -59,13 +58,11 @@ background:#2894FF}
 <font size=5>账号密码登录</font>
 <br><br><br>
   <div class="mains">
-
    <form action="Login" method="post" onsubmit="return checkForm(this);">                
         <input size="35" type="text" placeholder="用户名" name="username"/><br><br>                   
         <input type="password" size="35"  placeholder="密码" name="password"><br><br>
         <input class="denglu" type="submit" value="登录"><br>
         <tr><td colspan="2">${error}</td></tr>        
-
    </form>  
 <br>
 <br>

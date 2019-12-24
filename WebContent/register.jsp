@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>用户注册</title>
+  <link rel="stylesheet" type="text/css" href="stylw.css">
 <style>
  input{
                 border: 1px solid #ccc;
@@ -25,13 +26,9 @@
                     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
                     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
             }
-            div.ma{width:400px;background-color:white;height:400px;margin-top:100px}
-            div.main{background:url(Picture/background1.png);;width:100%;height:100%;position: absolute;}
-            div.ma1{margin-top:50px}
-            input.zhuce{width:250px;height:40px;border:1px solid #1e7db9; font-size:18px;color:white;
-
-
-background:#2894FF;}
+            div.ma{width:400px;height:400px;margin-top:100px;background-color:rgba(255,255,255,0.3);border-radius:10px}
+            div.ma1{margin-top:50px;font-family:宋体;font-size:17px}
+            input.zhuce{width:250px;height:40px;border:1px solid #1e7db9; font-size:18px;color:white;background:#2894FF;}
 </style>
 <script>
 function check()
@@ -58,7 +55,7 @@ if(msg!=null){
 		System.out.println("the jsp result is failed");
 		
 		%>
-		
+
 		<script type="text/javascript" language="javascript">
 		alert("该账号已被注册，请重新输入！");
 		
@@ -79,7 +76,6 @@ if(msg!=null){
 }
 
 %>
-
 <div class="main">
 <center>
 <div class="ma">
@@ -92,7 +88,7 @@ if(msg!=null){
          <input type="text" size="35" placeholder="用户名" name="username"/> <br><br>                    
         <input type="password" size="35" placeholder="输入密码" name="password">  <br><br>
         <input type="password" size="35" placeholder="确认密码" name="passwordAgain"> <br><br>
-       <input type="radio" name="choice" value="cus" checked="checked"/>&nbsp;用户&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="choice" value="sell"/>&nbsp;商家
+       <input type="radio" name="choice" value="cus" checked="checked"/>&nbsp;用户&nbsp;<input type="radio" name="choice" value="sell"/>&nbsp;商家
         <br><br>
         <input type="submit" class="zhuce"  value="注册"/>
    </form>  
