@@ -29,6 +29,7 @@ div.picture{float:left; width:200px;height:120px;}
 div.wenzi{float:left; width:300px;height:120px;line-height:120px}
 div.caozuo{float:left; width:1000px;height:120px;line-height:120px;font-size:22px}
 div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-color:white}
+div.aa{font-size:40px;font-family:宋体;}
 textarea.miaoshu{border: 1px solid #ccc;
                 padding: 7px 0px;
                 border-radius: 5px;
@@ -46,14 +47,13 @@ input.baocun{margin-left:5px;width:320px;height:37px;background-color:#2894FF;fo
 <body bgcolor="#F5F5F5">
 <div class="top">
 <div class="picture"> <img src="${d.getPicture()}" height="120" width="120" ></div>
-<div class="wenzi"><div class="aa">${d.getName()}</div>
+<div class="wenzi"><div class="aa">${d.getName()}</div></div>
 <div class="caozuo"><center>
-<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;查看订单</a>
+<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp查看订单</a>
 <% String id=(String)session.getAttribute("no");
    System.out.println("Diantop2  id"+id);
-%><a  class="c" href="addfoodtype.jsp?id=<%=id %>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品种类</a><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;添加菜品</a>
+%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;添加菜品</a>
 </center></div>
-</div>
 </div>
 <div class="main">
 <h2>修改菜品信息</h2>
@@ -63,7 +63,7 @@ input.baocun{margin-left:5px;width:320px;height:37px;background-color:#2894FF;fo
   <input type="hidden" name="xiugai" value="true">
    <input type="hidden" name="picPath" value="${info.foodPicture }">
 <tr>
-<td>菜名:</td><td><input type="text" name="name" size=30 value="${info.foodName}"></td>
+<td>菜品名称:</td><td><input type="text" name="name" size=30 value="${info.foodName}"></td>
 </tr>
 <tr>
 <td>菜品价格:</td><td><input type="text" name="price" size=30 value="${info.foodPrice}"></td>
