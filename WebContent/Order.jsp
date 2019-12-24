@@ -15,30 +15,13 @@ table td, table th        {            border: 1px solid #cad9ea;            col
 table thead th        {            background-color: #CCE8EB;            width: 200px;        }        
 table tr:nth-child(odd)        {            background: #fff;        }        
 table tr:nth-child(even)        {            background: #F5FAFA;        }
+div.z{margin-top:1px;width:100px;height:35px;line-height:35px;background-color:#46A3FF;border-radius:3px;color:white;text-align:center}
+div.queren{;background-color:#46A3FF;width:80px;height:30px;line-height:30px;border-radius:5px;}
+a.a{text-decoration:none;color:white}
 </style>
 </head>
 <body>
-
-
 <body bgcolor="#F5F5F5">
-<div style="float:left;height:600px;background:white; width:13%;">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-&nbsp;&nbsp;<a href="yonghuDingdan?type=no" style="text-decoration:none; color:black">当前订单</a>
-<br>
-<br>
-<br>
-&nbsp;&nbsp;<a href="yonghuDingdan?type=yes" style="text-decoration:none;color:black">历史订单</a>
-</div>
-
-div.z{margin-top:1px;width:100px;height:35px;line-height:35px;background-color:#46A3FF;border-radius:3px;color:white;text-align:center}
-
 <div class="Top">
 <%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>
  <% 
@@ -49,7 +32,11 @@ div.z{margin-top:1px;width:100px;height:35px;line-height:35px;background-color:#
  <div class="main">
  <h2><font face="宋体">我的订单</font></h2>
  <br>
- <br>
+ <div style="float:left;height:600px;background:white; width:10%;">
+&nbsp;&nbsp;<div class="z"><a href="yonghuDingdan?type=no" style="text-decoration:none; color:white">当前订单</a></div>
+<br>
+&nbsp;&nbsp;<div class="z"><a href="yonghuDingdan?type=yes" style="text-decoration:none;color:white">历史订单</a></div>
+</div>
  <br>
 <table class="table" align=center>
     <tr>
@@ -108,10 +95,10 @@ out.println("</td>");
 out.println("<td>");
 
  if(type.equals("no")){%>	
-	<center><div ><a  href="yonghuDingdan?op=confirm&time=<%=time%>" onclick="return window.confirm('确定已收货？');">确定收货</a></div></center> 
+	<center><div class="queren"><a class="a" href="yonghuDingdan?op=confirm&time=<%=time%>" onclick="return window.confirm('确定已收货？');">确定收货</a></div></center> 
  <% }
  else{%>
-	<center><div ><a   href="yonghuDingdan?op=delete&time=<%=time%>" onclick="return window.confirm('确定删除订单？');">删除订单</a></div></center>
+	<center><div class="queren"><a class="a"  href="yonghuDingdan?op=delete&time=<%=time%>" onclick="return window.confirm('确定删除订单？');">删除订单</a></div></center>
  
  <%}
 out.println("</td>");

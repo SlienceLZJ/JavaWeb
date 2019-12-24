@@ -171,14 +171,8 @@ out.println("</tr>");
      }
   
      %>
-
-
-	
 </table>
 </div>
-
-
-
 </div>
 
 </div>
