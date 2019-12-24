@@ -94,8 +94,8 @@ input.baocun{margin-left:5px;width:320px;height:37px;background-color:#2894FF;fo
 <div class="main">
 <h2>修改菜品信息</h2>
 <center>
-<table>
 <form action="modefyCaiInfo" method="post"	enctype="multipart/form-data">
+<table>
   <input type="hidden" name="xiugai" value="true">
    <input type="hidden" name="picPath" value="${info.foodPicture }">
 <tr>
@@ -146,10 +146,10 @@ for(int i=0;i<list.size();i++){
 <tr><td>菜品图片:</td><td><img src="${info.foodPicture}" alt="暂无图片" width=100px height=100px/></td></tr>
 <tr><td>修改店铺图片</td><td><a href="javascript:;" class="file"><input type="file" name="picture">点此选择图片</a></td></tr>
 <tr><td>商品描述：</td><td><textarea name="description" class="miaoshu" rows="5" cols="30" >${info.foodIntroduction}</textarea></td></tr>
- </form>
 </table>
 <br>
 <input type="submit" class="baocun" value="保存">
+ </form>
 </center>
 </div>
 </body>
