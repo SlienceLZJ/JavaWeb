@@ -38,6 +38,7 @@ public class ShoppingCar {
 		  DishsInformation dishs=goodsitem.getDishs();
 		  amount+=goodsitem.getQuantity()*dishs.getFoodprice();
 	  }
+	  amount=roundOff(amount);
 	  return amount;
   }
   private double roundOff(double x) {

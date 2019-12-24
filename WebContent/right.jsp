@@ -133,7 +133,7 @@ for(GoodsItem goods:goodsitem){
 <center>
 <div class="foodquantity"><div style="float:left;width:30px;text-aliagn:center"><form action="RemoveDishs" method="post"><input type="hidden" name="removedishs" value="<%=dishinformation.getFoodname()%>" ><button type="submit" class="button1" style="border-color:#0080FF;outline: none;background-color:white">-</button></form></div> &nbsp;&nbsp;<div style="float:left;width:20px;text-align:center"><%=goods.getQuantity()%></div>&nbsp;&nbsp;<div style="float:left;width:30px"><form action="AddDishs" method="post"><input type="hidden" name="addcar" value="<%=dishinformation.getFoodname()%>" ><button type="submit"style="border-color:#0080FF;background-color:white">+</button></form></div></div>
 </center>
-<div class="foodtotalprice"><%=((goods.getQuantity()*(int)dishinformation.getFoodprice()*100))/100.0%></div>
+<div class="foodtotalprice"><%=(double)(goods.getQuantity()*(int)(dishinformation.getFoodprice()*100))/100.0%></div>
 </div>
 <%}}}%>
 </div>
