@@ -35,7 +35,7 @@
     
     //连接关闭的回调方法
     websocket.onclose = function(){
-        setMessageInnerHTML("close");
+        setMessageInnerHTML("已退出系统");
     };
   
  
