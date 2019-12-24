@@ -81,21 +81,28 @@ public class Dian extends HttpServlet {
 	    DianMingInformation d = new DianMingInformation();
 
 	    String sql2="select * from DianMing where id='"+id+"'";
-	
-	    ResultSet rs;
+	System.out.println("the sql2 is :"+sql2);
+	    ResultSet rs=null;
 		try{ 
 		  rs = JDBCDao.getData(sql2);	  
 	      //System.out.println(rs.next());
 	      if(rs.next()){
-	       	  System.out.println("the name of store is :"+rs.getString("picture"));  
+	       	  System.out.println("the name of store is :"+rs.getString("picture")+"the no is :"+id);  
 	       	  
 	    	  d.setPicture(rs.getString("picture"));
 	    	  d.setName(rs.getString("name"));
 	    	  d.setDescription(rs.getString("description"));
 	    	  System.out.println("picture url is ="+d.getPicture());
-	    	  session.setAttribute("d", d);
+	    	
 	      }
+	      else {
+	    	  d.setPicture("暂未设置商铺图片");
+	    	  d.setName("暂无商铺名字");
+	    	  d.setDescription("暂未设置商铺描述");
+	      }
+	      session.setAttribute("d", d);
 	      JDBCDao.closeConnecttion();
+	      rs.close();
 	     }catch(Exception e){
 	      e.printStackTrace();
 	     }

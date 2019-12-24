@@ -22,17 +22,22 @@ table tr:nth-child(even)        {            background: #F5FAFA;        }
 
 <body bgcolor="#F5F5F5">
 <div style="float:left;height:600px;background:white; width:13%;">
-
-<br>
-<br>
-<a href="yonghuDingdan?type=no" style="text-decoration:none; color:black">当前订单</a>
 <br>
 <br>
 <br>
-<a href="yonghuDingdan?type=yes" style="text-decoration:none;color:black">历史订单</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;<a href="yonghuDingdan?type=no" style="text-decoration:none; color:black">当前订单</a>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;<a href="yonghuDingdan?type=yes" style="text-decoration:none;color:black">历史订单</a>
 </div>
 
-
+div.z{margin-top:1px;width:100px;height:35px;line-height:35px;background-color:#46A3FF;border-radius:3px;color:white;text-align:center}
 
 <div class="Top">
 <%@ include file="/WEB-INF/jsp/daohang.jsp" %></div>

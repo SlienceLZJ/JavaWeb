@@ -40,7 +40,7 @@ public class UserAddrInfor extends HttpServlet {
 		String address=request.getParameter("address");
 		String name=request.getParameter("name");
 		String type=request.getParameter("type");
-				String no="101";
+				String no=(String)(request.getSession()).getAttribute("no");
 				String sql;
 				
 				System.out.println("the value of type is :"+type);

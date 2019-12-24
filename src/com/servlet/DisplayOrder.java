@@ -76,7 +76,7 @@ public class DisplayOrder extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");//通知浏览器以何种码表打开
         response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");	
-		String sellerNo="001";
+		String sellerNo=(String)(request.getSession()).getAttribute("no");
 		String userNo="101";
 		String sql=null;
 		String weiSql="select user.no,user.name,user.phone,user.address,foodOrder.CaiMing,foodOrder.Number,foodOrder.Price,foodOrder.TotalPrice,foodOrder.Time,foodOrder.FaHuo from user,foodOrder where foodOrder.no=user.no and foodOrder.SellerId='"+sellerNo+"' and FaHuo='未发货'";

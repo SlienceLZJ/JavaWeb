@@ -62,29 +62,15 @@ public class Register extends HttpServlet{
 			rd.forward(request, response);
 		}
 		else {//注册成功
-		
 
-			
 			System.out.println("the jsp result is success-----");
 			request.setAttribute("msg", "success");
 			RequestDispatcher rd=request.getRequestDispatcher("/register.jsp");
-			rd.forward(request, response);			
-		}
-		
-		
-		
-		
-		/*---------------------访问数据库↑--------------------*/
-
-
-		
-		if(JDBCDao.insertOrDeleteOrUpdate(sql) != 0) {
-			System.out.println("添加成功！");
+			rd.forward(request, response);	
 			out.println("<script>alert('注册成功，赶快去登录吧~');  window.location='login.jsp'</script>");
 		}
-		JDBCDao.closeConnecttion();
-		
-		
-		out.println("<script>alert('用户名或密码错误~');  window.location='login.jsp'</script>");
+	
+		/*---------------------访问数据库↑--------------------*/
+
 	}
 }

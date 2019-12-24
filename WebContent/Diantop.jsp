@@ -12,7 +12,7 @@
 </head>
 <body>
    
-      <img src="${d.getPicture()}" height="120" width="120" >
+      <img src="${d.getPicture()}" alt="暂无商铺图片" height="120" width="120" >
 
 </body>
 </html>
