@@ -23,22 +23,49 @@ a.c{text-decoration:none;color:black}
 div.top{background-color:#46A3FF; width:100%; height:120px;font-family:宋体}
 div.picture{float:left; width:200px;height:120px;}
 div.wenzi{float:left; width:300px;height:120px;line-height:120px}
+div.aa{font-size:40px;font-family:宋体;}
 div.caozuo{float:left; width:1000px;height:120px;line-height:120px;font-size:22px}
 div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-color:white}
 input.baocun{margin-left:5px;width:340px;height:37px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
+ .file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    width:215px
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
 </style>
 </head>
 <body bgcolor="#F5F5F5">
 <div class="top">
 <div class="picture"> <img src="${d.getPicture()}" height="120" width="120" ></div>
-<div class="wenzi"><div class="aa">${d.getName()}</div>
+<div class="wenzi"><div class="aa">${d.getName()}</div></div>
 <div class="caozuo"><center>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp;查看订单</a>
+<a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp查看订单</a>
 <% String id=(String)session.getAttribute("no");
    System.out.println("Diantop2  id"+id);
-%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;添加菜品</a><a class="c" href="addfoodtype.jsp" target="_blank">&nbsp;&nbsp;添加菜品种类</a>
+%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;添加菜品</a>
 </center></div>
-</div>
 </div>
 <div class="main">
 <h3 class="title">修改店铺信息</h3>
@@ -72,7 +99,7 @@ input.baocun{margin-left:5px;width:340px;height:37px;background-color:#2894FF;fo
 		 	更新店铺图片
 			</td>
 			<td>
-			<input type="file" name="picture"/>	
+			<a href="javascript:;" class="file"><input type="file" name="picture"/>点此上传图片</a>
 			</td>			
 			</tr>
 			
@@ -87,13 +114,13 @@ input.baocun{margin-left:5px;width:340px;height:37px;background-color:#2894FF;fo
 		 	更新店铺收款码
 			</td>
 			<td>
-			<input type="file" name="payCode"/>	
+			<a href="javascript:;" class="file"><input type="file" name="payCode"/>点此上传图片</a>	
 			</td>			
 			</tr>
 			
 	</table>
 	<br>
-	<br><input type="submit" class="baocun" value="保存">
+	<br><input type="submit" size= '18' class="baocun" value="保存">
 		</form>
 
 ${update}

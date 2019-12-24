@@ -29,12 +29,12 @@ input.yes{width:100px;height:30px;background-color:#2894FF;font-family:宋体;fo
 input.rel{width:100px;height:30px;background-color:#2894FF;font-family:宋体;font-size:15px;border-radius:5px;color:white;border:none}
 div.top{background-color:#46A3FF; width:100%; height:120px;font-family:宋体}
 div.picture{float:left; width:200px;height:120px;}
-div.wenzi{float:left; width:300px;height:120px;line-height:120px}
-div.caozuo{float:left; width:1000px;height:120px;line-height:120px;font-size:22px}
+div.wenzi{float:left; width:200px;height:120px;line-height:120px}
+div.caozuo{margin-left:500px; width:1000px;height:120px;line-height:120px;font-size:22px}
 div.aa{font-size:40px;font-family:宋体;}
 div.main{margin-top:40px;width:900px;margin-left:400px;height:600px;background-color:white}
 a.c{text-decoration:none;color:black}
-    .file {
+ .file {
     position: relative;
     display: inline-block;
     background: #D0EEFF;
@@ -121,14 +121,13 @@ $("file").on("change","input[type='file']",function(){
 <body  bgcolor="#F5F5F5">
 <div class="top">
 <div class="picture"> <img src="${d.getPicture()}" height="120" width="120" ></div>
-<div class="wenzi"><div class="aa">${d.getName()}</div>
+<div class="wenzi"><div class="aa">${d.getName()}</div></div>
 <div class="caozuo"><center>
 <a href="ModStoreMsg" class="c"target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改店铺信息</a><a class="c" href="DisplayOrder" target="_blank">&nbsp;&nbsp查看订单</a>
 <% String id=(String)session.getAttribute("no");
    System.out.println("Diantop2  id"+id);
-%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;添加菜品</a><a class="c" href="addfoodtype.jsp" target="_blank">&nbsp;&nbsp;添加菜品种类</a>
+%><a class="c" href="addfood.jsp" target="_blank">&nbsp;&nbsp;添加菜品</a>
 </center></div>
-</div>
 </div>
 <div class="main">
 <font color=red>${result}</font>
