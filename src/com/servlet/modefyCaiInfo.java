@@ -120,7 +120,7 @@ public class modefyCaiInfo extends HttpServlet {
 		 
 		/*---------------获取店铺类别↑-------------------*/
 		
-
+		
 			RequestDispatcher rd=request.getRequestDispatcher("modefyCaiInfo.jsp");
 			rd.forward(request, response);
 	}
