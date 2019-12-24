@@ -26,6 +26,10 @@ public class CleanSession extends HttpServlet {
 		HttpSession session=request.getSession();
 		session.removeAttribute("no");
 		System.out.println("session is cleared");
+		
+		String no=(String)session.getAttribute("no");
+		System.out.println("the no is :"+no);
+
 
 		
 		response.sendRedirect("login.jsp");
