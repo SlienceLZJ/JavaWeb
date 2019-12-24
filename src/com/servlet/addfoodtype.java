@@ -31,15 +31,15 @@ public class addfoodtype extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id=new String(request.getParameter("id")
-                .getBytes("iso-8859-1"),"UTF-8");
+		String id=(String)(request.getSession()).getAttribute("no");
+              
 		String foodtype=new String(request.getParameter("foodtype")
                 .getBytes("iso-8859-1"),"UTF-8");
 		

@@ -15,8 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import org.apache.jasper.tagplugins.jstl.core.If;
+
 import com.dao.JDBCDao;
 import com.domain.DianMingInformation;
+import com.mysql.cj.protocol.Resultset;
 
 /**
  * Servlet implementation class ModStoreMsg
@@ -82,9 +85,28 @@ public class ModStoreMsg extends HttpServlet {
 				  if(payCode.getSize()!=0.0) {
 					  payCode.write(payPath);
 				  }
-		          		          
+		          		    
+				  
+				  sql="select * from DianMing where id='"+no+"'";
+				  ResultSet rs=null;
+				  try {
+					 rs=JDBCDao.getData(sql);
+					 
+					 if(rs==null||!(rs.next())){//如果没有数据说明是新开的点，则插入
+						 sql="insert into DianMing (id,name,picture,description) values ('"+no+"','"+name+"', 'storePicture\\\\"+no+".jpg','"+description+"')";
+					 }
+					 else {
+						  sql="update DianMing set name='"+name+"',description='"+description+"' where id='"+no+"'";
+					 }
+					 
+					 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				  
 				    
-			    sql="update DianMing set name='"+name+"',description='"+description+"' where id='"+no+"'";
+			  
 			    JDBCDao.insertOrDeleteOrUpdate(sql);
 			    JDBCDao.closeConnecttion();			    
 			    //开始执行更新操作

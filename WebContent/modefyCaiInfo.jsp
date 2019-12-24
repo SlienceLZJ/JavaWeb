@@ -150,6 +150,7 @@ for(int i=0;i<list.size();i++){
 <br>
 <input type="submit" class="baocun" value="保存">
  </form>
+ ${msg}
 </center>
 </div>
 </body>

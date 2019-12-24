@@ -90,7 +90,7 @@ input.baocun{margin-left:5px;width:340px;height:37px;background-color:#2894FF;fo
 	
 			<tr><td>店铺图片:</td>			
 			<td>
-			<img width=50px height=50px src="${info.picture}" alt="当前店铺暂无图片"/>
+			<img width=50px height=50px src="${info.picture}" alt="暂无"/>
 			</td>			
 			</tr>
 			
@@ -105,7 +105,7 @@ input.baocun{margin-left:5px;width:340px;height:37px;background-color:#2894FF;fo
 			
 			<tr><td>店铺收款码:</td>			
 			<td>
-			<img width=50px height=50px src="${info.payPicture}" alt="当前店铺暂无收款码"/>
+			<img width=50px height=50px src="${info.payPicture}" alt="暂无"/>
 			</td>			
 			</tr>
 			
